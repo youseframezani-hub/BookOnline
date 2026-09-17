@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BookImporter</RootNamespace>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- لایهٔ خالص EF Core برای ذخیرهٔ متن خام؛ بدون هیچ وابستگی به فریم‌ورک ABP -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- فراخوانی مستقیم ITextExtractor؛ توجه: چون WordReader.csproj دارای COMReference
+         به Microsoft.Office.Interop.Word است، بیلد این پروژه (و هر پروژه‌ای که به آن
+         ارجاع دهد) فقط با MSBuild کامل (نه CLI دات‌نت) و روی ویندوزی با Word نصب‌شده ممکن است. -->
+    <ProjectReference Include="..\WordReader\WordReader.csproj" />
+    <ProjectReference Include="..\Core\Domain\BookOnline.Domain\BookOnline.Domain.csproj" />
+    <ProjectReference Include="..\SearchEngine\SearchEngine.csproj" />
+  </ItemGroup>
+
+</Project>

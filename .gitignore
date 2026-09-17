@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# خروجی‌های زمان‌اجرای BookImporter (دیتابیس SQLite و لاگ‌های Markdown هر اجرا)
+BookImporter/Data/
+BookImporter/Logs/

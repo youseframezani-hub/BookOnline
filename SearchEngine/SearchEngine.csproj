@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>SearchEngine</RootNamespace>
+  </PropertyGroup>
+
+  <!--
+    این پروژه عمداً بدون هیچ وابستگی خارجی (NuGet) است: نه به EF Core، نه به ASP.NET Core Hosting
+    و نه به هیچ پروژهٔ دیگری در سولوشن. موتور جستجو کاملاً مستقل و قابل استفادهٔ مجدد است.
+  -->
+
+</Project>
