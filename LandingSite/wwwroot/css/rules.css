@@ -1,0 +1,113 @@
+﻿
+:root {
+    --primary: #1e508a;
+    --primary-dark: #162f52;
+    --accent: #f5d27b;
+    --bg-soft: #f4f6fb;
+}
+
+body {
+    background-color: var(--bg-soft);
+    font-family: "Vazirmatn", "IRANSans", sans-serif;
+    color: #1c2533;
+    line-height: 1.9;
+}
+
+.page-hero {
+    background: linear-gradient(135deg, rgba(30,80,138,0.92), rgba(18,35,60,0.9)), url('assets/hero-terms.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 120px 0 90px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .page-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 60%);
+    }
+
+    .page-hero .container {
+        position: relative;
+        z-index: 1;
+    }
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+    .breadcrumb a {
+        color: rgba(255,255,255,0.85);
+        text-decoration: none;
+    }
+
+    .breadcrumb .active {
+        color: #fff;
+    }
+
+.section-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid rgba(30,80,138,0.08);
+    padding: 32px 28px;
+    box-shadow: 0 20px 45px rgba(22,47,82,0.08);
+    margin-bottom: 24px;
+}
+
+    .section-card h3 {
+        font-size: 1.35rem;
+        margin-bottom: 18px;
+        color: var(--primary-dark);
+    }
+
+    .section-card ul {
+        padding-right: 1.1rem;
+    }
+
+.anchor-list {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid rgba(30,80,138,0.08);
+}
+
+    .anchor-list a {
+        display: block;
+        color: var(--primary-dark);
+        text-decoration: none;
+        padding: 10px 8px;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+        font-weight: 600;
+    }
+
+        .anchor-list a:hover {
+            background-color: rgba(30,80,138,0.08);
+            color: var(--primary);
+        }
+
+.notice-box {
+    background: rgba(245,210,123,0.15);
+    border: 1px solid rgba(245,210,123,0.55);
+    border-radius: 16px;
+    padding: 18px 22px;
+    color: #5b4415;
+    font-size: 0.95rem;
+    margin-top: 20px;
+}
+
+footer {
+    background: #0f2037;
+    color: rgba(255,255,255,0.8);
+    padding: 40px 0;
+    margin-top: 80px;
+}
+
+    footer a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+    }
+

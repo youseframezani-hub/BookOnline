@@ -1,0 +1,405 @@
+﻿@page
+@model LandingPage.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@section Head {
+
+}
+<!-- Hero -->
+<header id="home" class="hero-cover">
+    <!-- تصویر پس‌زمینه (خودت مسیر را عوض کن) -->
+    <div class="hero-bg" style="background-image: url('assets/banner1.jpg');"></div>
+
+    <!-- لایه برای خوانایی متن -->
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-inner">
+        <div class="hero-panel fade-up">
+            <h1 class="display-6 fw-extrabold lh-base mb-3 text-primary">
+                کتابخانه دیجیتال سیره نبوی <span>(14 جلد)</span>
+            </h1>
+
+            <p class="mb-4">
+                دسترسی آنلاین به مجموعه 14 جلدی سیره نبوی؛ از زمینه‌های تاریخی پیش از ولادت پیامبر اسلام
+                (تا حدود یک قرن قبل)، تا وقایع پس از رحلت، از جمله شهادت حضرت فاطمه زهرا (س) و رویداد سقیفه.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="#about" class="btn btn-primary btn-lg">معرفی کتاب</a>
+                <a href="#author-info" class="btn btn-primary btn-lg">روایتگران امانت‌دار</a>
+                <a href="#jelda" class="btn btn-primary btn-lg">جلدهای مجموعه</a>
+                <a href="#online-version" class="btn btn-outline-light btn-lg">کتابخانه دیجیتال و هوشمند</a>
+                <a href="#join" class="btn btn-outline-light btn-lg">عضویت و شروع مطالعه</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About -->
+<section class="about-section" id="about">
+    <!-- سکشن اول: معرفی کتاب -->
+    <section id="about-book" class="section-block">
+        <div class="container">
+            <div class="content-side">
+                <h2>درباره مجموعه «روزشمار سیره نبوی»</h2>
+                <p>این اثر 14 جلدی، دقیق‌ترین تلاش پژوهشی برای ترسیم روزبه‌روزِ حیات پیامبر (ص) است. برخلاف روایت‌های پراکنده، اینجا تاریخ با رعایت توالی زمانی و نقد علمی منابع کهن بازسازی شده است.</p>
+                <div class="feature-list">
+                    <div class="card">
+                        <strong>14 مجلد نفیس</strong>
+                        شامل بیش از هزاران صفحه تحقیق مستند از عصر مکه تا مدینه.
+                    </div>
+                    <div class="card">
+                        <strong>تحلیل انتقادی</strong>
+                        رفع تضادهای موجود در منابعی چون تاریخ طبری و سیره ابن‌اسحاق.
+                    </div>
+                    <div class="card">
+                        <strong>گاه‌شمار دقیق</strong>
+                        تنظیم رخدادها بر اساس میانگین سن و محاسبات تاریخی نوآورانه.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- سکشن دوم: نویسنده و تیم -->
+    <section id="author-info" class="section-block">
+        <div class="container">
+            <div class="image-side">
+                <img src="~/assets/dr_zargar1.png" class="img-fluid" style="border-radius: 50%;" alt="دکتر زرگری نژاد">
+            </div>
+            <div class="content-side">
+                <h2>روایتگران امانت‌دار</h2>
+                <p>این مجموعه با قلم استاد <strong>غلامحسین زرگری‌نژاد</strong></p>
+                <img src="~/assets/dr_zargar1.png" class="img-side-inline img-fluid" alt="دکتر زرگری نژاد">
+                <p> و همکاری تیمی متشکل از ده‌ها پژوهشگر دکتری تاریخ اسلام به ثمر رسیده است.</p>
+                <div class="feature-list">
+                    <div class="card">
+                        <strong>نظارت علمی</strong>
+                        تطبیق دقیق ارجاعات توسط اساتید برجسته تاریخ.
+                    </div>
+                    <div class="card">
+                        <strong>تیم اجرایی</strong>
+                        بیش از ۲۰ متخصص در حوزه‌های ویراستاری، اعراب‌گذاری و نرم‌افزار.
+                    </div>
+                    <div class="card">
+                        <strong>امانتداری تاریخی</strong>
+                        تعهد کامل به استناد بر منابع دست اول قرن‌های اولیه هجری.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- سکشن سوم: نسخه آنلاین (بر اساس فایل PDF) -->
+    <section id="online-version" class="section-block">
+        <div class="container">
+            <div class="content-side">
+                <h2>کتابخانه دیجیتال و هوشمند</h2>
+                <p>نسخه آنلاین، تنها یک نمایشگر ساده نیست؛ بلکه یک دستیار پژوهشی قدرتمند برای محققان و علاقمندان است.</p>
+                <img src="~/assets/online-book-1.png" class="img-side-inline img-fluid" alt="نسخه آنلاین">
+                <div class="feature-list">
+                    <div class="card">
+                        <strong>Reader دوحالته</strong>
+                        مطالعه در حالت تصویری (مطابق چاپ) یا متنی (HTML) با قابلیت زوم.
+                    </div>
+                    <div class="card">
+                        <strong>جستجوی معنایی</strong>
+                        جستجوی عبارتی دقیق در تمام 14 جلد و نمایش آنی جلد و صفحه.
+                    </div>
+                    <div class="card">
+                        <strong>میز کار پژوهشی</strong>
+                        قابلیت هایلایت، نشانه‌گذاری (Bookmark) و فیش‌برداری دیجیتال.
+                    </div>
+                    <div class="card">
+                        <strong>اشتراک منعطف</strong>
+                        دسترسی از طریق خرید دوره کامل یا اشتراک‌های ماهانه و سالانه.
+                    </div>
+                </div>
+                <a href="#" class="btn-cta">ورود به کتابخانه آنلاین</a>
+            </div>
+            <div class="image-side">
+                <img src="~/assets/online-book-1.png" class="img-fluid" alt="نسخه آنلاین">
+            </div>
+        </div>
+    </section>
+
+</section>
+
+<!-- بنر میانی تصویر عریضی که فرستادید -->
+<div class="wide-banner" id="jelda">
+    <section class="volumes-section">
+        <div class="volumes-container">
+            <h2>مرور جلدهای مجموعه</h2>
+
+            <!-- کنترل‌کننده‌های اسلایدر -->
+            <div class="slider-navigation">
+                <button class="nav-btn prev" onclick="scrollSlider(-300)">❮</button>
+
+                <div class="slider-wrapper" id="bookSlider">
+                    <!-- کارت‌های کتاب -->
+
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد اول: مقدمه تحلیل همراه با نقدو بررسی سیره نویسان اولیه و منابع آنان">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد اول</h5>
+                                <p class="card-text text-secondary">مقدمه تحلیل همراه با نقدو بررسی سیره نویسان اولیه و منابع آنان</p>
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد دوم: از مهاجرت هاجر به مکه تا بغض رسول خدا(ص) از بت و بت‌پرستی">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد دوم</h5>
+                                <p class="card-text text-secondary">از مهاجرت هاجر به مکه تا بغض رسول خدا(ص) از بت و بت‌پرستی</p>
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد سوم: از اعتکاف و تحنث پیامبر تا ایمان نخستین یثربی">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد سوم</h5>
+                                <p class="card-text text-secondary">از اعتکاف و تحنث پیامبر تا ایمان نخستین یثربی</p>
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد چهارم: از نخستین هجرت مسلمانان به حبشه تا ستایش یثرب(مدینه) به عنوان پایگاه اسلام">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد چهارم</h5>
+                                <p class="card-text text-secondary">از نخستین هجرت مسلمانان به حبشه تا ستایش یثرب(مدینه) به عنوان پایگاه اسلام</p>
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد پنجم: از هجرت مسلمانان به یثرب(مدینه) تا تغییر قبله به سوی کعبه">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد پنجم</h5>
+                                <p class="card-text text-secondary">از هجرت مسلمانان به یثرب(مدینه) تا تغییر قبله به سوی کعبه</p>
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد ششم: از سَریّۀ نَخْله تا وجوب زکات اموال">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد ششم</h5>
+                                <p class="card-text text-secondary">از سَریّۀ نَخْله تا وجوب زکات اموال</p>
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد هفتم: از خروج زینب از مکه تا زندگی و شهادت مصعب بن عمیر">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد هفتم</h5>
+                                <p class="card-text text-secondary">از خروج زینب از مکه تا زندگی و شهادت مصعب بن عمیر</p>
+
+                                
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد هشتم: از غزوۀ حَمْراء الْاَسَد تا شهدای غزوۀ خندق">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد هشتم</h5>
+                                <p class="card-text text-secondary">از غزوۀ حَمْراء الْاَسَد تا شهدای غزوۀ خندق</p>
+
+                                
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد نهم: از آغاز نبرد بَنی‌قُرَیْظه تا دعوت به جنگ خیبر">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد نهم</h5>
+                                <p class="card-text text-secondary">از آغاز نبرد بَنی‌قُرَیْظه تا دعوت به جنگ خیبر</p>
+
+                                
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد دهم: از ممنوعیت همراهی غنیمت‌طلبان در خیبر تا یادکرد شهیدان فتح مکه">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد دهم</h5>
+                                <p class="card-text text-secondary">از ممنوعیت همراهی غنیمت‌طلبان در خیبر تا یادکرد شهیدان فتح مکه</p>
+
+
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد یازدهم: از ورود سپاهیان اسلام به مکه تا بازگشت رسول خدا از تبوک">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد یازدهم</h5>
+                                <p class="card-text text-secondary">از ورود سپاهیان اسلام به مکه تا بازگشت رسول خدا از تبوک</p>
+
+
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد دوازدهم: از توطئۀ منافقان در عقبه تا بازگشت از حجة الوداع">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد دوازدهم</h5>
+                                <p class="card-text text-secondary">از توطئۀ منافقان در عقبه تا بازگشت از حجة الوداع</p>
+
+
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد سیزدهم: از خطبۀ پیامبر در غدیرخم تا درگذشت فاطمه(س)، فرجام روزشمار">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد سیزدم</h5>
+                                <p class="card-text text-secondary">از خطبۀ پیامبر در غدیرخم تا درگذشت فاطمه(س)، فرجام روزشمار</p>
+
+
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article class="card border-0 shadow-sm h-100">
+                            <img src="~/assets/book_cover.png" class="card-img-top" alt="جلد چهاردهم: فهرست جامع">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold">جلد چهاردهم</h5>
+                                <p class="card-text text-secondary">فهرست جامع</p>
+
+
+                                <span class="btn btn-sm btn-outline-primary w-100">مطالعه جزئیات</span>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- ... سایر جلدها را اینجا اضافه کنید -->
+                </div>
+
+                <button class="nav-btn next" onclick="scrollSlider(300)">❯</button>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+
+
+<!-- Join / Real Form --><section id="join" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="p-4 p-md-5 rounded-4 shadow form-box bg-white">
+                    <h2 class="fw-bold text-center mb-2">ثبت‌نام برای دسترسی آنلاین</h2>
+                    <p class="text-secondary text-center mb-4">
+                        فرم زیر را تکمیل کنید؛ پس از ثبت، پیام تایید برای شما نمایش داده می‌شود.
+                    </p>
+
+                    @if (TempData["SignupSuccess"] != null)
+                    {
+                        <div class="alert alert-success text-center">
+                            @TempData["SignupSuccess"]
+                        </div>
+                    }
+
+                    @if (TempData["SignupError"] != null)
+                    {
+                        <div class="alert alert-danger text-center">
+                            @TempData["SignupError"]
+                        </div>
+                    }
+
+                    <form method="post" asp-antiforgery="true">
+                        @Html.AntiForgeryToken()
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="UserRegistration.FullName" class="form-label"></label>
+                                <input asp-for="UserRegistration.FullName" class="form-control" />
+                                <span asp-validation-for="UserRegistration.FullName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="UserRegistration.Email" class="form-label"></label>
+                                <input asp-for="UserRegistration.Email" type="email" class="form-control" />
+                                <span asp-validation-for="UserRegistration.Email" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="UserRegistration.Mobile" class="form-label"></label>
+                                <input asp-for="UserRegistration.Mobile" type="tel" class="form-control" placeholder="09xxxxxxxxx" />
+                                <span asp-validation-for="UserRegistration.Mobile" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="UserRegistration.Role" class="form-label"></label>
+                                <select asp-for="UserRegistration.Role" class="form-select">
+                                    <option value="">انتخاب کنید...</option>
+                                    <option value="پژوهشگر">پژوهشگر</option>
+                                    <option value="دانشجو">دانشجو</option>
+                                    <option value="طلبه">طلبه</option>
+                                    <option value="سایر">سایر</option>
+                                </select>
+                                <span asp-validation-for="UserRegistration.Role" class="text-danger"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="UserRegistration.Password" class="form-label"></label>
+                                <input asp-for="UserRegistration.Password" type="password" class="form-control" />
+                                <span asp-validation-for="UserRegistration.Password" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">قوانین و شرایط استفاده را می‌پذیرم.</label>
+                            </div>
+                            <div class="col-12 d-grid mt-3">
+                                <button class="btn btn-primary btn-lg" type="submit">ثبت‌نام</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+
+    <script src="~/lib/bootstrap/dist/js/land-page.js?v=1"></script>
+
+    <script>
+        // تابع جاوااسکریپت برای حرکت اسلایدر
+        function scrollSlider(direction) {
+            const slider = document.getElementById('bookSlider');
+            slider.scrollBy({
+                left: direction,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+}

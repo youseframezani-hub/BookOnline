@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>کتابخانه دیجیتال سیره نبوی | ۱۴ جلد</title>
+
+    <!-- Bootstrap 5 RTL -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css?v=1" rel="stylesheet" />
+
+    <!-- فونت (اختیاری) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="~/css/site.css?v=1" />
+    @RenderSection("Head", required: false)
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="~/#online-version">
+                <svg class="islamic-label" viewBox="0 0 330 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="labelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f5d27b" />
+                            <stop offset="100%" stop-color="#c6933e" />
+                        </linearGradient>
+                        <filter id="shadow" x="-10%" y="-30%" width="130%" height="200%">
+                            <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="rgba(0,0,0,0.25)" />
+                        </filter>
+                    </defs>
+
+                    <path d="M40 10 L290 10 Q320 10 320 40 L320 80 Q320 110 290 110 L40 110 Q10 110 10 80 L10 40 Q10 10 40 10
+         M40 10 L65 60 L40 110 M290 10 L265 60 L290 110"
+                          fill="url(#labelGradient)"
+                          stroke="#fff"
+                          stroke-width="3"
+                          filter="url(#shadow)"
+                          stroke-linejoin="round" />
+                    <text x="165" y="65" text-anchor="middle" class="label-title">نسخه آنلاین</text>
+                    <text x="165" y="92" text-anchor="middle" class="label-sub">پژوهش تخصصی</text>
+                </svg>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="mainNav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="~/#home">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="~/#jelda">جلدهای مجموعه</a></li>
+                    <li class="nav-item"><a class="nav-link" href="~/Rules">قوانین</a></li>
+                    <li class="nav-item"><a class="nav-link" href="~/PublicQuestions">پرسش‌های عمومی</a></li>
+                    <li class="nav-item"><a class="nav-link" href="~/Contact">تماس با ما</a></li>
+                </ul>
+                <a href="~/#join" class="btn btn-primary ms-lg-3">شروع دسترسی</a>
+            </div>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+
+    <footer class="py-4 border-top bg-white">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <small class="text-secondary">© 2026 کتابخانه دیجیتال سیره نبوی</small>
+            <div class="d-flex gap-3">
+                <a href="~/Rules" class="link-secondary text-decoration-none">قوانین و حریم خصوصی</a>
+                <a href="~/PublicQuestions" class="link-secondary text-decoration-none">پرسش‌های عمومی</a>
+                <a href="~/Contact" class="link-secondary text-decoration-none">تماس با ما</a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

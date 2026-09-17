@@ -1,0 +1,26 @@
+body {
+  font-family: IRANYekanX !important;
+  -moz-font-feature-settings: 'ss02';
+  -webkit-font-feature-settings: 'ss02';
+  font-feature-settings: 'ss02';
+  background-color: #f5f8fa !important;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+input,
+textarea,
+.ProseMirror
+{
+  font-family: IRANYekanX !important;
+  -moz-font-feature-settings: 'ss02';
+  -webkit-font-feature-settings: 'ss02';
+  font-feature-settings: 'ss02';
+}
+

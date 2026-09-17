@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ad722f22-31b8-4d01-a59b-577a7c575c7d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="MailKit" Version="4.17.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.28">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.28">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>-->
+  </ItemGroup>
+
+</Project>

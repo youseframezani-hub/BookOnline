@@ -1,0 +1,202 @@
+﻿@page
+@model LandingPage.Pages.ContactModel
+@{
+    ViewData["Title"] = "تماس با ما | سیره نبوی";
+}
+@section Head {
+    <!-- Bootstrap 5 RTL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/banner-farsi.png') center/cover no-repeat;
+            position: relative;
+            min-height: 400px;
+        }
+
+            .hero-bg div{
+                margin:auto;
+            }
+        .form-control, .form-select {
+            padding: 12px 16px;
+            border-radius: 12px;
+        }
+
+            .form-control:focus, .form-select:focus {
+                border-color: #8B4513;
+                box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.25);
+            }
+
+        .btn-primary-custom {
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            background-color: #679556;
+            border-color: #396928;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+            .btn-primary-custom:hover {
+                background-color: #679556;
+                border-color: #396928;
+            }
+
+        .card {
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+}
+
+<!-- Hero -->
+<section class="hero-bg d-flex align-items-center text-white">
+    <div class="text-center py-5">
+        <h2 class="display-4 fw-bold mb-3">تماس با ما</h2>
+        <p class="lead">هر سوالی دارید، پیام بدهید. تیم سیره نبوی در خدمت شماست.</p>
+    </div>
+</section>
+
+<div class="container my-5">
+    <div class="row g-5">
+
+        <!-- فرم اصلی تماس -->
+        <div class="col-lg-7">
+            <div class="card p-4 p-lg-5">
+                <h3 class="fw-bold text-amber-900 mb-2">ارسال پیام</h3>
+                <p class="text-muted mb-4">پیام خود را برای ما بنویسید. پس از بررسی توسط ادمین، در صورت صلاح‌دید در بخش پرسش‌های عمومی نمایش داده خواهد شد.</p>
+
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        @TempData["Success"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label asp-for="ContactMessage.FullName" class="form-label fw-medium">نام و نام خانوادگی</label>
+                            <input asp-for="ContactMessage.FullName" class="form-control" placeholder="مثال: علی احمدی" />
+                            <span asp-validation-for="ContactMessage.FullName" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="ContactMessage.Email" class="form-label fw-medium">ایمیل</label>
+                            <input asp-for="ContactMessage.Email" type="email" class="form-control" placeholder="example@email.com" />
+                            <span asp-validation-for="ContactMessage.Email" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label asp-for="ContactMessage.Subject" class="form-label fw-medium">موضوع پیام</label>
+                        <select asp-for="ContactMessage.Subject" class="form-select">
+                            <option value="">انتخاب موضوع...</option>
+                            <option value="پرسش کتاب">پرسش در مورد کتاب</option>
+                            <option value="پیشنهاد">پیشنهاد همکاری</option>
+                            <option value="شکایت">گزارش مشکل</option>
+                            <option value="سایر">سایر موارد</option>
+                        </select>
+                        <span asp-validation-for="ContactMessage.Subject" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <label asp-for="ContactMessage.Message" class="form-label fw-medium">پیام شما</label>
+                        <textarea asp-for="ContactMessage.Message" rows="7" class="form-control" placeholder="پیام خود را اینجا بنویسید..."></textarea>
+                        <span asp-validation-for="ContactMessage.Message" class="text-danger small"></span>
+                    </div>
+
+                    <div class="form-check mt-4">
+                        <input class="form-check-input" type="checkbox" id="privacy" required>
+                        <label class="form-check-label" for="privacy">
+                            با <a href="~/Rules" class="text-amber-800">سیاست حفظ حریم خصوصی</a> موافقم
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-custom w-100 mt-4 d-flex align-items-center justify-content-center gap-2">
+                        <i class="fas fa-paper-plane"></i>
+                        ارسال پیام
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- سایدبار کامل -->
+        <div class="col-lg-5">
+
+            <!-- اطلاعات تماس -->
+            <div class="card p-4 mb-4">
+                <h4 class="fw-bold text-amber-900 mb-4">اطلاعات تماس</h4>
+
+                <div class="d-flex gap-3 mb-4">
+                    <div class="icon-circle">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                    </div>
+                    <div>
+                        <strong>آدرس دفتر مرکزی</strong><br>
+                        <span class="text-muted">تهران، خیابان انقلاب، کوچه کتاب، پلاک ۱۲۸<br>فروشگاه سیره نبوی</span>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3 mb-4">
+                    <div class="icon-circle">
+                        <i class="fas fa-phone fa-2x"></i>
+                    </div>
+                    <div>
+                        <strong>تلفن پشتیبانی</strong><br>
+                        <a href="tel:02188888888" class="text-muted text-decoration-none">۰۲۱-۸۸۸۸۸۸۸۸</a>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <div class="icon-circle">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </div>
+                    <div>
+                        <strong>ایمیل</strong><br>
+                        <a href="mailto:info@sirehnabavi.com" class="text-muted text-decoration-none">info@sirehnabavi.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- پرسش‌های متداول -->
+            <div class="card p-4">
+                <h4 class="fw-bold text-amber-900 mb-4">پرسش‌های متداول</h4>
+                <div class="mb-4">
+                    <strong>چگونه کتاب را دانلود کنم؟</strong>
+                    <p class="text-muted small mt-1">پس از خرید، بلافاصله در پنل کاربری قابل دانلود است.</p>
+                </div>
+                <div class="mb-4">
+                    <strong>آیا امکان مرجوعی وجود دارد؟</strong>
+                    <p class="text-muted small mt-1">بله، تا ۷ روز پس از خرید امکان مرجوعی کتاب‌های الکترونیکی وجود دارد.</p>
+                </div>
+                <a href="~/PublicQuestions" class="btn btn-outline-amber w-100">
+                    مشاهده همه پرسش‌ها <i class="fas fa-arrow-left ms-2"></i>
+                </a>
+            </div>
+
+            <!-- شبکه‌های اجتماعی -->
+            <div class="text-center mt-4">
+                <h5 class="text-amber-900 mb-3">ما را دنبال کنید</h5>
+                <div class="d-flex justify-content-center gap-4 fs-3">
+                    <a href="#" class="text-amber-800"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="text-amber-800"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-amber-800"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.alert-success').fadeIn(500);
+        });
+    </script>
+}
