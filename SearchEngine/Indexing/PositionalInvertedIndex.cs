@@ -14,25 +14,10 @@ public sealed class PositionalInvertedIndex
     public void AddParagraph(int paragraphId, int bookId, int pageNumber,
                              string rawText, Analysis.PersianNormalizer normalizer)
     {
-        _paragraphTexts[paragraphId] = rawText;
-        _paragraphMeta[paragraphId] = (bookId, pageNumber);
+        SaveParagraphInfo(paragraphId, bookId, pageNumber, rawText);
 
         foreach (var (term, position, offset) in normalizer.Tokenize(rawText))
-        {
-            var postings = _data.GetOrAdd(term, _ => new List<PostingEntry>());
-            lock (postings)
-            {
-                if (postings.Count == 0 || postings[^1].ParagraphId != paragraphId)
-                    postings.Add(new PostingEntry
-                    {
-                        ParagraphId = paragraphId,
-                        BookId = bookId,
-                        PageNumber = pageNumber
-                    });
-
-                postings[^1].AddPosition(position, offset);
-            }
-        }
+            AddTermOccurrence(term, position, offset, paragraphId, bookId, pageNumber);
     }
 
     public IReadOnlyList<PostingEntry> GetPostings(string term)
@@ -50,4 +35,44 @@ public sealed class PositionalInvertedIndex
     /// </summary>
     public (int BookId, int PageNumber) GetParagraphMeta(int paragraphId)
         => _paragraphMeta.TryGetValue(paragraphId, out var meta) ? meta : (0, 0);
+
+    // ---------- کمکی‌های افزودن پاراگراف ----------
+
+    private void SaveParagraphInfo(int paragraphId, int bookId, int pageNumber, string rawText)
+    {
+        _paragraphTexts[paragraphId] = rawText;
+        _paragraphMeta[paragraphId] = (bookId, pageNumber);
+    }
+
+    private void AddTermOccurrence(string term, int position, int offset,
+                                   int paragraphId, int bookId, int pageNumber)
+    {
+        var postings = _data.GetOrAdd(term, _ => new List<PostingEntry>());
+
+        lock (postings)
+        {
+            if (NeedsNewPosting(postings, paragraphId))
+                postings.Add(CreatePosting(paragraphId, bookId, pageNumber));
+
+            var currentPosting = postings[postings.Count - 1];
+            currentPosting.AddPosition(position, offset);
+        }
+    }
+
+    /// اگر لیست خالی است یا آخرین Posting مال پاراگراف دیگری است، باید Posting تازه ساخت
+    private static bool NeedsNewPosting(List<PostingEntry> postings, int paragraphId)
+    {
+        if (postings.Count == 0) return true;
+
+        var lastPosting = postings[postings.Count - 1];
+        return lastPosting.ParagraphId != paragraphId;
+    }
+
+    private static PostingEntry CreatePosting(int paragraphId, int bookId, int pageNumber)
+        => new PostingEntry
+        {
+            ParagraphId = paragraphId,
+            BookId = bookId,
+            PageNumber = pageNumber
+        };
 }
