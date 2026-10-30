@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/modernist-391e1e63-7f55-49a2-b5ae-9d3fa701436d/styles.css">
+<script src="_ds/modernist-391e1e63-7f55-49a2-b5ae-9d3fa701436d/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&amp;family=Noto+Naskh+Arabic:wght@400;500;600;700&amp;family=Amiri:wght@400;700&amp;display=swap">
+<style>
+body{margin:0;background:oklch(0.93 0.015 80);font-family:"Vazirmatn",sans-serif}
+a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-600)}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid oklch(0.70 0.06 75 / .5);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 8px;background:var(--color-text);color:var(--t-on-ink,#fff);border-radius:calc(10px * var(--t-rk,1));text-decoration:none}
+.dv-tname{font:700 14px/1.4 "Vazirmatn",sans-serif;color:var(--color-text)}
+.dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:10px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 8px;background:rgba(0,0,0,.08);color:var(--color-text);border-radius:calc(10px * var(--t-rk,1));text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.5 "Vazirmatn",sans-serif;color:var(--color-neutral-700)}
+.dv-opt:target .dv-oid{background:var(--color-accent);color:#fff}
+.dv-next{margin:24px 0 0;font:13px/1.8 "Vazirmatn",sans-serif;color:var(--color-neutral-700)}
+.scr::-webkit-scrollbar{width:0;height:0}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t3" dir="rtl">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">حال‌وهوای دانشگاهی، ورق‌زدن افقی صفحه‌ها و دو حالت متن و تصویر صفحه</span></div>
+
+<div style="max-width:820px;display:flex;flex-direction:column;gap:6px;margin:0 0 28px;font-size:13px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">
+  <div>نستعلیق حذف شد و سرعنوان‌ها هم با خط نسخ آمده‌اند. برای حال‌وهوای دانشگاهی، هر صفحه پانوشت منبع دارد و ارجاع‌ها به شیوه‌ی کتاب‌شناختی آمده‌اند (ج ۶، ص ۱۲۴). فهرست هر جلد بر خط زمانی و با گاه‌شمار قمری، شمسی یا میلادی نمایش داده می‌شود. اپلیکیشن دو سبک ایرانی‌ـ‌اسلامی و کلاسیک و حالت شب دارد.</div>
+  <div>در خواننده، صفحه‌ها مثل کتاب افقی ورق می‌خورند. برای ورق‌زدن انگشت را بکشید، دکمه‌های پایین را بزنید یا از کلیدهای جهت‌نما استفاده کنید. در حالت «تصویر صفحه»، صفحه را با دکمه‌های − و +، دو بار زدن یا باز و بسته کردن دو انگشت زوم کنید و در هر دو جهت جابه‌جا کنید. تصویر فعلی بازسازی یک صفحه‌ی چاپی است و باید جای آن اسکن واقعی کتاب گذاشته شود. نسخه‌ی قبلی: <a href="Seerah Reader v2.dc.html">v2</a>.</div>
+</div>
+
+<div class="dv-opts">
+<div class="dv-opt" id="3a">
+<div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>نمونه‌ی تعاملی؛ برای دیدن خواننده، روی «ادامه‌ی مطالعه» بزنید</div>
+<div data-seerah-root="1" style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:40px;border:1px solid var(--t-gold,oklch(0.70 0.06 75));box-shadow:var(--shadow-lg);background:var(--t-bg,oklch(0.975 0.01 85));font-family:'Vazirmatn',sans-serif;color:var(--color-text)">
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:0 0 64px 0;overflow-y:auto" class="scr">
+  <div style="padding:22px 22px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t-mink,oklch(0.48 0.06 70))">
+    <span style="font-weight:700">کتابخانه‌ی دیجیتال</span><span>{{ greeting }}</span>
+  </div>
+  <div style="margin:16px 18px 0;border:1px solid var(--t-outer,oklch(0.78 0.05 78));border-radius:var(--t-arch,150px 150px 22px 22px);background:var(--t-tint,oklch(0.955 0.02 85));padding:40px 24px 26px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px">
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:32px;line-height:1.6;font-weight:700">تاریخ سیره نبوی</div>
+    <div style="font-size:12px;color:var(--color-neutral-700)">تألیف و تدوین: دکتر غلامحسین زرگری‌نژاد</div>
+    <svg width="120" height="14" viewBox="0 0 120 14" fill="none" style="display:var(--t-orn,block)"><path d="M2 3 Q60 20 118 3" stroke="var(--t-gold,oklch(0.70 0.06 75))" stroke-width="1.2"></path></svg>
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;line-height:1.9;color:var(--color-neutral-800)">سیره‌ی پیامبر (ص)، همیشه در دسترس</div>
+  </div>
+
+  <sc-if value="{{ homeSubActive }}" hint-placeholder-val="{{ false }}">
+  <button style="margin:18px 18px 0;width:calc(100% - 36px);border-radius:calc(22px * var(--t-rk,1));background:color-mix(in oklch, oklch(0.58 0.13 150) 8%, var(--t-surface,#fff));border:1px solid color-mix(in oklch, oklch(0.58 0.13 150) 35%, var(--t-line,#ddd));padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;cursor:pointer;font-family:inherit;color:var(--color-text);text-align:right" onClick="{{ goProfile }}">
+    <span style="display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:oklch(0.58 0.13 150)"><span style="width:8px;height:8px;border-radius:50%;background:oklch(0.58 0.13 150)"></span>اشتراک فعال</span>
+    <span style="grid-row:span 2;font-size:12px;font-weight:700;color:var(--color-neutral-700)">‹</span>
+    <span style="display:flex;flex-direction:column;gap:1px"><span style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700;line-height:1.6">{{ subName }}</span><span style="font-size:12px;color:var(--color-neutral-700)">{{ homeSubLine }}</span></span>
+  </button>
+</sc-if>
+<sc-if value="{{ homeSubExpiring }}" hint-placeholder-val="{{ false }}">
+  <div style="margin:18px 18px 0;border-radius:calc(22px * var(--t-rk,1));background:color-mix(in oklch, oklch(0.70 0.16 58) 12%, var(--t-surface,#fff));border:1.5px solid oklch(0.70 0.16 58);padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:oklch(0.60 0.15 50)"><span style="width:8px;height:8px;border-radius:50%;background:oklch(0.70 0.16 58)"></span>{{ subName }} · {{ subDaysFa }} روز باقی‌مانده</div>
+    <div style="display:flex;flex-direction:column;gap:2px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700;line-height:1.6">اشتراک شما رو به پایان است</div><div style="font-size:12px;line-height:1.8;color:var(--color-neutral-800)">اعتبار تا {{ subEnd }}. برای قطع‌نشدن مطالعه، اشتراک را تمدید کنید.</div></div>
+    <button style="min-height:46px;border:0;border-radius:calc(23px * var(--t-rk,1));background:oklch(0.70 0.16 58);color:oklch(0.22 0.04 50);font-family:inherit;font-size:14px;font-weight:800;cursor:pointer" style-hover="filter:brightness(.95)" onClick="{{ goPlans }}">تمدید اشتراک</button>
+  </div>
+</sc-if>
+<sc-if value="{{ homeSubNone }}" hint-placeholder-val="{{ false }}">
+  <div style="margin:18px 18px 0;border-radius:calc(22px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px dashed var(--t-outer,oklch(0.78 0.05 78));padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:2px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700;line-height:1.6">دسترسی کامل به ۱۵ جلد</div><div style="font-size:12px;line-height:1.8;color:var(--color-neutral-700)">اکنون بخش ابتدایی هر جلد را رایگان می‌خوانید.</div></div>
+    <button class="btn btn-primary" style="min-height:44px;padding:0 16px;border-radius:calc(22px * var(--t-rk,1));font-family:inherit;font-size:13px;font-weight:700;white-space:nowrap" onClick="{{ goPlans }}">خرید اشتراک</button>
+  </div>
+</sc-if>
+
+  <div style="margin:18px 18px 0;border-radius:calc(22px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:14px;display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;cursor:pointer;box-shadow:var(--shadow-sm)" style-hover="border-color:var(--t-gold,oklch(0.70 0.06 75))" onClick="{{ continueReading }}">
+    <div style="width:72px;height:98px;border-radius:calc(12px * var(--t-rk,1));background:url(LandingSite/wwwroot/assets/book_cover.png) center/cover;border:1px solid var(--t-line,oklch(0.85 0.03 80))"></div>
+    <div style="display:flex;flex-direction:column;gap:3px;min-width:0;padding-top:2px">
+      <div style="font-size:11px;font-weight:700;color:var(--color-accent-700)">ادامه‌ی مطالعه</div>
+      <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700;line-height:1.6">شب هجرت و لیلةالمبیت</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">ج ۶، ص ۱۲۴ از ۴۳۶</div>
+      <div style="height:4px;border-radius:4px;background:var(--t-line,oklch(0.92 0.02 80));margin-top:auto"><div style="height:4px;border-radius:4px;background:var(--color-accent);width:28%"></div></div>
+    </div>
+  </div>
+
+  <div style="padding:22px 18px 28px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <button style="grid-column:1 / -1;border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(22px * var(--t-rk,1));padding:14px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:inherit;min-height:56px" style-hover="border-color:var(--t-gold,oklch(0.70 0.06 75))" onClick="{{ goSearch }}"><span style="font-size:14px;color:var(--color-neutral-700)">جستجو در ۱۵ جلد…</span><span style="font-size:12px;font-weight:700;color:var(--color-accent-700)">جستجو</span></button>
+    <button style="border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(22px * var(--t-rk,1));padding:16px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;cursor:pointer;font-family:inherit;text-align:right" style-hover="border-color:var(--t-gold,oklch(0.70 0.06 75))" onClick="{{ goLibrary }}"><span style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">کتابخانه</span><span style="font-size:12px;color:var(--color-neutral-700)">۱۵ جلد · ۳ جلد خوانده‌شده</span></button>
+    <button style="border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(22px * var(--t-rk,1));padding:16px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;cursor:pointer;font-family:inherit;text-align:right" style-hover="border-color:var(--t-gold,oklch(0.70 0.06 75))" onClick="{{ goNotes }}"><span style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">یادداشت‌ها</span><span style="font-size:12px;color:var(--color-neutral-700)">{{ notesSummary }}</span></button>
+  </div>
+  <div style="padding:0 18px 28px">
+    <button style="width:100%;border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(22px * var(--t-rk,1));padding:16px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;cursor:pointer;font-family:inherit;text-align:right" style-hover="border-color:var(--t-gold,oklch(0.70 0.06 75))" onClick="{{ goAbAbout }}">
+      <span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">درباره ما</span><span style="font-size:12px;line-height:1.8;color:var(--color-neutral-700)">کتاب و نویسنده، تماس با ما، سؤالات متداول</span></span>
+      <span style="font-size:16px;font-weight:700;color:var(--color-neutral-700)">‹</span>
+    </button>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isLibrary }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0 0 64px 0;overflow-y:auto" class="scr">
+  <div style="padding:26px 22px 0;display:flex;flex-direction:column;gap:2px">
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;line-height:1.6;font-weight:700">کتابخانه</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;padding:12px 22px 12px">
+    <div style="font-size:12px;color:var(--color-neutral-700)">۱۵ جلد · ۵٬۷۷۸ صفحه</div>
+    <div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div>
+  </div>
+  <div style="padding:0 18px 24px;display:flex;flex-direction:column">
+    <sc-for list="{{ vols }}" as="v" hint-placeholder-count="6">
+      <div style="min-height:84px;display:grid;grid-template-columns:52px minmax(0,1fr) 64px;gap:14px;align-items:center;padding:8px;border-bottom:1px solid var(--t-line,oklch(0.90 0.02 80));border-radius:calc(14px * var(--t-rk,1));cursor:pointer;background:{{ v.bg }}" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ v.open }}">
+        <div style="position:relative;width:52px;height:70px;border-radius:calc(8px * var(--t-rk,1));background:url(LandingSite/wwwroot/assets/book_cover.png) center/cover;border:1px solid {{ v.ring }};box-shadow:var(--shadow-sm)">
+          <div style="position:absolute;bottom:-6px;left:-6px;min-width:22px;height:22px;padding:0 4px;border-radius:11px;background:var(--t-bg,oklch(0.975 0.01 85));border:1px solid {{ v.ring }};display:flex;align-items:center;justify-content:center;font-family:'Noto Naskh Arabic',serif;font-size:11px;font-weight:700;color:{{ v.numColor }}">{{ v.nFa }}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <div style="font-size:11px;color:var(--t-mink,oklch(0.45 0.06 70))">جلد {{ v.nFa }}</div>
+          <div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:600;line-height:1.7">{{ v.title }}</div>
+          <div style="font-size:11px;color:var(--color-neutral-600)">{{ v.pagesFa }} صفحه</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;align-items:stretch">
+          <div style="font-size:11px;color:var(--color-neutral-700);text-align:left">{{ v.pctLabel }}</div>
+          <div style="height:3px;border-radius:3px;background:var(--t-line,oklch(0.91 0.02 80))"><div style="height:3px;border-radius:3px;background:var(--color-accent);width:{{ v.pctW }}"></div></div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isVolume }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0 0 64px 0;overflow-y:auto" class="scr">
+  <div style="padding:14px 12px 0;display:flex;justify-content:space-between;align-items:center;gap:8px">
+    <button style="border:0;background:none;font-family:inherit;font-size:14px;font-weight:700;color:var(--color-text);min-height:44px;padding:0 12px;border-radius:calc(22px * var(--t-rk,1));cursor:pointer" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ goLibrary }}">› کتابخانه</button>
+    <button style="border:1px solid var(--t-outer,oklch(0.78 0.05 78));background:var(--t-surface,#fff);font-family:inherit;font-size:13px;font-weight:700;color:var(--color-text);min-height:40px;padding:0 16px;border-radius:calc(20px * var(--t-rk,1));cursor:pointer;display:flex;align-items:center;gap:8px" style-hover="border-color:var(--color-accent)" onClick="{{ openAbout }}"><span style="width:18px;height:18px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'Noto Naskh Arabic',serif">i</span>معرفی کتاب</button>
+  </div>
+  <div style="margin:6px 18px 0;border-radius:var(--t-arch,130px 130px 22px 22px);background:var(--t-tint,oklch(0.955 0.02 85));border:1px solid var(--t-outer,oklch(0.78 0.05 78));padding:30px 20px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px">
+    <div style="font-size:12px;font-weight:700;color:var(--color-accent-700)">جلد {{ volFa }} از ۱۵</div>
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:25px;line-height:1.6;font-weight:700">{{ volTitle }}</div>
+    <div style="font-size:13px;font-weight:700;color:var(--t-mink,oklch(0.40 0.06 70))">{{ volSpan }}</div>
+    <div style="font-size:12px;color:var(--color-neutral-700)">{{ volPagesFa }} صفحه · {{ chCountFa }} عنوان · {{ volPctFa }}٪ خوانده‌شده</div>
+    <div style="width:70%;height:4px;border-radius:4px;background:var(--t-line,oklch(0.89 0.02 80));margin-top:6px"><div style="height:4px;border-radius:4px;background:var(--color-accent);width:{{ volPctW }}"></div></div>
+  </div>
+  <div style="padding:16px 18px 4px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">فهرست</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);padding:3px;border-radius:calc(18px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85));width:228px">
+        <sc-for list="{{ cals }}" as="k" hint-placeholder-count="3">
+          <button style="border:0;min-height:34px;border-radius:calc(17px * var(--t-rk,1));font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;background:{{ k.bg }};color:{{ k.ink }}" onClick="{{ k.pick }}">{{ k.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px;padding:12px 14px;border-radius:calc(18px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80))">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:11px;color:var(--color-neutral-700)"><span>بازه‌ی مجموعه</span><span>هر ستون، یک جلد</span></div>
+      <div style="display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:3px;height:26px;align-items:end">
+        <sc-for list="{{ eraCells }}" as="e" hint-placeholder-count="15">
+          <div style="height:{{ e.h }};border-radius:5px 5px 2px 2px;background:{{ e.bg }};cursor:pointer" style-hover="opacity:.75" title="{{ e.tip }}" onClick="{{ e.open }}"></div>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--color-neutral-600)"><span>{{ eraStart }}</span><span>{{ eraEnd }}</span></div>
+    </div>
+  </div>
+  <div style="padding:4px 14px 8px">
+    <sc-for list="{{ tl }}" as="g" hint-placeholder-count="4">
+      <div>
+        <sc-if value="{{ g.hasHeader }}" hint-placeholder-val="{{ true }}">
+          <div style="position:sticky;top:0;z-index:2;background:var(--t-bg,oklch(0.975 0.01 85));display:flex;align-items:center;gap:10px;padding:12px 0 8px">
+            <div style="background:{{ g.pillBg }};color:var(--t-on-ink,#fff);border-radius:calc(14px * var(--t-rk,1));padding:3px 12px;font-size:13px;font-weight:800;white-space:nowrap">{{ g.year }}</div>
+            <div style="font-size:11px;color:var(--color-neutral-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ g.alt }}</div>
+            <div style="flex:1;height:1px;background:var(--t-line,oklch(0.85 0.03 80))"></div>
+            <div style="font-size:11px;color:var(--color-neutral-600);white-space:nowrap">{{ g.countFa }}</div>
+          </div>
+        </sc-if>
+        <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:58px 22px minmax(0,1fr);border-radius:calc(14px * var(--t-rk,1));background:{{ c.bg }};cursor:pointer" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ c.open }}">
+            <div style="padding:8px 2px 8px 0;display:flex;flex-direction:column;align-items:flex-start">
+              <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700;line-height:1.3;color:{{ c.dayColor }}">{{ c.day }}</div>
+              <div style="font-size:10.5px;line-height:1.5;color:var(--color-neutral-700)">{{ c.month }}</div>
+            </div>
+            <div style="position:relative;display:flex;justify-content:center">
+              <div style="position:absolute;top:0;bottom:0;width:1.5px;background:var(--t-line2,oklch(0.82 0.04 78))"></div>
+              <div style="position:relative;margin-top:{{ c.dotTop }};width:{{ c.dot }};height:{{ c.dot }};border-radius:50%;background:{{ c.dotBg }};border:1.5px solid {{ c.dotRing }}"></div>
+            </div>
+            <div style="padding:7px 4px 9px 8px;display:flex;flex-direction:column">
+              <div style="font-family:'Noto Naskh Arabic',serif;font-size:14.5px;font-weight:{{ c.weight }};line-height:1.8;text-wrap:pretty">{{ c.title }}</div>
+              <div style="font-size:11px;color:var(--color-neutral-600)">ص {{ c.pageFa }}<span style="color:var(--color-accent-700);font-weight:700">{{ c.lockLabel }}</span></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-for>
+    <div style="padding:14px 4px 10px;font-size:11px;line-height:1.9;color:var(--color-neutral-600)">{{ calLegend }}</div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showAbout }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;z-index:5;background:color-mix(in srgb,var(--color-neutral-900) 40%,transparent)" onClick="{{ closeSheet }}"></div>
+  <div class="scr" style="position:absolute;left:0;right:0;bottom:0;z-index:6;max-height:86%;overflow-y:auto;background:var(--t-bg,oklch(0.975 0.01 85));border-radius:calc(30px * var(--t-rk,1)) calc(30px * var(--t-rk,1)) 0 0;padding:12px 20px 28px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow-lg)">
+    <div style="width:44px;height:5px;border-radius:5px;background:var(--t-line,oklch(0.85 0.02 80));align-self:center;flex:none"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:19px;font-weight:700">معرفی کتاب</div><button style="border:0;background:var(--t-tint2,oklch(0.945 0.02 85));width:40px;height:40px;border-radius:calc(20px * var(--t-rk,1));font-size:20px;cursor:pointer" onClick="{{ closeSheet }}" aria-label="بستن">×</button></div>
+    <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:start">
+      <div style="width:96px;height:130px;border-radius:calc(12px * var(--t-rk,1));background:url(LandingSite/wwwroot/assets/book_cover.png) center/cover;border:1px solid var(--t-outer,oklch(0.78 0.05 78));box-shadow:var(--shadow-md)"></div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;line-height:2;text-align:justify;text-wrap:pretty">{{ volAbout }}</div>
+    </div>
+    <div style="border-radius:calc(18px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));overflow:hidden;flex:none">
+      <sc-for list="{{ volSpecs }}" as="sp" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;padding:11px 16px;border-top:1px solid {{ sp.rule }};align-items:baseline">
+          <div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">{{ sp.k }}</div>
+          <div style="font-family:'Noto Naskh Arabic',serif;font-size:14.5px;font-weight:600;line-height:1.8">{{ sp.v }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ isSearch }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0 0 64px 0;overflow-y:auto" class="scr">
+  <div style="padding:26px 20px 8px;display:flex;flex-direction:column;gap:12px">
+    
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;line-height:1.6;font-weight:700">جستجو در پانزده جلد</div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px">
+      <input class="input" style="height:50px;border-radius:calc(25px * var(--t-rk,1));padding:0 20px;font-family:inherit;font-size:15px;background:var(--t-surface,#fff);color:var(--color-text);border-color:var(--t-line2,oklch(0.80 0.04 78))" value="{{ query }}" onInput="{{ setQuery }}" onKeyDown="{{ queryKey }}" placeholder="واژه یا عبارت…">
+      <button style="height:50px;padding:0 16px;border-radius:calc(25px * var(--t-rk,1));border:1px solid {{ advBorder }};background:{{ advBg }};color:{{ advInk }};font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap" onClick="{{ toggleAdv }}">پیشرفته{{ advBadge }}</button>
+    </div>
+    <sc-if value="{{ showAdvSummary }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--color-neutral-700)"><span style="font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">فیلترها:</span><span>{{ advSummary }}</span><button style="border:0;background:none;font-family:inherit;font-size:12px;font-weight:700;color:var(--color-accent-700);cursor:pointer;padding:4px 0" onClick="{{ resetAdv }}">بازنشانی</button></div>
+    </sc-if>
+
+    <sc-if value="{{ advOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-radius:calc(22px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-outer,oklch(0.78 0.05 78));padding:16px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">نوع جستجو</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);padding:3px;border-radius:calc(20px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85))">
+            <sc-for list="{{ modeOpts }}" as="m" hint-placeholder-count="3">
+              <button style="border:0;min-height:38px;border-radius:calc(17px * var(--t-rk,1));font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;background:{{ m.bg }};color:{{ m.ink }}" onClick="{{ m.pick }}">{{ m.label }}</button>
+            </sc-for>
+          </div>
+          <input class="input" style="height:44px;border-radius:calc(14px * var(--t-rk,1));padding:0 14px;font-family:inherit;font-size:14px;background:var(--t-bg,oklch(0.975 0.01 85));color:var(--color-text);border-color:var(--t-line,oklch(0.88 0.02 80))" value="{{ excl }}" onInput="{{ setExcl }}" placeholder="حذف کلمه: نتایجی که این کلمه‌ها را ندارند">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">محدوده</div>
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center">
+            <select style="height:44px;border-radius:calc(14px * var(--t-rk,1));padding:0 12px;font-family:inherit;font-size:14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%" value="{{ vFrom }}" onChange="{{ setVFrom }}"><sc-for list="{{ volOpts }}" as="o" hint-placeholder-count="15"><option value="{{ o.v }}">{{ o.label }}</option></sc-for></select>
+            <span style="font-size:12px;color:var(--color-neutral-700)">تا</span>
+            <select style="height:44px;border-radius:calc(14px * var(--t-rk,1));padding:0 12px;font-family:inherit;font-size:14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%" value="{{ vTo }}" onChange="{{ setVTo }}"><sc-for list="{{ volOpts }}" as="o" hint-placeholder-count="15"><option value="{{ o.v }}">{{ o.label }}</option></sc-for></select>
+          </div>
+          <select style="height:44px;border-radius:calc(14px * var(--t-rk,1));padding:0 12px;font-family:inherit;font-size:14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%;opacity:{{ chapOp }}" value="{{ chap }}" disabled="{{ chapDisabled }}" onChange="{{ setChap }}"><sc-for list="{{ chOpts }}" as="o" hint-placeholder-count="1"><option value="{{ o.v }}">{{ o.label }}</option></sc-for></select>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <sc-for list="{{ srcOpts }}" as="c" hint-placeholder-count="3">
+              <button style="border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.ink }};font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;padding:6px 14px;min-height:36px;border-radius:calc(18px * var(--t-rk,1))" onClick="{{ c.pick }}">{{ c.mark }}{{ c.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">تنظیمات متن</div>
+          <button style="border:0;background:none;color:var(--color-text);font-family:inherit;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;cursor:pointer;text-align:right" onClick="{{ toggleHarakat }}"><span style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:600">نادیده گرفتن اعراب و حرکات</span><span style="font-size:11.5px;color:var(--color-neutral-600)">«قُصَيّ» با «قصی» یکی شمرده می‌شود</span></span><div style="flex:none;width:46px;height:26px;border-radius:13px;background:{{ harBg }};position:relative;transition:background .2s"><div style="position:absolute;top:3px;right:{{ harX }};width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);transition:right .2s"></div></div></button>
+          <button style="border:0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));background:none;color:var(--color-text);font-family:inherit;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0 4px;cursor:pointer;text-align:right" onClick="{{ toggleUnify }}"><span style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:600">یکسان‌سازی حروف عربی و فارسی</span><span style="font-size:11.5px;color:var(--color-neutral-600)">ی/ي · ک/ك · ه/ة</span></span><div style="flex:none;width:46px;height:26px;border-radius:13px;background:{{ uniBg }};position:relative;transition:background .2s"><div style="position:absolute;top:3px;right:{{ uniX }};width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);transition:right .2s"></div></div></button>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
+          <button class="btn btn-primary" style="min-height:46px;border-radius:calc(23px * var(--t-rk,1));font-family:inherit;font-size:14px;font-weight:700;justify-content:center" onClick="{{ applyAdv }}">اعمال</button>
+          <button style="min-height:46px;border-radius:calc(23px * var(--t-rk,1));border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer" onClick="{{ resetAdv }}">بازنشانی</button>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ showHistory }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:6px 20px 24px;display:flex;flex-direction:column">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0"><div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">جستجوهای اخیر</div><button style="border:0;background:none;font-family:inherit;font-size:12px;font-weight:700;color:var(--color-accent-700);cursor:pointer;min-height:32px" onClick="{{ clearHistory }}">پاک کردن همه</button></div>
+      <sc-for list="{{ historyItems }}" as="h" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 40px;align-items:center;border-bottom:1px solid var(--t-line,oklch(0.88 0.02 80))">
+          <button style="border:0;background:none;color:var(--color-text);font-family:inherit;text-align:right;padding:12px 0;cursor:pointer;display:flex;flex-direction:column;gap:2px" onClick="{{ h.restore }}"><span style="font-size:14px;font-weight:600">{{ h.q }}</span><span style="font-size:11px;color:var(--color-neutral-600)">{{ h.desc }}</span></button>
+          <button style="border:0;background:none;color:var(--color-neutral-600);font-size:18px;cursor:pointer;height:40px;border-radius:20px" onClick="{{ h.remove }}" aria-label="حذف">×</button>
+        </div>
+      </sc-for>
+      <sc-if value="{{ historyEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 0;font-size:13px;color:var(--color-neutral-600)">هنوز جستجویی ثبت نشده است.</div></sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showResults }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:4px 20px 10px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+        <div style="font-size:12.5px;font-weight:700">{{ resultSummary }}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;padding:3px;border-radius:calc(16px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85))">
+          <button style="border:0;min-height:30px;padding:0 10px;border-radius:calc(14px * var(--t-rk,1));font-family:inherit;font-size:11.5px;font-weight:700;cursor:pointer;background:{{ sortBook.bg }};color:{{ sortBook.ink }}" onClick="{{ setSortBook }}">ترتیب کتاب</button>
+          <button style="border:0;min-height:30px;padding:0 10px;border-radius:calc(14px * var(--t-rk,1));font-family:inherit;font-size:11.5px;font-weight:700;cursor:pointer;background:{{ sortRel.bg }};color:{{ sortRel.ink }}" onClick="{{ setSortRel }}">ارتباط</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{ volCounts }}" as="vc" hint-placeholder-count="3">
+          <button style="border:1px solid {{ vc.border }};background:{{ vc.bg }};color:var(--color-text);font-family:inherit;font-size:12px;cursor:pointer;padding:4px 10px;min-height:32px;border-radius:calc(16px * var(--t-rk,1));display:flex;gap:6px;align-items:center" onClick="{{ vc.pick }}"><span style="font-weight:700">{{ vc.label }}</span><span style="color:var(--color-neutral-600)">{{ vc.countFa }}</span></button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="padding:0 16px 24px;display:flex;flex-direction:column">
+      <sc-for list="{{ srResults }}" as="r" hint-placeholder-count="3">
+        <div>
+          <sc-if value="{{ r.hasHeader }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 4px 6px;gap:10px"><div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:700">{{ r.hdr }}</div><div style="font-size:11px;color:var(--t-mink,oklch(0.45 0.06 70));white-space:nowrap">{{ r.hdrCount }}</div></div>
+          </sc-if>
+          <div style="margin-bottom:8px;padding:12px 16px;border-radius:calc(18px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));cursor:pointer;display:flex;flex-direction:column;gap:6px" style-hover="border-color:var(--t-gold,oklch(0.70 0.06 75))" onClick="{{ r.open }}">
+            <div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;line-height:2;text-wrap:pretty;opacity:{{ r.op }}"><sc-for list="{{ r.segs }}" as="sg" hint-placeholder-count="1"><span style="font-weight:{{ sg.w }};background:{{ sg.bg }};color:{{ sg.ink }};border-radius:4px;padding:0 {{ sg.pad }}">{{ sg.t }}</span></sc-for></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+              <div style="font-size:11px;font-weight:700;color:var(--color-accent-700)">{{ r.ref }}</div>
+              <div style="display:flex;align-items:center;gap:6px">
+                <sc-if value="{{ r.hasKind }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:calc(10px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85));color:var(--t-mink,oklch(0.45 0.06 70))">{{ r.kindLabel }}</span></sc-if>
+                <sc-if value="{{ r.locked }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:var(--color-accent-700)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>ویژه‌ی مشترکان</span></sc-if>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}"><div style="padding:24px 4px;font-size:13px;line-height:2;color:var(--color-neutral-700)">نتیجه‌ای پیدا نشد. نوع جستجو را به «هر یک از کلمات» تغییر دهید یا محدوده را گسترش دهید.</div></sc-if>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ showLockSheet }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;z-index:7;background:color-mix(in srgb,var(--color-neutral-900) 40%,transparent)" onClick="{{ closeSheet }}"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;z-index:8;background:var(--t-bg,oklch(0.975 0.01 85));color:var(--color-text);border-radius:calc(30px * var(--t-rk,1)) calc(30px * var(--t-rk,1)) 0 0;padding:12px 24px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;box-shadow:var(--shadow-lg)">
+    <div style="width:44px;height:5px;border-radius:5px;background:var(--t-line,oklch(0.88 0.02 80))"></div>
+    <div style="width:72px;height:88px;border-radius:var(--t-arch,130px 130px 22px 22px);border:1px solid var(--t-gold,oklch(0.70 0.06 75));background:var(--t-tint,oklch(0.955 0.02 85));display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px;color:var(--color-accent-700);margin-top:6px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:19px;line-height:1.6;font-weight:700">این بخش ویژه‌ی مشترکان است</div>
+    <div style="font-size:13.5px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">{{ lockRef }} خارج از بخش رایگان است. برای خواندن آن، اشتراک تهیه کنید.</div>
+    <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:4px">
+      <button class="btn btn-primary" style="min-height:50px;border-radius:calc(25px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ goPlans }}">خرید اشتراک</button>
+      <button style="min-height:46px;border-radius:calc(23px * var(--t-rk,1));border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;width:100%" onClick="{{ closeSheet }}">بعداً</button>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ isNotes }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0 0 64px 0;overflow-y:auto" class="scr">
+  <div style="padding:26px 20px 12px;display:flex;flex-direction:column;gap:14px">
+    <button style="align-self:flex-start;border:0;background:none;font-family:inherit;font-size:14px;font-weight:700;color:var(--color-text);min-height:40px;padding:0 10px;margin:-14px -10px -6px 0;border-radius:calc(20px * var(--t-rk,1));cursor:pointer" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ goHome }}">› صفحه‌ی اصلی</button>
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;line-height:1.6;font-weight:700">نشانک‌ها و یادداشت‌ها</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);padding:4px;border-radius:calc(24px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85))">
+      <button style="border:0;font-family:inherit;font-size:13px;font-weight:700;min-height:40px;border-radius:calc(20px * var(--t-rk,1));cursor:pointer;background:{{ tabBmBg }};color:{{ tabBmInk }}" onClick="{{ tabToBm }}">نشانک</button>
+      <button style="border:0;font-family:inherit;font-size:13px;font-weight:700;min-height:40px;border-radius:calc(20px * var(--t-rk,1));cursor:pointer;background:{{ tabNoteBg }};color:{{ tabNoteInk }}" onClick="{{ tabToNote }}">یادداشت</button>
+      <button style="border:0;font-family:inherit;font-size:13px;font-weight:700;min-height:40px;border-radius:calc(20px * var(--t-rk,1));cursor:pointer;background:{{ tabHlBg }};color:{{ tabHlInk }}" onClick="{{ tabToHl }}">هایلایت</button>
+    </div>
+  </div>
+  <div style="padding:0 16px 24px;display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{ noteItems }}" as="n" hint-placeholder-count="3">
+      <div style="padding:14px 18px;border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));display:flex;flex-direction:column;gap:4px;cursor:pointer" style-hover="border-color:var(--t-gold,oklch(0.70 0.06 75))" onClick="{{ n.open }}">
+        <div style="font-size:11px;font-weight:700;color:var(--color-accent-700)">{{ n.ref }}</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:700;line-height:1.8">{{ n.title }}</div>
+        <div style="font-family:'Noto Naskh Arabic',serif;font-size:14px;line-height:1.9;color:var(--color-neutral-700)">{{ n.body }}</div>
+      </div>
+    </sc-for>
+    <sc-if value="{{ noteEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:32px 8px;text-align:center;font-size:13px;color:var(--color-neutral-700);line-height:2">هنوز چیزی ذخیره نشده. در صفحه‌ی خواندن روی یک بند بزنید.</div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0 0 64px 0;overflow-y:auto" class="scr">
+  <div style="padding:26px 20px 28px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="width:60px;height:60px;border-radius:50%;background:var(--t-tint,oklch(0.955 0.02 85));border:1px solid var(--t-gold,oklch(0.70 0.06 75));display:flex;align-items:center;justify-content:center;font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;font-weight:700">م‌ر</div>
+      <div style="display:flex;flex-direction:column"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;line-height:1.5;font-weight:700">محمد رضایی</div><div style="font-size:12px;color:var(--color-neutral-700)">عضو از مهر ۱۴۰۴</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);padding:4px;border-radius:calc(22px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85));margin-top:-4px">
+      <sc-for list="{{ pTabs }}" as="t" hint-placeholder-count="4">
+        <button style="border:0;min-height:40px;border-radius:calc(18px * var(--t-rk,1));font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;background:{{ t.bg }};color:{{ t.ink }}" onClick="{{ t.pick }}">{{ t.label }}</button>
+      </sc-for>
+    </div>
+    <sc-if value="{{ pInfo }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">اطلاعات کاربر</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div><button style="border:0;background:none;font-family:inherit;font-size:12px;font-weight:700;color:var(--color-accent-700);cursor:pointer;min-height:32px">ویرایش</button></div>
+      <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));overflow:hidden"><div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:12px 16px;border-top:0;align-items:baseline"><div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">نام</div><div style="font-size:14px;font-weight:600;line-height:1.7;overflow-wrap:anywhere">محمد رضایی</div></div><div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:12px 16px;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));align-items:baseline"><div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">ایمیل</div><div style="font-size:14px;font-weight:600;line-height:1.7;overflow-wrap:anywhere"><span dir="ltr" style="unicode-bidi:isolate">m.rezaei@example.com</span></div></div><div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:12px 16px;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));align-items:baseline"><div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">شماره تماس</div><div style="font-size:14px;font-weight:600;line-height:1.7;overflow-wrap:anywhere"><span dir="ltr" style="unicode-bidi:isolate">۰۹۱۲ ۳۴۵ ۶۷۸۹</span></div></div></div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ pSub }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">اشتراک</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+      <sc-if value="{{ isSubbed }}" hint-placeholder-val="{{ false }}">
+      <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-tint,oklch(0.955 0.02 85));border:1px solid var(--t-outer,oklch(0.78 0.05 78));padding:16px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">{{ subName }}</div><span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:calc(12px * var(--t-rk,1));background:var(--color-accent);color:#fff">فعال</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;color:var(--t-mink,oklch(0.45 0.06 70))">تاریخ شروع</span><span style="font-size:14px;font-weight:700">{{ subStart }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;color:var(--t-mink,oklch(0.45 0.06 70))">تاریخ پایان</span><span style="font-size:14px;font-weight:700">{{ subEnd }}</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="height:5px;border-radius:5px;background:var(--t-line,oklch(0.88 0.02 80))"><div style="height:5px;border-radius:5px;background:var(--color-accent);width:{{ subPctW }}"></div></div>
+          <div style="font-size:11.5px;color:var(--color-neutral-700)">{{ subLeft }} · دسترسی به هر ۱۵ جلد، متن و تصویر صفحه</div>
+        </div>
+        <button style="min-height:48px;border-radius:calc(24px * var(--t-rk,1));border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;width:100%" onClick="{{ goPlans }}">تمدید یا تغییر اشتراک</button>
+      </div>
+      </sc-if>
+      <sc-if value="{{ isFree }}" hint-placeholder-val="{{ true }}">
+      <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px dashed var(--t-outer,oklch(0.78 0.05 78));padding:16px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">حالت رایگان</div><span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:calc(12px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85));color:var(--t-mink,oklch(0.45 0.06 70))">بدون اشتراک</span></div>
+        <div style="font-size:13px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">بخش ابتدایی هر جلد را می‌توانید رایگان بخوانید. نشانک، یادداشت، هایلایت و جستجو برای شما فعال است.</div>
+        <button class="btn btn-primary" style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ goPlans }}">خرید اشتراک</button>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+    <sc-if value="{{ pPay }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">تاریخچه‌ی پرداخت‌ها</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+      <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));overflow:hidden">
+        <sc-for list="{{ payments }}" as="py" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:12px 16px;border-top:1px solid {{ py.rule }}">
+            <div style="font-size:14px;font-weight:600;line-height:1.7">{{ py.desc }}</div><div style="font-size:14px;font-weight:800;white-space:nowrap">{{ py.amt }}</div>
+            <div style="font-size:11.5px;color:var(--color-neutral-600)">{{ py.d }}</div>
+            <div><sc-if value="{{ py.ok }}" hint-placeholder-val="{{ true }}"><span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:calc(12px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85));color:var(--t-mink,oklch(0.45 0.06 70))">موفق</span></sc-if><sc-if value="{{ py.fail }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:calc(12px * var(--t-rk,1));background:var(--color-accent-200);color:var(--color-accent-900)">ناموفق</span></sc-if></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ pSet }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">تم</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:-8px">
+      <button style="border:2px solid {{ islRing }};background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(20px * var(--t-rk,1));padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit" onClick="{{ setIsl }}">
+        <div style="height:92px;border-radius:12px;background:oklch(0.975 0.01 85);display:flex;align-items:flex-end;justify-content:center;padding:0 16px"><div style="width:100%;height:76px;border-radius:40px 40px 6px 6px;border:1px solid oklch(0.70 0.06 75);background:oklch(0.955 0.02 85);display:flex;align-items:center;justify-content:center;font-family:'Noto Naskh Arabic',serif;font-size:14px;font-weight:700;color:oklch(0.25 0.01 60)">سیره</div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;width:100%"><span style="font-size:13px;font-weight:700">ایرانی‌ـ‌اسلامی</span><span style="width:16px;height:16px;border-radius:50%;border:2px solid {{ islRing }};background:{{ islDot }}"></span></div>
+      </button>
+      <button style="border:2px solid {{ clsRing }};background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(20px * var(--t-rk,1));padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit" onClick="{{ setCls }}">
+        <div style="height:92px;border-radius:12px;background:oklch(0.985 0.003 90);display:flex;align-items:flex-end;justify-content:center;padding:0 16px 8px"><div style="width:100%;height:66px;border-radius:4px;border:1px solid oklch(0.78 0.004 90);background:oklch(0.955 0.004 90);display:flex;align-items:center;justify-content:center;font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:800;color:oklch(0.25 0.01 60)">سیره</div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;width:100%"><span style="font-size:13px;font-weight:700">کلاسیک</span><span style="width:16px;height:16px;border-radius:50%;border:2px solid {{ clsRing }};background:{{ clsDot }}"></span></div>
+      </button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">مطالعه</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+    <button style="margin-top:-8px;border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(20px * var(--t-rk,1));padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;cursor:pointer;font-family:inherit;text-align:right" onClick="{{ toggleNight }}">
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:700">حالت مطالعه در شب</span><span style="font-size:12px;color:var(--color-neutral-700);line-height:1.7">زمینه‌ی تیره و نور کمتر برای خواندن در تاریکی</span></div>
+      <div style="width:52px;height:30px;border-radius:15px;background:{{ swBg }};position:relative;transition:background .2s"><div style="position:absolute;top:3px;right:{{ swX }};width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);transition:right .2s"></div></div>
+    </button>
+    </div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isPlans }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div class="scr" style="flex:1;overflow-y:auto">
+    <div style="padding:14px 12px 0"><button style="border:0;background:none;font-family:inherit;font-size:14px;font-weight:700;color:var(--color-text);min-height:44px;padding:0 12px;border-radius:calc(22px * var(--t-rk,1));cursor:pointer" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ plansBack }}">› {{ plansBackLabel }}</button></div>
+    <div style="padding:6px 20px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;line-height:1.6;font-weight:700">{{ plansTitle }}</div>
+      <div style="font-size:13px;line-height:1.9;color:var(--color-neutral-700);margin-top:-6px">دسترسی کامل به متن و تصویر صفحه‌های هر ۱۵ جلد</div>
+      <sc-for list="{{ plans }}" as="pl" hint-placeholder-count="5">
+        <button style="border:2px solid {{ pl.ring }};background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(20px * var(--t-rk,1));padding:14px 16px;display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:12px;align-items:center;cursor:pointer;font-family:inherit;text-align:right" onClick="{{ pl.pick }}">
+          <span style="width:18px;height:18px;border-radius:50%;border:2px solid {{ pl.ring }};background:{{ pl.dot }};box-shadow:inset 0 0 0 3px var(--t-surface,#fff)"></span>
+          <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+            <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">{{ pl.name }}</span><sc-if value="{{ pl.hasBadge }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:calc(10px * var(--t-rk,1));background:var(--color-accent);color:#fff">{{ pl.badge }}</span></sc-if></span>
+            <span style="font-size:12px;color:var(--color-neutral-700)">{{ pl.dur }}</span>
+            <span style="font-size:11px;color:var(--color-neutral-600)">{{ pl.note }}</span>
+          </span>
+          <span style="display:flex;flex-direction:column;align-items:flex-end"><span style="font-size:17px;font-weight:800;white-space:nowrap">{{ pl.priceFa }}</span><span style="font-size:11px;color:var(--color-neutral-600)">تومان</span></span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:none;padding:12px 20px 20px;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-bg,oklch(0.975 0.01 85))"><button class="btn btn-primary" style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ goCheckout }}">ادامه با پلن {{ selPlanName }}</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCheckout }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div class="scr" style="flex:1;overflow-y:auto">
+    <div style="padding:14px 12px 0"><button style="border:0;background:none;font-family:inherit;font-size:14px;font-weight:700;color:var(--color-text);min-height:44px;padding:0 12px;border-radius:calc(22px * var(--t-rk,1));cursor:pointer" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ backToPlans }}">› پلن‌ها</button></div>
+    <div style="padding:6px 20px 24px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;line-height:1.6;font-weight:700">تأیید و پرداخت</div>
+      <div style="border-radius:var(--t-arch,130px 130px 22px 22px);background:var(--t-tint,oklch(0.955 0.02 85));border:1px solid var(--t-outer,oklch(0.78 0.05 78));padding:30px 20px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px">
+        <div style="font-size:12px;font-weight:700;color:var(--color-accent-700)">پلن انتخاب‌شده</div>
+        <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:25px;line-height:1.6;font-weight:700">اشتراک {{ selPlanName }}</div>
+        <div style="font-size:13px;color:var(--color-neutral-700)">{{ planDur }}</div>
+        <div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">{{ planPeriod }}</div>
+      </div>
+      <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:6px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:0"><span style="font-size:13px;color:var(--color-neutral-700)">مبلغ پلن</span><span style="font-size:14px;font-weight:600;text-align:left">{{ planPriceFa }} تومان</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80))"><span style="font-size:13px;color:var(--color-neutral-700)">مالیات بر ارزش افزوده (۱۰٪)</span><span style="font-size:14px;font-weight:600;text-align:left">{{ vatFa }} تومان</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80))"><span style="font-size:13px;color:var(--color-neutral-700)">مبلغ نهایی</span><span style="font-size:17px;font-weight:800;text-align:left">{{ totalFa }} تومان</span></div>
+      </div>
+      <div style="font-size:12px;line-height:1.9;color:var(--color-neutral-600);text-wrap:pretty">با زدن «پرداخت» به درگاه امن بانک منتقل می‌شوید. پس از پرداخت، اشتراک بی‌درنگ فعال می‌شود.</div>
+    </div>
+  </div>
+  <div style="flex:none;padding:12px 20px 20px;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-bg,oklch(0.975 0.01 85))"><button class="btn btn-primary" style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ startPay }}">پرداخت {{ totalFa }} تومان</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isGateway }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background:var(--color-neutral-100);color:var(--color-neutral-900);display:flex;flex-direction:column;font-family:'Vazirmatn',sans-serif">
+  <div style="flex:none;padding:18px 20px;background:var(--color-neutral-900);color:#fff;display:flex;justify-content:space-between;align-items:center"><span style="font-size:14px;font-weight:800">درگاه پرداخت اینترنتی</span><span style="font-size:11px;color:var(--color-neutral-400)">نمونه‌ی نمایشی</span></div>
+  <sc-if value="{{ gwLoading }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:30px"><div style="font-size:15px;font-weight:700">در حال انتقال به درگاه امن بانک…</div><div style="font-size:12px;color:var(--color-neutral-600)">لطفاً صفحه را نبندید.</div></div>
+  </sc-if>
+  <sc-if value="{{ gwReady }}" hint-placeholder-val="{{ false }}">
+    <div class="scr" style="flex:1;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:14px">
+      <div style="background:#fff;border:1px solid var(--color-neutral-300);border-radius:8px;padding:6px 14px">
+        <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13px"><span style="color:var(--color-neutral-600)">پذیرنده</span><span style="font-weight:700">تاریخ سیره نبوی</span></div>
+        <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13px;border-top:1px solid var(--color-neutral-200)"><span style="color:var(--color-neutral-600)">مبلغ</span><span style="font-weight:800">{{ totalFa }} تومان</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:var(--color-neutral-700)">شماره کارت</span><div style="height:46px;border:1px solid var(--color-neutral-300);border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;letter-spacing:.06em" dir="ltr">۶۰۳۷ ●●●● ●●●● ۴۲۱۸</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:var(--color-neutral-700)">CVV2</span><div style="height:46px;border:1px solid var(--color-neutral-300);border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center">●●●</div></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:var(--color-neutral-700)">تاریخ انقضا</span><div style="height:46px;border:1px solid var(--color-neutral-300);border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center" dir="ltr">۰۸ / ۰۷</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:var(--color-neutral-700)">رمز دوم پویا</span><div style="height:46px;border:1px solid var(--color-neutral-300);border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center">●●●●●●</div></div>
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:6px">
+        <button style="min-height:50px;border:0;border-radius:8px;background:var(--color-neutral-900);color:#fff;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer" onClick="{{ gwPay }}">پرداخت</button>
+        <button style="min-height:50px;border:1px solid var(--color-neutral-400);border-radius:8px;background:#fff;color:var(--color-neutral-900);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer" onClick="{{ gwCancel }}">انصراف</button>
+      </div>
+      <div style="font-size:11px;line-height:1.8;color:var(--color-neutral-600);text-align:center">در این نمونه، «پرداخت» نتیجه‌ی موفق و «انصراف» نتیجه‌ی ناموفق را نشان می‌دهد.</div>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ isResult }}" hint-placeholder-val="{{ false }}">
+<div class="scr" style="position:absolute;inset:0;overflow-y:auto">
+  <div style="padding:56px 22px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px">
+    <sc-if value="{{ paySuccess }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;width:100%">
+        <div style="width:84px;height:84px;border-radius:50%;border:2px solid var(--t-gold,oklch(0.70 0.06 75));background:var(--t-tint,oklch(0.955 0.02 85));display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;color:var(--t-gold,oklch(0.70 0.06 75))">✓</div>
+        <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:25px;line-height:1.6;font-weight:700">پرداخت موفق</div>
+        <div style="font-size:14px;line-height:2;color:var(--color-neutral-800)">اشتراک {{ selPlanName }} شما فعال شد.</div>
+        <div style="width:100%;border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:6px 16px;text-align:right;margin-top:6px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:0"><span style="font-size:13px;color:var(--color-neutral-700)">کد پیگیری</span><span style="font-size:14px;font-weight:600;text-align:left"><span dir="ltr">{{ txCode }}</span></span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80))"><span style="font-size:13px;color:var(--color-neutral-700)">مبلغ پرداختی</span><span style="font-size:14px;font-weight:600;text-align:left">{{ totalFa }} تومان</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80))"><span style="font-size:13px;color:var(--color-neutral-700)">تاریخ</span><span style="font-size:14px;font-weight:600;text-align:left">۱۴۰۵/۰۸/۰۸</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80))"><span style="font-size:13px;color:var(--color-neutral-700)">اعتبار تا</span><span style="font-size:14px;font-weight:600;text-align:left">{{ subEnd }}</span></div>
+        </div>
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px"><button class="btn btn-primary" style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ resultContinue }}">ادامه‌ی مطالعه</button><button style="min-height:48px;border-radius:calc(24px * var(--t-rk,1));border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;width:100%" onClick="{{ resultProfile }}">رفتن به پروفایل</button></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ payFail }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;width:100%">
+        <div style="width:84px;height:84px;border-radius:50%;border:2px solid var(--color-accent);background:var(--color-accent-200);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;color:var(--color-accent-700)">×</div>
+        <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:25px;line-height:1.6;font-weight:700">پرداخت ناموفق</div>
+        <div style="font-size:14px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">تراکنش لغو شد یا با خطا روبه‌رو شد. اگر مبلغی از حساب شما کسر شده باشد، حداکثر تا ۷۲ ساعت بازگردانده می‌شود.</div>
+        <div style="width:100%;border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:6px 16px;text-align:right;margin-top:6px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:0"><span style="font-size:13px;color:var(--color-neutral-700)">پلن</span><span style="font-size:14px;font-weight:600;text-align:left">اشتراک {{ selPlanName }}</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80))"><span style="font-size:13px;color:var(--color-neutral-700)">مبلغ</span><span style="font-size:14px;font-weight:600;text-align:left">{{ totalFa }} تومان</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80))"><span style="font-size:13px;color:var(--color-neutral-700)">تاریخ</span><span style="font-size:14px;font-weight:600;text-align:left">۱۴۰۵/۰۸/۰۸</span></div>
+        </div>
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px;margin-top:10px"><button class="btn btn-primary" style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ retryPay }}">تلاش دوباره</button><button style="min-height:48px;border-radius:calc(24px * var(--t-rk,1));border:1px solid var(--t-line,oklch(0.88 0.02 80));background:var(--t-surface,#fff);color:var(--color-text);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;width:100%" onClick="{{ resultProfile }}">بازگشت به پروفایل</button></div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAb }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:0;right:0;top:0;height:60px;z-index:2;background:var(--t-bg,oklch(0.975 0.01 85));border-bottom:1px solid var(--t-line,oklch(0.88 0.02 80));display:grid;grid-template-columns:auto minmax(0,1fr) 96px;align-items:center;padding:0 8px">
+  <button style="height:44px;padding:0 12px 0 14px;border:0;background:none;color:var(--color-text);border-radius:calc(22px * var(--t-rk,1));cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;font-size:13px;font-weight:700;white-space:nowrap" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ goHome }}" aria-label="صفحه‌ی اصلی"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>صفحه‌ی اصلی</button>
+  <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:16px;font-weight:700;text-align:center">{{ abTitle }}</div>
+  <div></div>
+</div>
+
+<sc-if value="{{ isAbAbout }}" hint-placeholder-val="{{ false }}">
+<div class="scr" style="position:absolute;inset:60px 0 64px 0;overflow-y:auto">
+  <div style="padding:18px 20px 28px;display:flex;flex-direction:column;gap:18px">
+    <div style="border-radius:var(--t-arch,130px 130px 22px 22px);background:var(--t-tint,oklch(0.955 0.02 85));border:1px solid var(--t-outer,oklch(0.78 0.05 78));padding:34px 20px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px">
+      <div style="font-size:12px;font-weight:700;color:var(--color-accent-700)">درباره ما</div>
+      <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:25px;line-height:1.6;font-weight:700">کتابخانه‌ی دیجیتال سیره</div>
+      <svg width="120" height="14" viewBox="0 0 120 14" fill="none" style="display:var(--t-orn,block)"><path d="M2 3 Q60 20 118 3" stroke="var(--t-gold,oklch(0.70 0.06 75))" stroke-width="1.2"></path></svg>
+      <div style="font-size:13px;line-height:1.9;color:var(--color-neutral-800)">سیره‌ی پیامبر (ص)، همیشه در دسترس</div>
+    </div>
+    <div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;line-height:2.05;text-align:justify;text-wrap:pretty">این کتابخانه برای آن ساخته شده که مجموعه‌ی پانزده‌جلدی «تاریخ سیره نبوی» در دسترس پژوهشگران، دانشجویان، طلاب و همه‌ی علاقه‌مندان باشد؛ با متنی خوانا، ارجاع دقیق به جلد و صفحه، و ابزارهایی برای مطالعه‌ی طولانی.</div>
+    <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">آنچه فراهم می‌کنیم</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+    <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:16px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:15px;font-weight:700">متن کامل ۱۵ جلد</div><div style="font-size:13px;line-height:1.9;color:var(--color-neutral-700)">با فهرست زمانی فصل‌ها به تقویم قمری، شمسی و میلادی</div></div>
+      <div style="height:1px;background:var(--t-line,oklch(0.88 0.02 80))"></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:15px;font-weight:700">تصویر صفحه‌های چاپی</div><div style="font-size:13px;line-height:1.9;color:var(--color-neutral-700)">با شماره‌صفحه‌ی یکسان با نسخه‌ی چاپی برای ارجاع</div></div>
+      <div style="height:1px;background:var(--t-line,oklch(0.88 0.02 80))"></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:15px;font-weight:700">جستجو، نشانک و یادداشت</div><div style="font-size:13px;line-height:1.9;color:var(--color-neutral-700)">جستجوی پیشرفته در هر ۱۵ جلد و در یادداشت‌های خودتان</div></div></div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAbBook }}" hint-placeholder-val="{{ false }}">
+<div class="scr" style="position:absolute;inset:60px 0 64px 0;overflow-y:auto">
+  <div style="padding:18px 20px 28px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;align-items:center">
+      <div style="width:104px;height:140px;border-radius:calc(12px * var(--t-rk,1));background:url(LandingSite/wwwroot/assets/book_cover.png) center/cover;border:1px solid var(--t-outer,oklch(0.78 0.05 78));box-shadow:var(--shadow-md)"></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:12px;font-weight:700;color:var(--color-accent-700)">درباره کتاب</div><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:23px;line-height:1.6;font-weight:700">تاریخ سیره نبوی</div><div style="font-size:12.5px;color:var(--color-neutral-700);line-height:1.8">۱۵ جلد · ۵٬۷۷۸ صفحه<br>از ۴۰۰۰ پیش از میلاد تا ۷۵۶ میلادی</div></div>
+    </div>
+    <div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;line-height:2.05;text-align:justify;text-wrap:pretty">«تاریخ سیره نبوی» روایتی گاه‌شمارانه از زندگی پیامبر اسلام (ص) و زمینه‌های تاریخی آن است؛ از روزگار ابراهیم و اسماعیل (ع) و بنای کعبه تا رحلت پیامبر و پیامدهای آن. هر رویداد با روز، ماه و سال ثبت شده و گزارش‌های منابع کهن کنار هم سنجیده شده‌اند.</div>
+    <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">درباره نویسنده</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+    <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:16px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:14px"><div style="width:56px;height:56px;flex:none;border-radius:50%;background:var(--t-tint,oklch(0.955 0.02 85));border:1px solid var(--t-gold,oklch(0.70 0.06 75));display:flex;align-items:center;justify-content:center;font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:19px;font-weight:700">غ‌ز</div><div style="display:flex;flex-direction:column"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:18px;font-weight:700;line-height:1.6">دکتر غلامحسین زرگری‌نژاد</div><div style="font-size:12px;color:var(--color-neutral-700)">مورخ و پژوهشگر تاریخ اسلام و ایران</div></div></div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:15px;line-height:2.05;text-align:justify;text-wrap:pretty">زندگی‌نامه‌ی نویسنده اینجا قرار می‌گیرد: سوابق علمی، آثار و روش پژوهش در نگارش این مجموعه.</div></div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAbContact }}" hint-placeholder-val="{{ false }}">
+<div class="scr" style="position:absolute;inset:60px 0 64px 0;overflow-y:auto">
+  <div style="padding:18px 20px 28px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">راه‌های ارتباط</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+    <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:4px 16px">
+      <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:11px 0;border-top:0;align-items:baseline"><div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">ایمیل</div><div style="font-size:14px;font-weight:600;line-height:1.7"><span dir="ltr" style="unicode-bidi:isolate">support@seerah.example</span></div></div>
+      <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));align-items:baseline"><div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">تلفن</div><div style="font-size:14px;font-weight:600;line-height:1.7"><span dir="ltr" style="unicode-bidi:isolate">۰۲۱ ۱۲۳۴ ۵۶۷۸</span></div></div>
+      <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));align-items:baseline"><div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">ساعت پاسخ‌گویی</div><div style="font-size:14px;font-weight:600;line-height:1.7">شنبه تا چهارشنبه، ۹ تا ۱۷</div></div>
+      <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--t-line,oklch(0.88 0.02 80));align-items:baseline"><div style="font-size:12px;color:var(--t-mink,oklch(0.45 0.06 70))">نشانی</div><div style="font-size:14px;font-weight:600;line-height:1.7">تهران، نشانی دفتر</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">ارسال پیام</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+    <sc-if value="{{ contactForm }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">نام</div><input class="input" style="height:46px;border-radius:calc(14px * var(--t-rk,1));padding:0 14px;font-family:inherit;font-size:14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%" value="{{ cName }}" onInput="{{ setCName }}" placeholder="نام و نام خانوادگی"></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">ایمیل</div><input class="input" style="height:46px;border-radius:calc(14px * var(--t-rk,1));padding:0 14px;font-family:inherit;font-size:14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%;direction:ltr;text-align:right" value="{{ cEmail }}" onInput="{{ setCEmail }}" placeholder="name@example.com"></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">موضوع</div><select style="height:46px;border-radius:calc(14px * var(--t-rk,1));padding:0 14px;font-family:inherit;font-size:14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%" value="{{ cTopic }}" onChange="{{ setCTopic }}"><option value="general">پرسش عمومی</option><option value="sub">اشتراک و پرداخت</option><option value="content">محتوای کتاب</option><option value="bug">گزارش مشکل</option></select></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">پیام</div><textarea class="input" style="font-family:inherit;font-size:14px;line-height:1.8;min-height:120px;border-radius:calc(14px * var(--t-rk,1));padding:12px 14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%" value="{{ cMsg }}" onInput="{{ setCMsg }}" placeholder="پیام خود را بنویسید…"></textarea></div>
+        <sc-if value="{{ hasCErr }}" hint-placeholder-val="{{ false }}"><div style="font-size:12.5px;font-weight:700;color:var(--color-accent-700)">{{ cErr }}</div></sc-if>
+        <button class="btn btn-primary" style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ sendContact }}">ارسال پیام</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ contactSent }}" hint-placeholder-val="{{ false }}">
+      <div style="border-radius:calc(20px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:16px;display:flex;flex-direction:column;gap:10px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:18px;font-weight:700">پیام شما فرستاده شد</div><div style="font-size:13.5px;line-height:2;color:var(--color-neutral-800)">پاسخ به ایمیل شما فرستاده می‌شود؛ معمولاً تا دو روز کاری.</div><button style="align-self:flex-start;border:0;background:none;font-family:inherit;font-size:13px;font-weight:700;color:var(--color-accent-700);cursor:pointer;padding:4px 0" onClick="{{ newContact }}">ارسال پیام دیگر</button></div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAbFaq }}" hint-placeholder-val="{{ false }}">
+<div class="scr" style="position:absolute;inset:60px 0 64px 0;overflow-y:auto">
+  <div style="padding:18px 20px 28px;display:flex;flex-direction:column;gap:14px">
+    <input class="input" style="height:50px;border-radius:calc(25px * var(--t-rk,1));padding:0 20px;font-family:inherit;font-size:15px;background:var(--t-surface,#fff);color:var(--color-text);border-color:var(--t-line2,oklch(0.80 0.04 78))" value="{{ faqQ }}" onInput="{{ setFaqQ }}" placeholder="جستجو در سؤال‌ها…">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <div style="font-size:12px;color:var(--color-neutral-700)">{{ faqSummary }}</div>
+      <button style="border:1px solid var(--color-accent);background:none;color:var(--color-accent-700);font-family:inherit;font-size:13px;font-weight:700;min-height:38px;padding:0 14px;border-radius:calc(19px * var(--t-rk,1));cursor:pointer" onClick="{{ openAsk }}">پرسیدن سؤال جدید</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <sc-for list="{{ faqItems }}" as="fq" hint-placeholder-count="5">
+        <div style="border-radius:calc(18px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid {{ fq.border }};overflow:hidden">
+          <button style="width:100%;border:0;background:none;color:var(--color-text);font-family:inherit;text-align:right;padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr) 24px;gap:10px;align-items:start;cursor:pointer" onClick="{{ fq.toggle }}">
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:14.5px;font-weight:700;line-height:1.8">{{ fq.q }}</span><sc-if value="{{ fq.hasMeta }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;color:var(--color-neutral-600)">{{ fq.meta }}</span></sc-if></span>
+            <span style="width:24px;height:24px;border-radius:50%;border:1px solid var(--t-gold,oklch(0.70 0.06 75));display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;color:var(--t-mink,oklch(0.45 0.06 70));margin-top:3px">{{ fq.sign }}</span>
+          </button>
+          <sc-if value="{{ fq.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:6px">
+              <div style="height:1px;background:var(--t-line,oklch(0.88 0.02 80))"></div>
+              <sc-if value="{{ fq.hasMeta }}" hint-placeholder-val="{{ false }}"><div style="font-size:11px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70));padding-top:6px">پاسخ مدیر سایت</div></sc-if>
+              <div style="font-family:'Noto Naskh Arabic',serif;font-size:14.5px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty;padding-top:4px">{{ fq.a }}</div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ faqEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:18px 4px;font-size:13px;line-height:2;color:var(--color-neutral-700)">سؤالی با این عبارت پیدا نشد. می‌توانید آن را به‌عنوان سؤال جدید بپرسید.</div></sc-if>
+    </div>
+    <sc-if value="{{ hasMyQs }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+        <div style="display:flex;align-items:center;gap:12px"><div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:17px;font-weight:700">سؤال‌های شما</div><div style="flex:1;height:1px;background:var(--t-line2,oklch(0.80 0.04 78))"></div></div>
+        <sc-for list="{{ myQs }}" as="mq" hint-placeholder-count="1">
+          <div style="border-radius:calc(18px * var(--t-rk,1));background:var(--t-tint,oklch(0.955 0.02 85));border:1px dashed var(--t-outer,oklch(0.78 0.05 78));padding:12px 16px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:14px;font-weight:700;line-height:1.8">{{ mq.q }}</div>
+            <div style="font-size:11px;color:var(--color-neutral-600)">{{ mq.meta }}</div>
+          </div>
+        </sc-for>
+        <div style="font-size:11.5px;line-height:1.9;color:var(--color-neutral-600)">سؤال‌ها پس از پاسخ مدیر سایت در فهرست بالا نمایش داده می‌شوند.</div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<div style="position:absolute;left:0;right:0;bottom:0;height:64px;border-top:1px solid var(--t-line,oklch(0.85 0.03 80));background:var(--t-bg,oklch(0.975 0.01 85));display:grid;grid-template-columns:repeat(4,1fr);padding:0 4px">
+  <sc-for list="{{ abTabs }}" as="t" hint-placeholder-count="4">
+    <button style="border:0;background:none;font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:{{ t.ink }};white-space:nowrap" onClick="{{ t.pick }}">{{ t.label }}<span style="width:22px;height:3px;border-radius:3px;background:{{ t.bar }}"></span></button>
+  </sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ showAsk }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;z-index:7;background:color-mix(in srgb,var(--color-neutral-900) 40%,transparent)" onClick="{{ closeSheet }}"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;z-index:8;background:var(--t-bg,oklch(0.975 0.01 85));color:var(--color-text);border-radius:calc(30px * var(--t-rk,1)) calc(30px * var(--t-rk,1)) 0 0;padding:12px 22px 26px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow-lg)">
+    <div style="width:44px;height:5px;border-radius:5px;background:var(--t-line,oklch(0.88 0.02 80));align-self:center"></div>
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:19px;font-weight:700">پرسیدن سؤال جدید</div>
+    <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">نام <span style="font-weight:400;color:var(--color-neutral-600)">(اختیاری)</span></div><input class="input" style="height:46px;border-radius:calc(14px * var(--t-rk,1));padding:0 14px;font-family:inherit;font-size:14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%" value="{{ askName }}" onInput="{{ setAskName }}" placeholder="اگر خالی بماند، «ناشناس» نمایش داده می‌شود"></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:12px;font-weight:700;color:var(--t-mink,oklch(0.45 0.06 70))">سؤال</div><textarea class="input" style="font-family:inherit;font-size:14px;line-height:1.8;min-height:110px;border-radius:calc(14px * var(--t-rk,1));padding:12px 14px;background:var(--t-surface,#fff);color:var(--color-text);border:1px solid var(--t-line2,oklch(0.80 0.04 78));width:100%" value="{{ askText }}" onInput="{{ setAskText }}" placeholder="سؤال خود را بنویسید…"></textarea></div>
+    <div style="font-size:11.5px;line-height:1.9;color:var(--color-neutral-600)">سؤال شما پس از پاسخ مدیر سایت، با نام شما یا «ناشناس» در فهرست نمایش داده می‌شود.</div>
+    <button class="btn btn-primary" style="min-height:50px;border-radius:calc(25px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%;opacity:{{ askOp }}" onClick="{{ submitAsk }}">{{ askLabel }}</button>
+  </div>
+</sc-if>
+
+<sc-if value="{{ showTabs }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:0;right:0;bottom:0;height:64px;border-top:1px solid var(--t-line,oklch(0.85 0.03 80));background:var(--t-bg,oklch(0.975 0.01 85));display:grid;grid-template-columns:repeat(4,1fr);padding:0 6px">
+  <button style="border:0;background:none;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:{{ homeInk }}" onClick="{{ goHome }}">صفحه‌ی اصلی<span style="width:22px;height:3px;border-radius:3px;background:{{ homeBar }}"></span></button>
+  <button style="border:0;background:none;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:{{ libInk }}" onClick="{{ goLibrary }}">کتابخانه<span style="width:22px;height:3px;border-radius:3px;background:{{ libBar }}"></span></button>
+  <button style="border:0;background:none;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:{{ srInk }}" onClick="{{ goSearch }}">جستجو<span style="width:22px;height:3px;border-radius:3px;background:{{ srBar }}"></span></button>
+  <button style="border:0;background:none;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:{{ profInk }}" onClick="{{ goProfile }}">پروفایل<span style="width:22px;height:3px;border-radius:3px;background:{{ profBar }}"></span></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isReader }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background:{{ rbg }};color:{{ rink }};display:flex;flex-direction:column">
+  <div style="flex:none;padding:12px 12px 6px;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:4px">
+    <button style="border:0;background:none;color:inherit;font-family:inherit;font-size:18px;font-weight:700;min-height:44px;min-width:44px;border-radius:calc(22px * var(--t-rk,1));cursor:pointer" onClick="{{ backFromReader }}" aria-label="بازگشت">›</button>
+    <div style="display:flex;flex-direction:column;line-height:1.4;min-width:0;text-align:center">
+      <div style="font-size:14px;font-weight:800">ج {{ volFa }}، ص {{ pageFa }}</div>
+      <div style="font-size:11px;color:{{ rmuted }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ chTitle }}</div>
+    </div>
+    <button style="border:1px solid {{ bmBorder }};background:{{ bmBg }};color:{{ bmInk }};font-family:inherit;font-size:12px;font-weight:700;min-height:36px;padding:0 12px;border-radius:calc(18px * var(--t-rk,1));cursor:pointer" onClick="{{ toggleBm }}">{{ bmLabel }}</button>
+    <button style="border:1px solid {{ rrule }};background:none;color:inherit;font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:700;min-height:36px;min-width:44px;border-radius:calc(18px * var(--t-rk,1));cursor:pointer" onClick="{{ openSettings }}" aria-label="تنظیمات">آ</button>
+  </div>
+  <div style="flex:none;display:flex;justify-content:center;padding:2px 0 8px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;padding:3px;border-radius:calc(20px * var(--t-rk,1));background:{{ rseg }};width:220px">
+      <button style="border:0;min-height:34px;border-radius:calc(17px * var(--t-rk,1));font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;background:{{ mText.bg }};color:{{ mText.ink }}" onClick="{{ setModeText }}">متن</button>
+      <button style="border:0;min-height:34px;border-radius:calc(17px * var(--t-rk,1));font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;background:{{ mScan.bg }};color:{{ mScan.ink }}" onClick="{{ setModeScan }}">تصویر صفحه</button>
+    </div>
+  </div>
+
+  <div style="flex:1;position:relative;overflow:hidden;touch-action:pan-y pinch-zoom" onPointerDown="{{ swipeStart }}" onPointerUp="{{ swipeEnd }}">
+    <div style="display:flex;height:100%;width:{{ trackW }};transform:translateX({{ trackX }});transition:transform .38s cubic-bezier(.2,.7,.2,1)">
+
+      <sc-if value="{{ isTextMode }}" hint-placeholder-val="{{ true }}">
+      <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="1">
+        <div class="scr" style="width:390px;flex:none;height:100%;overflow-y:auto;padding:6px 26px 14px;display:flex;flex-direction:column">
+          <sc-if value="{{ pg.first }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin:4px 0 16px">
+              <div style="font-size:12px;font-weight:700;color:{{ raccent }}">فصل {{ chNumFa }}</div>
+              <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:23px;line-height:1.7;font-weight:700">{{ chTitle }}</div>
+              <svg width="160" height="12" viewBox="0 0 160 12" fill="none" style="display:var(--t-orn,block)"><path d="M4 3 Q80 18 156 3" stroke="{{ rgold }}" stroke-width="1.2"></path></svg>
+            </div>
+          </sc-if>
+          <sc-for list="{{ pg.paras }}" as="p" hint-placeholder-count="3">
+            <div>
+              <sc-if value="{{ p.isAyah }}" hint-placeholder-val="{{ false }}">
+                <div style="margin:0 0 16px;padding:10px 12px;border-radius:calc(18px * var(--t-rk,1));text-align:center;background:{{ p.bg }};box-shadow:{{ p.ring }};cursor:pointer" onClick="{{ p.tap }}">
+                  <div style="font-family:'Amiri',serif;font-size:{{ p.fsAyah }}px;line-height:1.9;color:{{ raccent }};font-weight:700">﴿ {{ p.text }} ﴾</div>
+                  <div style="font-size:11px;color:{{ rmuted }}">{{ p.src }}</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ p.isProse }}" hint-placeholder-val="{{ true }}">
+                <p style="margin:0 0 14px;font-family:{{ readFont }};font-size:{{ p.fs }}px;line-height:2.05;text-align:justify;text-wrap:pretty;background:{{ p.bg }};box-shadow:{{ p.ring }};border-radius:calc(8px * var(--t-rk,1));cursor:pointer;padding:1px 6px" onClick="{{ p.tap }}">{{ p.text }}<sup style="font-size:11px;color:{{ raccent }};font-weight:700;margin-right:2px">{{ p.fn }}</sup></p>
+              </sc-if>
+            </div>
+          </sc-for>
+          <sc-if value="{{ pg.hasNotes }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:auto;padding-top:10px;display:flex;flex-direction:column;gap:4px">
+              <div style="width:96px;height:1px;background:{{ rrule }}"></div>
+              <sc-for list="{{ pg.notes }}" as="f" hint-placeholder-count="1">
+                <div style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.8;color:{{ rmuted }}"><b style="color:{{ raccent }}">{{ f.n }}.</b> {{ f.t }}</div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ isScanMode }}" hint-placeholder-val="{{ false }}">
+      <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="1">
+        <div class="scr" style="width:390px;flex:none;height:100%;overflow:auto;background:{{ rscanBg }}" onDoubleClick="{{ toggleZoom }}" onTouchStart="{{ pinchStart }}" onTouchMove="{{ pinchMove }}">
+          <div style="padding:16px 20px 24px;width:max-content;min-width:100%">
+            <div style="zoom:{{ zoom }}">
+              <div style="width:350px;height:520px;position:relative;background:radial-gradient(120% 90% at 50% 40%,oklch(0.96 0.025 85),oklch(0.90 0.04 80));box-shadow:0 1px 2px rgba(0,0,0,.18),0 6px 18px rgba(0,0,0,.12);padding:26px 26px 20px;display:flex;flex-direction:column;color:oklch(0.25 0.01 60);transform:rotate(-0.25deg)">
+                <div style="display:flex;justify-content:space-between;font-family:'Noto Naskh Arabic',serif;font-size:9px;padding-bottom:4px;border-bottom:0.8px solid oklch(0.35 0.01 60)"><span>تاریخ سیره نبوی / جلد ششم</span><span style="font-weight:700">{{ pg.nFa }}</span></div>
+                <sc-if value="{{ pg.first }}" hint-placeholder-val="{{ false }}">
+                  <div style="text-align:center;font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:700;margin:12px 0 2px">{{ chTitle }}</div>
+                </sc-if>
+                <div style="margin-top:8px;display:flex;flex-direction:column;gap:5px">
+                  <sc-for list="{{ pg.paras }}" as="p" hint-placeholder-count="3">
+                    <div style="font-family:{{ p.scanFont }};font-size:{{ p.scanFs }};line-height:1.95;text-align:{{ p.scanAlign }};font-weight:{{ p.scanWeight }};text-indent:{{ p.indent }}">{{ p.scanText }}<sup style="font-size:7px">{{ p.fn }}</sup></div>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ pg.hasNotes }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:auto;padding-top:6px;border-top:0.6px solid oklch(0.35 0.01 60);width:100%">
+                    <sc-for list="{{ pg.notes }}" as="f" hint-placeholder-count="1">
+                      <div style="font-family:'Noto Naskh Arabic',serif;font-size:8.5px;line-height:1.7">{{ f.n }}. {{ f.t }}</div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ curLocked }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;z-index:3;background:var(--t-bg,oklch(0.975 0.01 85));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 32px;gap:12px">
+        <div style="width:96px;height:118px;border-radius:var(--t-arch,130px 130px 22px 22px);border:1px solid var(--t-gold,oklch(0.70 0.06 75));background:var(--t-tint,oklch(0.955 0.02 85));display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:18px;gap:2px"><span style="font-size:11px;color:var(--t-mink,oklch(0.45 0.06 70))">از</span><span style="font-family:'Noto Naskh Arabic',serif;font-size:20px;font-weight:700">ص {{ lockPageFa }}</span></div>
+        <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:22px;line-height:1.6;font-weight:700;margin-top:6px">پایان بخش رایگان</div>
+        <div style="font-size:14px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">بخش رایگان جلد {{ volFa }} تا ص {{ freeLimitFa }} است. برای ادامه‌ی مطالعه، اشتراک تهیه کنید.</div>
+        <div style="font-size:12px;line-height:1.9;color:var(--color-neutral-600)">نشانک‌ها، یادداشت‌ها و هایلایت‌های شما محفوظ می‌مانند.</div>
+        <div style="width:100%;max-width:280px;display:flex;flex-direction:column;gap:8px;margin-top:6px"><button class="btn btn-primary" style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));font-family:inherit;font-size:15px;font-weight:700;justify-content:center;width:100%" onClick="{{ goPlans }}">خرید اشتراک</button></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isScanMode }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:14px;bottom:12px;display:flex;align-items:center;gap:2px;padding:3px;border-radius:calc(22px * var(--t-rk,1));background:var(--color-text);color:var(--t-on-ink,#fff);box-shadow:var(--shadow-md)">
+        <button style="border:0;background:none;color:inherit;width:40px;height:38px;border-radius:calc(19px * var(--t-rk,1));font-size:20px;cursor:pointer" style-hover="background:var(--color-neutral-800)" onClick="{{ zoomOut }}" aria-label="کوچک‌نمایی">−</button>
+        <button style="border:0;background:none;color:inherit;min-width:52px;height:38px;border-radius:calc(19px * var(--t-rk,1));font-family:inherit;font-size:12px;font-weight:700;cursor:pointer" onClick="{{ zoomReset }}">{{ zoomFa }}٪</button>
+        <button style="border:0;background:none;color:inherit;width:40px;height:38px;border-radius:calc(19px * var(--t-rk,1));font-size:20px;cursor:pointer" style-hover="background:var(--color-neutral-800)" onClick="{{ zoomIn }}" aria-label="بزرگ‌نمایی">+</button>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="flex:none;padding:8px 14px 16px;border-top:1px solid {{ rrule }};display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center">
+    <button style="border:1px solid {{ rrule }};background:none;color:inherit;font-family:inherit;font-size:12.5px;font-weight:700;min-height:42px;padding:0 14px;border-radius:calc(21px * var(--t-rk,1));cursor:pointer;opacity:{{ prevOp }}" onClick="{{ prevPage }}">› قبلی</button>
+    <div style="display:flex;flex-direction:column;gap:6px;align-items:stretch">
+      <div style="height:4px;border-radius:4px;background:{{ rtrack }}"><div style="height:4px;border-radius:4px;background:var(--color-accent);width:{{ readPctW }};transition:width .3s"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:{{ rmuted }}"><span>ص {{ pageFa }} از {{ volPagesFa }}</span><span>{{ readPctFa }}٪</span></div>
+    </div>
+    <button style="border:0;background:var(--color-accent);color:#fff;font-family:inherit;font-size:12.5px;font-weight:700;min-height:42px;padding:0 14px;border-radius:calc(21px * var(--t-rk,1));cursor:pointer;opacity:{{ nextOp }}" onClick="{{ nextPage }}">بعدی ‹</button>
+  </div>
+
+  <sc-if value="{{ showActions }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:14px;right:14px;bottom:82px;background:var(--color-text);color:var(--t-on-ink,#fff);border-radius:calc(26px * var(--t-rk,1));display:grid;grid-template-columns:repeat(3,1fr) 46px;padding:4px;box-shadow:var(--shadow-lg)">
+      <button style="border:0;background:none;color:inherit;font-family:inherit;font-size:13px;font-weight:700;min-height:46px;border-radius:calc(23px * var(--t-rk,1));cursor:pointer" style-hover="background:var(--color-neutral-800)" onClick="{{ toggleHl }}">{{ hlLabel }}</button>
+      <button style="border:0;background:none;color:inherit;font-family:inherit;font-size:13px;font-weight:700;min-height:46px;border-radius:calc(23px * var(--t-rk,1));cursor:pointer" style-hover="background:var(--color-neutral-800)" onClick="{{ openNote }}">یادداشت</button>
+      <button style="border:0;background:none;color:inherit;font-family:inherit;font-size:13px;font-weight:700;min-height:46px;border-radius:calc(23px * var(--t-rk,1));cursor:pointer" style-hover="background:var(--color-neutral-800)" onClick="{{ copyRef }}">کپی ارجاع</button>
+      <button style="border:0;background:none;color:var(--color-neutral-400);font-size:20px;border-radius:calc(23px * var(--t-rk,1));cursor:pointer" onClick="{{ clearActive }}" aria-label="بستن">×</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showSettings }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:color-mix(in srgb,var(--color-neutral-900) 40%,transparent)" onClick="{{ closeSheet }}"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;background:var(--t-bg,oklch(0.975 0.01 85));color:var(--color-text);border-radius:calc(30px * var(--t-rk,1)) calc(30px * var(--t-rk,1)) 0 0;padding:12px 22px 28px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-lg)">
+      <div style="width:44px;height:5px;border-radius:5px;background:var(--t-line,oklch(0.85 0.02 80));align-self:center"></div>
+      <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:18px;font-weight:700">تنظیمات خواندن</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12px;color:var(--color-neutral-700)">اندازه‌ی متن</div>
+        <div style="display:grid;grid-template-columns:56px minmax(0,1fr) 56px;align-items:center;border-radius:calc(26px * var(--t-rk,1));background:var(--t-surface,#fff);border:1px solid var(--t-line,oklch(0.88 0.02 80));padding:3px">
+          <button style="border:0;background:none;height:46px;border-radius:calc(23px * var(--t-rk,1));font-family:'Noto Naskh Arabic',serif;font-size:15px;cursor:pointer" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ fsDown }}">آ</button>
+          <div style="text-align:center;font-size:14px;font-weight:700">{{ fsFa }}</div>
+          <button style="border:0;background:none;height:46px;border-radius:calc(23px * var(--t-rk,1));font-family:'Noto Naskh Arabic',serif;font-size:24px;cursor:pointer" style-hover="background:var(--t-tint,oklch(0.955 0.02 85))" onClick="{{ fsUp }}">آ</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12px;color:var(--color-neutral-700)">قلم متن</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;padding:3px;border-radius:calc(26px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85))">
+          <button style="border:0;min-height:44px;border-radius:calc(22px * var(--t-rk,1));font-family:'Noto Naskh Arabic',serif;font-size:15px;font-weight:700;cursor:pointer;background:{{ naskhBg }};color:{{ naskhInk }}" onClick="{{ setNaskh }}">نسخ</button>
+          <button style="border:0;min-height:44px;border-radius:calc(22px * var(--t-rk,1));font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:700;cursor:pointer;background:{{ vazirBg }};color:{{ vazirInk }}" onClick="{{ setVazir }}">وزیرمتن</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12px;color:var(--color-neutral-700)">سبک</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;padding:3px;border-radius:calc(26px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85))">
+          <button style="border:0;min-height:44px;border-radius:calc(22px * var(--t-rk,1));font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;background:{{ thIsl.bg }};color:{{ thIsl.ink }}" onClick="{{ setIsl }}">ایرانی‌ـ‌اسلامی</button>
+          <button style="border:0;min-height:44px;border-radius:calc(22px * var(--t-rk,1));font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;background:{{ thCls.bg }};color:{{ thCls.ink }}" onClick="{{ setCls }}">کلاسیک</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12px;color:var(--color-neutral-700)">زمینه</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <button style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));border:2px solid {{ dayRing }};background:{{ dayPrevBg }};color:oklch(0.25 0.01 60);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer" onClick="{{ setDay }}">روز</button>
+          <button style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));border:2px solid {{ nightRing }};background:{{ nightPrevBg }};color:oklch(0.93 0.01 85);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer" onClick="{{ setNight }}">شب</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showNoteSheet }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:color-mix(in srgb,var(--color-neutral-900) 40%,transparent)" onClick="{{ closeSheet }}"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;background:var(--t-bg,oklch(0.975 0.01 85));color:var(--color-text);border-radius:calc(30px * var(--t-rk,1)) calc(30px * var(--t-rk,1)) 0 0;padding:12px 22px 26px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow-lg)">
+      <div style="width:44px;height:5px;border-radius:5px;background:var(--t-line,oklch(0.85 0.02 80));align-self:center"></div>
+      <div style="font-size:11px;font-weight:700;color:var(--color-accent-700)">یادداشت · ج {{ volFa }}، ص {{ activePageFa }}</div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:14px;line-height:1.9;color:var(--color-neutral-800);padding:10px 14px;border-radius:calc(16px * var(--t-rk,1));background:var(--t-tint2,oklch(0.945 0.02 85));max-height:86px;overflow:hidden">{{ activeQuote }}</div>
+      <textarea class="input" style="font-family:inherit;font-size:14px;line-height:1.8;min-height:96px;border-radius:calc(16px * var(--t-rk,1));padding:12px 14px;background:var(--t-surface,#fff)" placeholder="یادداشت خود را بنویسید…" value="{{ draft }}" onInput="{{ setDraft }}"></textarea>
+      <button class="btn btn-primary" style="min-height:50px;border-radius:calc(25px * var(--t-rk,1));font-family:inherit;font-size:15px" onClick="{{ saveNote }}">ذخیره‌ی یادداشت</button>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ showAppearance }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;z-index:7;background:color-mix(in srgb,var(--color-neutral-900) 40%,transparent)" onClick="{{ closeSheet }}"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;z-index:8;background:var(--t-bg,oklch(0.975 0.01 85));color:var(--color-text);border-radius:calc(30px * var(--t-rk,1)) calc(30px * var(--t-rk,1)) 0 0;padding:12px 22px 30px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-lg)">
+    <div style="width:44px;height:5px;border-radius:5px;background:var(--t-line,oklch(0.85 0.02 80));align-self:center"></div>
+    <div style="font-family:var(--t-head,'Noto Naskh Arabic',serif);font-size:19px;font-weight:700">نمایش</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:12px;color:var(--color-neutral-700)">سبک</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <button style="border:2px solid {{ islRing }};background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(20px * var(--t-rk,1));padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit" onClick="{{ setIsl }}">
+          <div style="height:78px;border-radius:calc(12px * var(--t-rk,1));background:oklch(0.975 0.01 85);display:flex;align-items:flex-end;justify-content:center;padding:0 16px"><div style="width:100%;height:64px;border-radius:40px 40px 6px 6px;border:1px solid oklch(0.70 0.06 75);background:oklch(0.955 0.02 85);display:flex;align-items:center;justify-content:center;font-family:'Noto Naskh Arabic',serif;font-size:13px;font-weight:700">سیره</div></div>
+          <div style="font-size:13px;font-weight:700">ایرانی‌ـ‌اسلامی</div>
+        </button>
+        <button style="border:2px solid {{ clsRing }};background:var(--t-surface,#fff);color:var(--color-text);border-radius:calc(20px * var(--t-rk,1));padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer;font-family:inherit" onClick="{{ setCls }}">
+          <div style="height:78px;border-radius:calc(12px * var(--t-rk,1));background:oklch(0.985 0.003 90);display:flex;align-items:flex-end;justify-content:center;padding:0 16px 7px"><div style="width:100%;height:56px;border-radius:4px;border:1px solid oklch(0.78 0.004 90);background:oklch(0.955 0.004 90);display:flex;align-items:center;justify-content:center;font-family:'Vazirmatn',sans-serif;font-size:13px;font-weight:800">سیره</div></div>
+          <div style="font-size:13px;font-weight:700">کلاسیک</div>
+        </button>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:12px;color:var(--color-neutral-700)">زمینه</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <button style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));border:2px solid {{ dayRing }};background:{{ dayPrevBg }};color:oklch(0.25 0.01 60);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer" onClick="{{ setDay }}">روز</button>
+        <button style="min-height:52px;border-radius:calc(26px * var(--t-rk,1));border:2px solid {{ nightRing }};background:{{ nightPrevBg }};color:oklch(0.93 0.01 85);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer" onClick="{{ setNight }}">شب</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;left:24px;right:24px;top:70px;background:var(--color-text);color:var(--t-on-ink,#fff);font-size:13px;font-weight:700;padding:12px 18px;border-radius:calc(20px * var(--t-rk,1));text-align:center;box-shadow:var(--shadow-md)">{{ toast }}</div>
+</sc-if>
+
+</div>
+</div>
+</div>
+<p class="dv-next">پیشنهاد برای ادامه: «حالت دوصفحه‌ای کنار هم برای دسکتاپ» · «اسکن واقعی صفحه‌ها را جایگزین کن» · «از هر بند متنی بتوان به همان جای تصویر صفحه رفت»</p>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;islamic&quot;,&quot;classic&quot;],&quot;default&quot;:&quot;islamic&quot;,&quot;tsType&quot;:&quot;'islamic' | 'classic'&quot;},&quot;night&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;subscription&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;none&quot;,&quot;active&quot;,&quot;expiring&quot;,&quot;lifetime&quot;],&quot;default&quot;:&quot;none&quot;,&quot;tsType&quot;:&quot;'none' | 'active' | 'expiring' | 'lifetime'&quot;}}">
+const FA = s => String(s).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const GOLD = 'var(--t-gold,oklch(0.70 0.06 75))';
+const VOLS = [['جزیرةالعرب پیش از اسلام',412,100],['از ولادت تا بعثت',388,100],['بعثت و دعوت نهانی',356,100],['دعوت آشکار در مکه',402,82],['سال‌های شِعب ابی‌طالب',344,64],['هجرت به مدینه',436,28],['غزوه‌ی بدر',398,0],['غزوه‌ی احد',420,0],['غزوه‌ی احزاب',376,0],['صلح حدیبیه',362,0],['خیبر و نامه به پادشاهان',390,0],['فتح مکه',410,0],['حنین و تبوک',384,0],['حجةالوداع و غدیر',368,0],['رحلت پیامبر (ص)',332,0]];
+const CH6 = [['مقدمه‌ی جلد',1],['پیمان‌های عقبه',9],['دارالندوه و توطئه‌ی قریش',58],['شب هجرت و لیلةالمبیت',112],['سه روز در غار ثور',141],['راه مدینه',176],['ورود به قبا',214],['بنای مسجد قبا',247],['ورود به یثرب',281],['پیمان برادری',322],['نخستین مسجد مدینه',371],['نمایه و منابع',419]];
+const chaptersOf = v => {
+  if (v === 1) return TOC1.map(e => [e.t, e.p]);
+  if (v === 6) return CH6;
+  const n = VOLS[v-1][1];
+  return [['مقدمه‌ی جلد',1],['زمینه‌های تاریخی',Math.round(n*.06)],['رویدادهای اصلی',Math.round(n*.24)],['گزارش راویان',Math.round(n*.45)],['پیامدها',Math.round(n*.68)],['اسناد و نامه‌ها',Math.round(n*.84)],['نمایه و منابع',n-14]];
+};
+const SPAN = [[-4000,570],[570,610],[610,613],[613,616],[616,619],[620,623],[623,624],[624,625],[625,627],[627,628],[628,629],[629,630],[630,631],[631,632],[632,756]];
+const D6 = [
+  {g:[620],q:[-2],s:[-2]},
+  {g:[621,'ژوئیه'],q:[-1,'ذی‌الحجه'],s:[-1,'تیر']},
+  {g:[622,'سپتامبر'],q:[1,'صفر'],s:[1,'شهریور']},
+  {g:[622,'سپتامبر'],q:[1,'ربیع‌الاول'],s:[1,'شهریور']},
+  {g:[622,'سپتامبر'],q:[1,'ربیع‌الاول'],s:[1,'شهریور']},
+  {g:[622,'سپتامبر'],q:[1,'ربیع‌الاول'],s:[1,'شهریور']},
+  {g:[622,'سپتامبر'],q:[1,'ربیع‌الاول'],s:[1,'مهر']},
+  {g:[622,'اکتبر'],q:[1,'ربیع‌الاول'],s:[1,'مهر']},
+  {g:[622,'اکتبر'],q:[1,'ربیع‌الاول'],s:[1,'مهر']},
+  {g:[623,'فوریه'],q:[1,'رمضان'],s:[1,'بهمن']},
+  {g:[623,'مارس'],q:[1,'شوال'],s:[1,'اسفند']},
+  null
+];
+const V1Y = [-4000,-2000,-500,300,450,570];
+const toCal = y => ({ g:[y], q:[y >= 622 ? Math.floor((y-622)*33/32)+1 : -Math.max(1, Math.round((622-y)*33/32))], s:[y >= 622 ? y-621 : -(622-y)] });
+const fmtY = (cal, n) => cal === 'g' ? FA(Math.abs(n)) + (n < 0 ? ' پ.م' : ' م') : FA(Math.abs(n)) + (n < 0 ? (cal === 'q' ? ' ق.ه' : ' ق.ه.ش') : cal === 'q' ? ' ه.ق' : ' ه.ش');
+const chapterDate = (v, i, len) => {
+  if (v === 6) return D6[i];
+  if (i === len-1) return null;
+  if (v === 1) return toCal(V1Y[i]);
+  const [a,b] = SPAN[v-1];
+  return toCal(Math.round(a + (b-a) * i / Math.max(1, len-2)));
+};
+const QM = ['محرم','صفر','ربیع‌الاول','ربیع‌الثانی','جمادی‌الاول','جمادی‌الثانی','رجب','شعبان','رمضان','شوال','ذی‌القعده','ذی‌الحجه'];
+const GM = ['ژانویه','فوریه','مارس','آوریل','مه','ژوئن','ژوئیه','اوت','سپتامبر','اکتبر','نوامبر','دسامبر'];
+const SM = ['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+const monthIdx = raw => { const s = raw.replace(/[\u200c\u200e\u200f\u064b-\u0652\sۀ]/g,'');
+  if (s.includes('محرم')) return 0; if (s.includes('صفر')) return 1;
+  if (s.includes('ربیع')) return s.includes('اول') ? 2 : 3; if (s.includes('جمادی')) return s.includes('اول') ? 4 : 5;
+  if (s.includes('رجب')) return 6; if (s.includes('شعبان')) return 7; if (s.includes('رمضان')) return 8; if (s.includes('شوال')) return 9;
+  if (s.includes('قعد')) return 10; if (s.includes('حج')) return 11; return null; };
+const TOC1 = `15 محرمِ 3000-/ مهاجرت هاجر و اسماعیل به مکه و بنای کعبه ...|13
+15 محرمِ 600-/ بنای کعبه و برخی مشخصات آن|18
+18 محرمِ 600-/ ابعاد و اندازه‌های کعبه|21
+20محرمِ 600-/ نخستین چراغ و تاریخ روشنکردنِ کعبه و اطراف آن|23
+20صفرِ600-/ ارکان کعبه|25
+21 صفرِ 600-/ روایتهایی که در فضیلت حَجَر الْاَسْوَد وارد شده است|26
+15ربیعالاولِ 600-/ مکه و مضافات آن|28
+29ربیع‌الاولِ 600-/ روایت‏های مرتبط با تبار و معنای قریش و ...|29
+21 ربیع‌الثانیِ 600-/ جدول فاصلۀ اماکن نزدیک مکه براساسِ معالم ‌الأثیرۀ شرّاب|42
+29ربیع‌الثانیِ 600-/ وجه‌تسمیۀ یمن، شام، حجاز، عراق و سامراء|48
+29ربیع‌الثانیِ 600-/ پادشاهی عَمْرو ذوالْاَذْعار|49
+15 شعبان 600- /  کشته‌شدنِ حَسّان بْن تُبَّع به‌دستِ برادرش درنتیجۀ توطئۀ قبایل یمن و حِمْیریان|50
+15 شعبان 600- / پادشاهیِ عَمْرو بْن تُبَّع، بر یمن پس از کشتن برادرش|51
+15 شعبان 550- /  پشیمانیِ عَمْرو بْن تُبَّع از کشتن برادرش حَسّان و ...|51
+15 شعبان 500- /  پادشاهیِ تُبّان اَسَعْد ابوکَرِب (تُبَّع حِمْیری) و هجوم به یثرب و انصراف از تخریب شهر ...|52
+15 شعبان 400- / بازگشت (تُبَّع) تُبّان ابو‎کرِب (اَسْعَد ابو‏کرِب) به یمن و ...|59
+15 شعبان 350- / ویران‌کردنِ بتخانۀ رِئام در یمن به‌ دستِ دو حَبْر یهودی با ...|60
+15 شعبانِ 300- / افسانه فَیْمیون راهب و پیروی صالِح از وی و روایت اسارت وی و ...|61
+15محرمِ 290- / ریاست فِهْر بْن مالِک، جدّ چهارمِ قُصَیّ بْن کِلاب بر مکه|65
+15 شعبان 250- / استیلای 27سالۀ لِخُنَیْعه (ذوشَناتِر) بر یمن|66
+15محرمِ 240-/ نسب کِلاب بْن مُرّه و ازدواج او با فاطمه دختر سَعْد بْن ‌سَیَل|67
+6ذیحجۀ 225-/ درگذشت کِلاب بْن مُرّه، جدّ هفتمِ پیامبر|68
+5محرمِ 224-/ فرزندانِ کِلاب بْن مُرّه و مادران آنان|69
+15شعبانِ 223-/ ازدواج فاطمه، مادرِ قُصَیّ بْن کلاب و عزیمت به شامات و دورافتادنِ قُصَی از مکه|71
+15 ذیحجۀ 222-/ تولد رِزاح بْن رَبیعه برادر ناتنیِ قُصَی در سرزمین قُضاعه|72
+19 رجبِ 210-/ غلبۀ قُصَیّ بْن کِلاب در مسابقۀ تیراندازی و آگاهی از اصل و نسبِ خویش|73
+20 رجبِ 210-/ تصمیم قُصَیّ بْن کِلاب برای بازگشت از میان  بَنی‏قُضاعه|74
+15 شعبانِ 210-/ سیلهای مکه در زمان حکومت خُزاعه و کشیدن حصار در اطراف کعبه|75
+20 شوالِ 210 -/ بازگشت قُصَیّ بْن کِلاب از میان بَنی‏قُضاعه به مکه|76
+20 ذیقعدۀ 210-/ رسیدن قُصَیّ بْن کِلاب به زادگاه خویش و تصمیم به زندگی در مکه در کنار قریش|76
+15 رجبِ 205-/ ازدواج قُصَیّ بْن کِلاب با حُبَیّ دختر حُلَیْل بْن حَبَشیّه، حاکم خُزاعیِ مکه|78
+25 شعبانِ 202-/ برنامۀ قُصَیّ بْن کِلاب برای افزایش اقتدار خود|79
+25 جمادی‌الثانیِ 201-/ درگذشت حُلَیل بْن حَبَشیّه و تلاش قُصَی برای رسیدن به اقتدار و تصدیِ زعامت مکه|80
+2 رجبِ 201-/ گرفتن پردهداری کعبه از ابوغُبْشان توسط قُصَیّ بْن کِلاب|81
+5 رجبِ 201-/ ماجرای صوفه و غلبۀ غَوْث بْن مُرّ بر امر حاجیان و انتقال آن به بَنی‏سَعْد بْن زَید بْن مَناة|82
+20 شوالِ 201-/ درخواست قُصَی از رِزاح بْن رَبیعه، برادر ناتنیِ خود علیه خُزاعه و بَنی‏بَکْر|84
+25 ذیقعدۀ 201-/ رسیدن رِزاح بْن رَبیعه و برادران ناتنیِ قُصَی، حُنّ، محمود و جُلْهُمه به مکه|85
+2 ذیحجۀ 201-/ اقدام قُصَیّ بْن کِلاب برای جنگ با صوفه|86
+15 محرمِ 200-/ جداییِ خُزاعه و بَنی‌بَکْر از قُصَیّ بْن کِلاب پس از پیروزی وی بر صوفه و داوری یَعْمُر بْن عَوْف|87
+15 صفرِ 200-/ ‌بازگشت رِزاح و برادرانش و سیصد نفر همراهان او از مکه به سرزمینِ قُضاعه|88
+16 شوالِ 198-/ تولد عَبْدالدّار، نخستین پسرِ قُصَیّ بْن کِلاب|93
+25 شعبانِ 190-/ فرزندانِ قُصَیّ بْن کِلاب و مادر آنان|93
+25 شعبانِ 190-/ مراحل سهگانۀ تسلط خُزاعه بر کعبه و حرم تا تصدیِ قُصَیّ بْن کِلاب|95
+15 شعبانِ 181-/ داوران جامعۀ عرب|96
+ربیع‏الثانی180-/ فرزندان عَبْدمَناف پسر قُصَیّ بْن کِلاب، نیای رسول خدا و تفاوت گزارش‌ها در شمار آنان|98
+15 شعبانِ 179-/ کیش‌های عرب و رواج بت‌پرستی در مکه ازسوی عَمْرو بْن لُحَیّ با آوردن هُبَل از شامات|108
+15 شعبانِ 179-/ بتهای قبایل عرب و رفتار عرب با آنان|113
+17 شعبانِ 178-/ اهمیت شعر و شعرا در میان اعراب|125
+17 شعبان 175-/ بازارهای شبهجزیره و زمان تشکیلِ هریک از آن‌ها|129
+محرمِ 173- / تولد هاشِم بْن عَبْدمَناف|132
+15ذیحجۀ 160-/ استمرار پیوند رَزّاح با قُصَیّ بْن کِلاب پس از بازگشت به شامات و امارت قُصَی در مکه|133
+14 ذیحجۀ 157-/ فرزندان عَبْدالدّار و نسل وی|133
+15 ذیحجۀ 157-/ سفارشهای قُصَی در هنگام پیری به فرزندش عَبْدالدّار|136
+15 ذیحجۀ 157-/ دارالنَّدْوه از روزگار قُصَیّ بْن کِلاب تا هارونالرشید|137
+15 شعبانِ 150-/ عَبْدالله بْن ثامِر و دعوت به مسیحیت در نَجْران|139
+20 جمادی‌الاولِ 148-/ پادشاهیِ ذونُواس به عنوان آخرین شاه حِمْیَری در یمن|141
+16 ذیحجۀ 147-/ درگذشت قُصَیّ بْن کِلاب و دفن وی در حَجون و اقدامات او|142
+17 ذیحجۀ 147-/ دو روایت مختلف دربارۀ جانشینیِ قُصَیّ بْن کلاب پس از درگذشت وی|143
+18 ذیحجۀ 147-/ درخواست خُزاعه و بَنی‌حارِث بْن عَبْدمَناة بْن کِنانه از عَبْدمَناف برای اتحاد|145
+15 شعبانِ 143-/ سرپرستیِ هاشِم بر سِقایَت و رِفادَت و سنّت‌هایی که برای حُجّاج گذاشت|146
+15 شعبانِ 142-/ هاشِم و اقتدار وی در میان قریش و برقرارکردنِ دو سفر زمستانی و تابستانی|147
+15 شعبانِ 142-/ تفسیر چند مفسر از سورۀ قریش|150
+15 شعبانِ 142-/ یادداشت نویسنده: سروَریِ هاشم در مکه و حسادت عَبْدشَمْس و حکمیّت کاهنِ خُزاعی|159
+15 شوالِ 140-/ قتل‌عامِ مسیحیانِ نَجْران ازسوی ذونُواس|161
+15 شوالِ 140-/ تفسیر چند مفسر از «أَصْحَابُ الْأُخْدُودِ»|162
+16 ذیحجۀ 134-/ بُطون قریش در عصر جاهلی|179
+17 رجبِ 132-/ گزارش اَسْوَد بْن کَلْبی دربارۀ هاشِم|181
+19 رجبِ 131-/ ازدواج هاشِم بْن عَبْدمَناف با سَلْمَى، دختر عَمْرو بْن نَجّار|183
+22 ربیع‌الثانیِ 125-/ درگذشت هاشِم در غزۀ شام و دفن وی در آنجا|184
+15ذیقعدۀ 125-/ فرزندان هاشِم بْن عَبْدمَناف|186
+15ذیقعدۀ 125-/ تصدی سِقایَت و رِفادَت ازسوی نَوْفَل پس از درگذشت هاشِم|188
+3 جمادی‌الاولِ 124-/ درگذشتِ نَوْفَل بْن عَبْدمَناف بْن هاشِم در سَلْمان در مسیرِ عراق|189
+4 جمادی‌الاولِ 124-/ تصدی سِقایَت و رِفادَت ازسوی مُطَّلِب بْن عَبْدمَناف|190
+5 جمادی‌الاولِ 124-/ تداوم قراردادهای تجاریِ دورانِ هاشم و چگونگیِ شکلگیریِ ایلاف اَرْبَعه|191
+1 جمادی‌الاولِ 119-/ آگاهیِ مُطَّلِب از وجود شَیْبه پسر هاشِم در یثرب|192
+15 شعبانِ 110-/ اختلاف عَبْدالْمُطَّلِب و عمویش نَوْفَل و درخواست یاری وی از بَنینَجّار در یثرب|196
+15 شعبانِ 109-/ سفر مُطَّلِب به یمن و گذاردن عَبْدالْمُطَّلِب به‌جای خود و درگذشت وی در آنجا|197
+15 شوالِ 109-/ ولایت و سرپرستیِ عَبْدالْمُطَّلِب بْن هاشِم بر سِقایَت و رِفادَت|198
+20 ربیع‌الثانیِ 100-/ نخستین خواب عَبْدالْمُطَّلِب برای حفر چاه زمزم (طَیْبه)|201
+21 ربیع‌الثانیِ 100-/ خواب دوم عَبْدالْمُطَّلِب برای حفر زمزم (بَرَّة)|202
+22 ربیع‌الثانیِ 100-/ خواب سومِ عَبْدالْمُطَّلِب برای یافتن چاه زمزم (مَضْنونه)|203
+23 ربیع‌الثانیِ 100-/ چهارمین خواب عَبْدالْمُطَّلِب برای حفر زمزم و دانستنِ جای دقیقِ آن|204
+25 ربیع‌الثانیِ 100-/ اقدام عَبْدالْمُطَّلِب برای کندن زمزم و تمسخر قریش|205
+25 ربیع الثانی100-/ نذر عَبْدالْمُطَّلِب در هنگام حفر چاه زمزم|206
+27 ربیع‌الثانیِ 100-/ پیداشدنِ زمزم، سه روز پس از حفر چاه و تکبیر عَبْدالْمُطَّلِب|208
+28 ربیع‌الثانیِ 100-/ عزیمت عَبْدالْمُطَّلِب و قریش به‌سوی شام برای حکمیّت کاهنه|209
+28 ربیع‌الثانیِ 100-/ روایتی دیگر دربارۀ حفر زمزم ازسوی عَبْدالْمُطَّلِب و پسرش حارِث|211
+1 جمادی‌الاولِ 100-/ شرح نام‌های زمزم|213
+2 جمادی‌الثانیِ 100-/ اِساف و نائِله و سرگذشت آن‌ها|214
+8 جمادی‌الثانیِ 100-/ فهرستی از چاه‌های موجود در مکه پیش از حفر زمزم و کسانی که آن‌ها را حفر کردند|215
+8 جمادی‌الثانیِ 100-/ جدول چاه‌های مکه در عصرِ پیش از اسلام|219
+9 جمادی‌الثانیِ 100-/ عمق و مشخصات چاه زمزم|220
+9 جمادی‌الثانیِ 100-/ چاه‌هایی که پس از چاه زمزم، در عصر جاهلی کنده شد|221
+10 جمادی‌الثانیِ 100-/ آمیختن شیر و کشمش به آب زمزم|222
+15شعبانِ 100-/ تقسیم‌بندی محلات و خانههای مکیان|223
+20 رمضان 100-/ عزیمت عَبْدالْمُطَّلِب به طائف و حفر چاه ذوالْهَرِم پس از یافتن زمزم|224
+2 محرمِ 81-/ تولد ابوطالِب، عموی پیامبر|225
+3 محرمِ 81-/ اختلاف دربارۀ نام ابوطالب|225
+20 محرمِ 80-/ فرار یکی از مسیحیان یمن به نامِ دَوْسِ ذوثَعْلَبان|226
+21 شعبانِ 80-/ پایان حکومت 68 سالۀ ذونُواس بر یمن|227
+2 ذیقعدۀ 80-/ تولد عَبْدالله بْن عَبْدالْمُطَّلِب، پدر رسول خدا|228
+25 محرمِ 75-/ کشته‌شدنِ اَرْیاط به‌دستِ ابرهه و تسلط اَبْرَهۀ اَشْرَم بر یمن|229
+15 جمادی‌الثانیِ 75-/ خشم نجاشی از کشته‌شدنِ اَرْیاط|230
+15 جمادی‌الثانیِ 75-/ فهرست مبالغه‏آمیز یعقوبی از سال‏های سلطنت و وقایع زمان شاهان یمن|231
+15 رجبِ 75-/ آغاز بنای قُلَّیْس در صنعاء توسط اَبْرَهه و نگارش نامه به نجاشی اَبْرَهه|237
+10 شعبانِ 75-/ ازدواج اَبْرَهه با مادر مَعْدی‏کَرِب معروف به ابومُرّه سَیف بْن ذی‏یَزَنِ حِمْیَری|239
+25 شعبانِ 75-/ فرار ابومُرّۀ ذی‏یَزَن از نزد اَبْرَهه به روم پس از  تصاحب همسرش ریحانه و ازدواج اَبْرَهه با وی|240
+15 محرمِ 74-/ رسیدن ابومُرّۀ ذی‏یَزَن به حیره|240
+20 جمادی‌الثانیِ 74-/ دیدار ابومُرّۀ ذی‏یَزَنِ حِمْیری با انوشیروان، پادشاه ایران|241
+15 محرمِ 70-/ اختلاف بر سرِ چاه ذُوالْهَرِمِ و داوری‌بردن نزد سَطیحِ غَسّانی|242
+15 محرمِ 70-/ رونق و شکوفاییِ کلیسای قُلَّیْس اَبْرَهه|244
+15 ربیع‌الاولِ 68-/ نخستین کسی که تَحَنُّث کرد|245
+15 محرمِ 64-/ مرگ ابومُرَّة فیاض، پدر سَیْف بْن ذی‏یَزَن، در ایران، پس از دَه سال انتظار|246`.split('\n').map(l => { const m = l.match(/^\s*(\d+)?\s*([^\d]+?)\s*(\d+)\s*-\s*\/\s*(.+?)\s*\|\s*(\d+)\s*$/); return m && { d: m[1] ? +m[1] : null, m: monthIdx(m[2]), y: -(+m[3]), t: m[4].replace(/\s+/g,' '), p: +m[5] }; }).filter(Boolean);
+const D6L = [null,{d:12,m:11,y:-1},{d:26,m:1,y:1},{d:1,m:2,y:1},{d:2,m:2,y:1},{d:4,m:2,y:1},{d:12,m:2,y:1},{d:13,m:2,y:1},{d:16,m:2,y:1},{d:1,m:8,y:1},{d:1,m:9,y:1},null];
+const ceToQ = y => y >= 622 ? Math.floor((y-622)*33/32)+1 : -Math.max(1, Math.round((622-y)*33/32));
+const tocOf = v => {
+  const chs = chaptersOf(v);
+  if (v === 1) return TOC1.map(e => ({ ...e }));
+  if (v === 6) return chs.map((c,i) => ({ t:c[0], p:c[1], ...(D6L[i] || { y:null }) }));
+  const [a,b] = SPAN[v-1];
+  return chs.map((c,i) => ({ t:c[0], p:c[1], d:null, m:null, y: i === chs.length-1 ? null : ceToQ(Math.round(a + (b-a) * i / Math.max(1, chs.length-2))) }));
+};
+const EPOCH = 1948439.5;
+const lunarJD = (y,m,d) => EPOCH + Math.floor((y < 0 ? y : y-1) * 354.36667) + Math.round((m == null ? 6 : m) * 29.5306) + (d ? d-1 : 14);
+const jdToJulian = jd => { const Z = Math.floor(jd+0.5), B = Z+1524, C = Math.floor((B-122.1)/365.25), D = Math.floor(365.25*C), E = Math.floor((B-D)/30.6001);
+  const day = B - D - Math.floor(30.6001*E), mo = E < 14 ? E-1 : E-13; return { y: mo > 2 ? C-4716 : C-4715, m: mo-1, d: day }; };
+const jdToSH = jd => { const days = jd - 1948320.5, k = Math.floor(days/365.2422), doy = Math.floor(days - Math.floor(k*365.2422));
+  let m, d; if (doy < 186) { m = Math.floor(doy/31); d = doy%31+1; } else { const r = doy-186; m = Math.min(11, 6+Math.floor(r/30)); d = r - (m-6)*30 + 1; }
+  return { y: k >= 0 ? k+1 : k, m, d }; };
+const yQ = n => FA(Math.abs(n)) + (n < 0 ? ' ق.ه' : ' ه.ق');
+const conv = (e, cal) => {
+  if (e.y == null) return null;
+  if (cal === 'q') return { y: yQ(e.y), d: e.d ? FA(e.d) : '', m: e.m != null ? QM[e.m] : '' };
+  const jd = lunarJD(e.y, e.m, e.d), exact = e.m != null;
+  if (cal === 'g') { const j = jdToJulian(jd); return { y: j.y <= 0 ? FA(1-j.y)+' پ.م' : FA(j.y)+' م', d: exact && e.d ? FA(j.d) : '', m: exact ? GM[j.m] : '' }; }
+  const h = jdToSH(jd); return { y: h.y < 0 ? FA(-h.y)+' ق.ه.ش' : FA(h.y)+' ه.ش', d: exact && e.d ? FA(h.d) : '', m: exact ? SM[h.m] : '' };
+};
+const corpusAll = () => CORPUS.concat(ALLP.map(p => ({ v:6, p:124+p.off, t:p.t })));
+const HAR = /[\u064B-\u065F\u0670\u0640]/;
+const UNI = {'ي':'ی','ى':'ی','ئ':'ی','ك':'ک','ة':'ه','ۀ':'ه','أ':'ا','إ':'ا','آ':'ا','ؤ':'و','\u200c':' '};
+const normMap = (str, o) => { let n = ''; const map = [];
+  for (let i = 0; i < str.length; i++) { let c = str[i]; if (o.harakat && HAR.test(c)) continue; if (o.unify && UNI[c]) c = UNI[c]; n += c; map.push(i); }
+  return { n, map }; };
+const chapIdx = (v, p) => { let k = 0; chaptersOf(v).forEach((c,i) => { if (c[1] <= p) k = i; }); return k; };
+const runSearch = s => {
+  const o = { harakat: s.harakat, unify: s.unify };
+  const q = normMap(s.query.trim(), o).n.replace(/\s+/g, ' ');
+  if (!q) return null;
+  const terms = s.smode === 'exact' ? [q] : q.split(' ').filter(Boolean);
+  const ex = normMap(s.excl.trim(), o).n.split(/\s+/).filter(Boolean);
+  const vA = Math.min(s.vFrom, s.vTo), vB = Math.max(s.vFrom, s.vTo);
+  const pool = [];
+  if (s.src.text) corpusAll().forEach(c => pool.push({ ...c, kind:'text' }));
+  if (s.src.notes) s.notes.forEach(x => pool.push({ v:x.v, p:x.p, t: x.text + ' — «' + x.quote + '»', kind:'note' }));
+  if (s.src.hl) ALLP.filter(p => s.hl[p.id]).forEach(p => pool.push({ v:6, p:124+p.off, t:p.t, kind:'hl' }));
+  const out = [];
+  pool.forEach(c => {
+    if (c.v < vA || c.v > vB) return;
+    const ci = chapIdx(c.v, c.p);
+    if (s.chap !== 'all' && vA === vB && ci !== +s.chap) return;
+    const { n, map } = normMap(c.t, o);
+    if (ex.some(w => n.includes(w))) return;
+    const found = terms.map(t => { const r = []; let i = n.indexOf(t); while (i >= 0) { r.push([i, i + t.length]); i = n.indexOf(t, i + t.length); } return r; });
+    const hitT = found.filter(r => r.length).length;
+    if (s.smode === 'any' ? hitT === 0 : hitT < terms.length) return;
+    const ranges = found.flat().map(([x,y]) => { let e = map[y-1] + 1; while (e < c.t.length && HAR.test(c.t[e])) e++; return [map[x], e]; }).sort((m,k) => m[0] - k[0]);
+    const segs = []; let cur = 0;
+    ranges.forEach(([x,y]) => { if (x < cur) return; if (x > cur) segs.push({ t:c.t.slice(cur,x), m:false }); segs.push({ t:c.t.slice(x,y), m:true }); cur = y; });
+    if (cur < c.t.length) segs.push({ t:c.t.slice(cur), m:false });
+    const score = found.reduce((acc,r) => acc + r.length, 0) * 10 + (n.includes(q) ? 15 : 0) + hitT * 5 + (c.kind === 'text' ? 0 : 3) - Math.min(5, (ranges[0] ? ranges[0][0] : 0) / 40);
+    out.push({ ...c, ci, segs, score });
+  });
+  out.sort(s.sort === 'rel' ? (x,y) => y.score - x.score : (x,y) => x.v - y.v || x.p - y.p);
+  return out;
+};
+const FAQS = [
+  { id:'f1', q:'بخش رایگان شامل چه قسمتی از هر جلد است؟', a:'بخش ابتدایی هر جلد بدون اشتراک خواندنی است. نشانک، یادداشت، هایلایت و جستجو هم برای همه فعال است و با خرید اشتراک، همه‌ی صفحه‌ها باز می‌شوند.' },
+  { id:'f2', q:'اشتراک را چطور تمدید کنم؟', a:'از «پروفایل › اشتراک» دکمه‌ی «تمدید یا تغییر اشتراک» را بزنید، پلن دلخواه را انتخاب کنید و پرداخت را در درگاه بانک انجام دهید.' },
+  { id:'f3', q:'تاریخ‌های فهرست به کدام تقویم است؟', a:'تاریخ‌های کتاب به قمری ثبت شده‌اند. در فهرست هر جلد می‌توانید آن‌ها را به شمسی یا میلادی هم ببینید؛ برگردان تقریبی است.' },
+  { id:'f4', q:'چطور به صفحه‌ی دقیق کتاب ارجاع دهم؟', a:'در صفحه‌ی خواندن روی بند موردنظر بزنید و «کپی ارجاع» را انتخاب کنید. ارجاع به شکل «جلد، صفحه» کپی می‌شود.' },
+  { id:'u1', by:'زهرا م.', q:'آیا شماره‌ی صفحه‌ها با نسخه‌ی چاپی یکی است؟', a:'بله. شماره‌ی صفحه در متن و در تصویر صفحه با نسخه‌ی چاپی یکسان است تا ارجاع‌ها معتبر بمانند.' },
+  { id:'u2', by:null, q:'جستجو اعراب و حرکات را هم در نظر می‌گیرد؟', a:'به‌طور پیش‌فرض نه؛ «قُصَيّ» و «قصی» یکی شمرده می‌شوند. در جستجوی پیشرفته می‌توانید این تنظیم را خاموش کنید.' },
+  { id:'u3', by:'علی رضایی', q:'پرداختم ناموفق بود ولی مبلغ از حسابم کم شد؛ چه کنم؟', a:'مبلغ تراکنش‌های ناموفق حداکثر تا ۷۲ ساعت به حساب بازمی‌گردد. اگر بازنگشت، با کد پیگیری از بخش «تماس با ما» پیام بدهید.' }
+];
+const PLANS = [
+  {id:'m1', name:'ماهانه', dur:'۱ ماه', days:30, price:180000, end:'۸ آذر ۱۴۰۵'},
+  {id:'m3', name:'سه‌ماهه', dur:'۳ ماه', days:90, price:490000, end:'۸ بهمن ۱۴۰۵'},
+  {id:'m6', name:'شش‌ماهه', dur:'۶ ماه', days:182, price:890000, end:'۸ اردیبهشت ۱۴۰۶'},
+  {id:'y1', name:'یک‌ساله', dur:'۱۲ ماه', days:365, price:1480000, end:'۸ آبان ۱۴۰۶', badge:'پیشنهاد ما'},
+  {id:'life', name:'مادام‌العمر', dur:'بدون محدودیت زمانی', days:null, price:4500000, end:'نامحدود', badge:'یک‌بار پرداخت'}
+];
+const TODAY = '۸ آبان ۱۴۰۵';
+const fmtT = n => FA(Math.round(n).toLocaleString('en-US')).replace(/,/g,'٬');
+const freeLimit = v => v === 6 ? 125 : Math.max(20, Math.round(VOLS[v-1][1]*0.1));
+const PAY0 = [{d:'۱۴۰۴/۰۷/۰۱',desc:'خرید اشتراک سالانه',amt:1200000,ok:true},{d:'۱۴۰۴/۰۶/۳۰',desc:'خرید اشتراک سالانه',amt:1200000,ok:false},{d:'۱۴۰۴/۰۴/۰۱',desc:'خرید اشتراک سه‌ماهه',amt:390000,ok:true}];
+const PAGES = [
+  { paras:[
+    {id:'a',fn:'۱',t:'سران قریش چون دیدند یاران پیامبر (ص) گروه‌گروه به یثرب می‌روند، در دارالندوه گرد آمدند تا درباره‌ی او تصمیمی قطعی بگیرند. پیشنهادهای گوناگونی مطرح شد: زندانی‌کردن، تبعید، و سرانجام کشتن.'},
+    {id:'b',t:'رأی نهایی آن بود که از هر قبیله جوانی برگزیده شود تا همه با هم بر او شمشیر زنند؛ بدین‌سان خون او میان قبایل پخش می‌شد و بنی‌هاشم توان خون‌خواهی از همه را نمی‌یافتند.'},
+    {id:'c',ayah:true,src:'انفال، ۳۰',t:'وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ أَوْ يُخْرِجُوكَ'}],
+    notes:[{n:'۱',t:'ابن هشام، السیرة النبویة، ج ۲؛ طبری، تاریخ الرسل و الملوک، ج ۲.'}] },
+  { paras:[
+    {id:'d',fn:'۱',t:'در همان شب، پیامبر (ص) از نقشه آگاه شد و به علی (ع) فرمود در بستر او بخوابد و بُرد سبز حضرمی او را بر خود بکشد. علی (ع) پذیرفت و آن شب را، که بعدها «لیلةالمبیت» نام گرفت، در جای پیامبر به صبح رساند.'},
+    {id:'e',t:'مأموران قریش تا سحر خانه را در محاصره داشتند. چون به درون ریختند و علی (ع) را در بستر یافتند، دانستند که نقشه‌شان نقش بر آب شده است.'},
+    {id:'f',ayah:true,src:'بقره، ۲۰۷',t:'وَمِنَ النَّاسِ مَن يَشْرِي نَفْسَهُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ'}],
+    notes:[{n:'۱',t:'شیخ مفید، الارشاد، ج ۱.'}] },
+  { paras:[
+    {id:'g',fn:'۱',t:'بسیاری از مفسران شیعه و شماری از مفسران اهل سنت این آیه را درباره‌ی فداکاری علی (ع) در آن شب دانسته‌اند.'},
+    {id:'h',t:'پیامبر (ص) همراه ابوبکر شبانه از مکه بیرون رفت و به‌جای راه شمال، رو به جنوب نهاد و در غار ثور پنهان شد تا جست‌وجوگران را گمراه کند.'},
+    {id:'i',t:'قریش برای یافتن او جایزه‌ای صد شتری تعیین کرد و جست‌وجوگران همه‌ی راه‌های بیرون مکه را زیر نظر گرفتند.'}],
+    notes:[{n:'۱',t:'از جمله ثعلبی و فخر رازی در تفسیر همین آیه.'}] },
+  { paras:[
+    {id:'j',t:'پیامبر (ص) و ابوبکر سه شبانه‌روز در غار ثور ماندند. عبدالله پسر ابوبکر شب‌ها خبرهای مکه را می‌آورد و عامر بن فُهَیره گوسفندان را از آن سو می‌گذراند تا ردّ پاها پوشیده بماند.'},
+    {id:'k',t:'جست‌وجوگران تا دهانه‌ی غار آمدند، اما تار عنکبوت و لانه‌ی کبوتر بر دهانه‌ی غار، آنان را از درون‌رفتن بازداشت.'},
+    {id:'l',ayah:true,src:'توبه، ۴۰',t:'إِذْ أَخْرَجَهُ الَّذِينَ كَفَرُوا ثَانِيَ اثْنَيْنِ إِذْ هُمَا فِي الْغَارِ'}],
+    notes:[] }
+];
+const ALLP = PAGES.flatMap((pg,i) => pg.paras.map(p => ({...p, off:i})));
+const CORPUS = [
+  {v:1,p:18,t:'بنای کعبه به دست ابراهیم و اسماعیل (ع) انجام شد و هاجر پیش‌تر با فرزندش به مکه آمده بود.'},
+  {v:1,p:73,t:'قُصَيّ بن كِلاب در مسابقه‌ی تیراندازی پیروز شد و از اصل و نسب خویش آگاه گشت.'},
+  {v:1,p:142,t:'قصی بن کلاب درگذشت و در حجون به خاک سپرده شد؛ دارالندوه از یادگارهای اوست.'},
+  {v:1,p:201,t:'عبدالمطلب در خواب فرمان یافت که چاه زمزم را حفر کند.'},
+  {v:1,p:208,t:'زمزم سه روز پس از آغاز حفر پیدا شد و عبدالمطلب تکبیر گفت.'},
+  {v:2,p:40,t:'ولادت پیامبر (ص) در عام‌الفیل و در ماه ربیع‌الاول در مکه روی داد.'},
+  {v:3,p:12,t:'نخستین آیات در غار حرا بر پیامبر (ص) نازل شد.'},
+  {v:7,p:150,t:'در غزوه‌ی بدر سپاه اندک مسلمانان بر قریش پیروز شد.'},
+  {v:9,p:88,t:'در غزوه‌ی احزاب به پیشنهاد سلمان فارسی گرداگرد مدینه خندق کندند.'},
+  {v:14,p:205,t:'در غدیر خم پیامبر (ص) خطبه خواند و فرمود: «مَن كُنتُ مَولاهُ فَهذا عَليٌّ مَولاه».'},
+  {v:6,p:126,t:'پیامبر (ص) همراه ابوبکر شبانه از مکه بیرون رفت و در غار ثور پنهان شد تا جست‌وجوگران را گمراه کند.'},
+  {v:6,p:127,t:'پیامبر (ص) و ابوبکر سه شبانه‌روز در غار ثور ماندند و عبدالله پسر ابوبکر خبرهای مکه را برایشان می‌آورد.'},
+  {v:6,p:144,t:'جست‌وجوگران قریش تا دهانه‌ی غار ثور آمدند، اما تار عنکبوت بر دهانه‌ی غار آنان را بازگرداند.'},
+  {v:6,p:176,t:'راهنمای سفر هجرت، عبدالله بن اُرَیقِط، آنان را از راه ساحلی به سوی یثرب برد.'},
+  {v:6,p:214,t:'خبر هجرت به یثرب رسیده بود و مردم هر روز تا ظهر بیرون شهر به انتظار می‌ایستادند.'},
+  {v:4,p:301,t:'نخستین هجرت مسلمانان به حبشه بود؛ گروهی که بعدها جعفر بن ابی‌طالب نیز به آنان پیوست.'},
+  {v:5,p:322,t:'پس از درگذشت ابوطالب و خدیجه (س)، فشار قریش فزونی گرفت و اندیشه‌ی هجرت جدی‌تر شد.'},
+  {v:5,p:338,t:'سفر به طائف را برخی مورخان نخستین کوشش پیامبر (ص) برای یافتن پناهگاهی بیرون از مکه دانسته‌اند.'},
+  {v:12,p:58,t:'هشت سال پس از هجرت، پیامبر (ص) با سپاهی بزرگ به مکه بازگشت.'},
+  {v:14,p:12,t:'حجةالوداع در سال دهم هجرت، تنها حج پیامبر (ص) پس از هجرت بود.'},
+  {v:14,p:201,t:'در بازگشت از حجةالوداع، کاروان در غدیر خم فرود آمد.'}
+];
+
+class Component extends DCLogic {
+  state = { screen:'home', prev:'home', vol:6, volTab:'toc', cal:'q', theme: this.props.theme ?? 'islamic',
+    sub: ({ active: { name:'اشتراک یک‌ساله', start:'۱ مهر ۱۴۰۵', end:'۳۱ شهریور ۱۴۰۶', days:326, pct:11 },
+            expiring: { name:'اشتراک ماهانه', start:'۱۲ مهر ۱۴۰۵', end:'۱۲ آبان ۱۴۰۵', days:4, pct:87 },
+            lifetime: { name:'اشتراک مادام‌العمر', start:'۱ مهر ۱۴۰۵', end:'نامحدود', days:null, life:true, pct:100 } })[this.props.subscription ?? (this.props.subscribed ? 'active' : 'none')] || null,
+    payments: ({ active: [{d:'۱۴۰۵/۰۷/۰۱',desc:'تمدید اشتراک یک‌ساله',amt:1628000,ok:true}],
+                 expiring: [{d:'۱۴۰۵/۰۷/۱۲',desc:'خرید اشتراک ماهانه',amt:198000,ok:true}],
+                 lifetime: [{d:'۱۴۰۵/۰۷/۰۱',desc:'خرید اشتراک مادام‌العمر',amt:4950000,ok:true}] }[this.props.subscription ?? (this.props.subscribed ? 'active' : 'none')] || []).concat(PAY0),
+    planSel:'y1', plansFrom:'profile', ptab:'info',
+    faqOpen:{ f1:true }, faqQ:'', askName:'', askText:'', myQs:[], cName:'', cEmail:'', cTopic:'general', cMsg:'', cSent:false, cErr:'',
+    adv:false, smode:'all', excl:'', vFrom:1, vTo:15, chap:'all', src:{ text:true, notes:true, hl:true }, harakat:true, unify:true, sort:'book', lockRef:'',
+    history:[{ q:'غار ثور', desc:'همه‌ی کلمات · همه‌ی جلدها' }, { q:'زمزم', desc:'همه‌ی کلمات · جلد ۱' }, { q:'قصی بن کلاب', desc:'عبارت دقیق · همه‌ی جلدها' }], gwLoading:false, payResult:null, lastTx:null, ch:3, page:124, idx:0, mode:'text', zoom:1, fs:18, night: this.props.night ?? false, font:'naskh', sheet:null, active:null,
+    hl:{d:true}, bms:[{v:6,p:124},{v:4,p:301}],
+    notes:[{v:6,p:125,quote:'لیلةالمبیت',text:'با روایت ابن هشام در السیرة النبویة مقایسه شود.'}],
+    tab:'bm', draft:'', query:'هجرت', toast:null };
+
+  applyTheme() {
+    const el = document.querySelector('[data-seerah-root]'); if (!el) return;
+    const s = this.state, n = s.night;
+    const T = {
+      islamic: n ? { bg:'oklch(0.25 0.035 255)', surface:'oklch(0.29 0.035 255)', tint:'oklch(0.31 0.035 255)', tint2:'oklch(0.33 0.035 255)', line:'oklch(0.38 0.035 255)', line2:'oklch(0.46 0.04 75)', outer:'oklch(0.52 0.05 75)', gold:'oklch(0.68 0.07 75)', 'gold-soft':'oklch(0.50 0.05 75)', mink:'oklch(0.80 0.05 80)', scan:'oklch(0.21 0.03 255)' }
+                   : { bg:'oklch(0.975 0.01 85)', surface:'#fff', tint:'oklch(0.955 0.02 85)', tint2:'oklch(0.945 0.02 85)', line:'oklch(0.88 0.02 80)', line2:'oklch(0.80 0.04 78)', outer:'oklch(0.78 0.05 78)', gold:'oklch(0.70 0.06 75)', 'gold-soft':'oklch(0.82 0.05 78)', mink:'oklch(0.45 0.06 70)', scan:'oklch(0.90 0.015 80)' },
+      classic: n ? { bg:'oklch(0.21 0.004 260)', surface:'oklch(0.25 0.004 260)', tint:'oklch(0.27 0.004 260)', tint2:'oklch(0.29 0.004 260)', line:'oklch(0.34 0.004 260)', line2:'oklch(0.45 0.004 260)', outer:'oklch(0.42 0.004 260)', gold:'oklch(0.72 0.008 260)', 'gold-soft':'oklch(0.50 0.006 260)', mink:'oklch(0.76 0.008 260)', scan:'oklch(0.17 0.004 260)' }
+                   : { bg:'oklch(0.985 0.003 90)', surface:'#fff', tint:'oklch(0.955 0.004 90)', tint2:'oklch(0.94 0.004 90)', line:'oklch(0.89 0.004 90)', line2:'oklch(0.78 0.004 90)', outer:'oklch(0.80 0.004 90)', gold:'oklch(0.50 0.01 260)', 'gold-soft':'oklch(0.75 0.006 260)', mink:'oklch(0.45 0.01 260)', scan:'oklch(0.91 0.003 90)' }
+    }[s.theme];
+    Object.entries(T).forEach(([k,v]) => el.style.setProperty('--t-' + k, v));
+    const cls = s.theme === 'classic';
+    el.style.setProperty('--t-rk', cls ? '0.25' : '1');
+    el.style.setProperty('--t-arch', cls ? '6px' : '130px 130px 22px 22px');
+    el.style.setProperty('--t-head', cls ? "'Vazirmatn',sans-serif" : "'Noto Naskh Arabic',serif");
+    el.style.setProperty('--t-orn', cls ? 'none' : 'block');
+    el.style.setProperty('--t-on-ink', n ? T.bg : '#fff');
+    const NV = { '--color-text':'oklch(0.93 0.01 85)', '--color-neutral-500':'oklch(0.60 0.01 85)', '--color-neutral-600':'oklch(0.68 0.01 85)', '--color-neutral-700':'oklch(0.76 0.01 85)', '--color-neutral-800':'oklch(0.85 0.01 85)', '--color-accent-700':'oklch(0.74 0.14 35)', '--color-accent-200':'oklch(0.40 0.09 35)', '--color-accent-900':'oklch(0.93 0.04 35)' };
+    Object.entries(NV).forEach(([k,v]) => n ? el.style.setProperty(k, v) : el.style.removeProperty(k));
+  }
+  componentDidUpdate() { this.applyTheme(); }
+  componentDidMount() {
+    this.applyTheme(); requestAnimationFrame(() => this.applyTheme());
+    this._key = e => {
+      if (this.state.screen !== 'reader' || this.state.sheet) return;
+      if (e.key === 'ArrowLeft') this.turn(1);
+      if (e.key === 'ArrowRight') this.turn(-1);
+    };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() { clearTimeout(this._t); clearTimeout(this._g); window.removeEventListener('keydown', this._key); }
+
+  go = (screen, extra={}) => this.setState(s => ({ prev: s.screen === 'reader' ? s.prev : s.screen, screen, sheet:null, active:null, ...extra }));
+  openAt = (v, p) => { const chs = chaptersOf(v); let ch = 0; chs.forEach((c,i) => { if (c[1] <= p) ch = i; }); this.go('reader', { vol:v, ch, page:p, idx:0, zoom:1 }); };
+  flash = msg => { this.setState({ toast: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toast:null }), 1800); };
+  maxIdx = s => { if (s.sub) return PAGES.length-1; const L = freeLimit(s.vol); for (let i = 0; i < PAGES.length; i++) if (s.page + i > L) return i; return PAGES.length-1; };
+  advDesc = s => { const m = { exact:'عبارت دقیق', all:'همه‌ی کلمات', any:'هر یک از کلمات' }[s.smode];
+    const vA = Math.min(s.vFrom, s.vTo), vB = Math.max(s.vFrom, s.vTo);
+    const sc = vA === 1 && vB === 15 ? 'همه‌ی جلدها' : vA === vB ? 'جلد ' + FA(vA) + (s.chap !== 'all' ? '، فصل ' + FA(+s.chap + 1) : '') : 'جلد ' + FA(vA) + ' تا ' + FA(vB);
+    const parts = [m, sc]; if (s.excl.trim()) parts.push('بدون «' + s.excl.trim() + '»');
+    const src = [['text','متن'],['notes','یادداشت'],['hl','هایلایت']].filter(([k]) => s.src[k]).map(x => x[1]); if (src.length < 3) parts.push('در ' + src.join('، '));
+    if (!s.harakat) parts.push('با اعراب'); if (!s.unify) parts.push('بدون یکسان‌سازی');
+    return parts.join(' · '); };
+  commitHistory = () => this.setState(s => { const q = s.query.trim(); if (!q) return null;
+    return { history: [{ q, desc: this.advDesc(s), snap: { smode:s.smode, excl:s.excl, vFrom:s.vFrom, vTo:s.vTo, chap:s.chap, src:s.src, harakat:s.harakat, unify:s.unify } }, ...s.history.filter(h => h.q !== q)].slice(0, 6) }; });
+  finishPay = ok => this.setState(s => { const p = PLANS.find(x => x.id === s.planSel), total = Math.round(p.price*1.1);
+    return { screen:'result', payResult: ok ? 'ok' : 'fail', lastTx: ok ? FA(80000000 + Math.floor(Math.random()*9999999)) : null,
+      payments: [{ d:'۱۴۰۵/۰۸/۰۸', desc:(s.sub ? 'تمدید' : 'خرید') + ' اشتراک ' + p.name, amt: total, ok }, ...s.payments],
+      sub: ok ? { name:'اشتراک ' + p.name, start: TODAY, end: p.end, days: p.days, life: !p.days, pct: p.days ? 2 : 100 } : s.sub }; });
+  turn = d => this.setState(s => { const idx = Math.max(0, Math.min(this.maxIdx(s), s.idx + d)); return idx === s.idx ? null : { idx, active:null, zoom:1 }; });
+  setZoom = z => this.setState({ zoom: Math.round(Math.max(1, Math.min(3, z)) * 100) / 100 });
+
+  renderVals() {
+    const s = this.state, n = s.night, V = VOLS[s.vol-1], chs = chaptersOf(s.vol);
+    const page = s.page + s.idx;
+    const pct = Math.max(1, Math.round(page / V[1] * 100));
+    const ref = (v,p) => `ج ${FA(v)}، ص ${FA(p)}`;
+    const activeP = ALLP.find(p => p.id === s.active);
+    const isBm = s.bms.some(b => b.v === s.vol && b.p === page);
+    const pill = on => ({ bg: on ? 'var(--color-text)' : 'transparent', ink: on ? 'var(--t-on-ink)' : 'var(--color-text)' });
+    const rpill = pill;
+    const hlBg = n ? 'oklch(0.36 0.08 30)' : 'var(--color-accent-200)';
+
+    const q = s.query.trim();
+    const res = runSearch(s), counts = {};
+    (res || []).forEach(r => { counts[r.v] = (counts[r.v] || 0) + 1; });
+    const ADV0 = s.smode === 'all' && !s.excl.trim() && s.vFrom === 1 && s.vTo === 15 && s.chap === 'all' && s.src.text && s.src.notes && s.src.hl && s.harakat && s.unify;
+    const vA = Math.min(s.vFrom, s.vTo), vB = Math.max(s.vFrom, s.vTo);
+    const srRef = (v,p) => 'ج ' + FA(v) + '، فصل ' + FA(chapIdx(v,p) + 1) + '، ص ' + FA(p);
+    const srch = {
+      advOpen: s.adv, toggleAdv: () => this.setState(st => ({ adv: !st.adv })),
+      advBg: s.adv || !ADV0 ? 'var(--color-text)' : 'var(--t-surface)', advInk: s.adv || !ADV0 ? 'var(--t-on-ink)' : 'var(--color-text)', advBorder: s.adv || !ADV0 ? 'var(--color-text)' : 'var(--t-line2)',
+      advBadge: ADV0 ? '' : ' •', showAdvSummary: !ADV0 && !s.adv, advSummary: this.advDesc(s),
+      queryKey: e => { if (e.key === 'Enter') this.commitHistory(); },
+      modeOpts: [['exact','عبارت دقیق'],['all','همه‌ی کلمات'],['any','هر یک از کلمات']].map(([k,l]) => { const p = pill(s.smode === k); return { label:l, bg:p.bg, ink:p.ink, pick:() => this.setState({ smode:k }) }; }),
+      excl: s.excl, setExcl: e => this.setState({ excl: e.target.value }),
+      volOpts: VOLS.map((v,i) => ({ v: i+1, label: 'جلد ' + FA(i+1) })),
+      vFrom: s.vFrom, vTo: s.vTo,
+      setVFrom: e => this.setState({ vFrom: +e.target.value, chap:'all' }), setVTo: e => this.setState({ vTo: +e.target.value, chap:'all' }),
+      chap: s.chap, chapDisabled: vA !== vB, chapOp: vA !== vB ? 0.5 : 1,
+      chOpts: [{ v:'all', label: vA !== vB ? 'انتخاب فصل (فقط برای یک جلد)' : 'همه‌ی فصل‌ها' }].concat(vA === vB ? chaptersOf(vA).map((c,i) => ({ v: String(i), label: 'فصل ' + FA(i+1) + ' · ' + (c[0].length > 34 ? c[0].slice(0,34) + '…' : c[0]) })) : []),
+      setChap: e => this.setState({ chap: e.target.value }),
+      srcOpts: [['text','متن کتاب'],['notes','یادداشت‌ها'],['hl','هایلایت‌ها']].map(([k,l]) => { const on = s.src[k]; return { label:l, mark: on ? '✓ ' : '', bg: on ? 'var(--t-tint)' : 'var(--t-surface)', border: on ? 'var(--t-gold)' : 'var(--t-line)', ink: 'var(--color-text)',
+        pick: () => this.setState(st => { const src = { ...st.src, [k]: !st.src[k] }; return Object.values(src).some(Boolean) ? { src } : null; }) }; }),
+      harBg: s.harakat ? 'var(--color-accent)' : 'var(--t-line2)', harX: s.harakat ? '23px' : '3px', toggleHarakat: () => this.setState(st => ({ harakat: !st.harakat })),
+      uniBg: s.unify ? 'var(--color-accent)' : 'var(--t-line2)', uniX: s.unify ? '23px' : '3px', toggleUnify: () => this.setState(st => ({ unify: !st.unify })),
+      applyAdv: () => { this.setState({ adv:false }); this.commitHistory(); },
+      resetAdv: () => this.setState({ smode:'all', excl:'', vFrom:1, vTo:15, chap:'all', src:{ text:true, notes:true, hl:true }, harakat:true, unify:true }),
+      showHistory: !q, showResults: !!q,
+      historyItems: s.history.map(h => ({ q:h.q, desc:h.desc, restore: () => this.setState({ query:h.q, ...(h.snap || {}) }), remove: () => this.setState(st => ({ history: st.history.filter(x => x !== h) })) })),
+      historyEmpty: s.history.length === 0, clearHistory: () => this.setState({ history: [] }),
+      resultSummary: res && res.length ? FA(res.length) + ' نتیجه در ' + FA(Object.keys(counts).length) + ' جلد' : 'نتیجه‌ای پیدا نشد',
+      noResults: !!res && res.length === 0,
+      sortBook: pill(s.sort === 'book'), sortRel: pill(s.sort === 'rel'),
+      setSortBook: () => this.setState({ sort:'book' }), setSortRel: () => this.setState({ sort:'rel' }),
+      volCounts: Object.keys(counts).map(Number).sort((x,y) => x-y).map(v => { const on = vA === v && vB === v; return { label:'ج ' + FA(v), countFa: FA(counts[v]),
+        bg: on ? 'var(--t-tint)' : 'var(--t-surface)', border: on ? 'var(--t-gold)' : 'var(--t-line)',
+        pick: () => this.setState(on ? { vFrom:1, vTo:15, chap:'all' } : { vFrom:v, vTo:v, chap:'all' }) }; }),
+      srResults: (res || []).map((r,i,arr) => { const locked = !s.sub && r.kind === 'text' && r.p > freeLimit(r.v), rf = srRef(r.v, r.p);
+        return { hasHeader: s.sort === 'book' && (i === 0 || arr[i-1].v !== r.v), hdr: 'جلد ' + FA(r.v) + ' · ' + VOLS[r.v-1][0], hdrCount: FA(counts[r.v]) + ' نتیجه',
+          segs: r.segs.map(g => ({ t:g.t, w: g.m ? 800 : 400, bg: g.m ? 'var(--color-accent-200)' : 'transparent', ink: g.m ? 'var(--color-accent-900)' : 'inherit', pad: g.m ? '2px' : '0' })),
+          ref: rf, hasKind: r.kind !== 'text', kindLabel: r.kind === 'note' ? 'یادداشت شما' : 'هایلایت شما', locked, op: locked ? 0.55 : 1,
+          open: () => { this.commitHistory(); if (locked) this.setState({ sheet:'lock', lockRef: rf }); else this.openAt(r.v, r.p); } }; }),
+      showLockSheet: s.sheet === 'lock' && s.screen === 'search', lockRef: s.lockRef
+    };
+    let noteItems;
+    if (s.tab === 'bm') noteItems = s.bms.map(b => ({ ref:ref(b.v,b.p), title: chaptersOf(b.v).reduce((a,c)=>c[1]<=b.p?c[0]:a,''), body: VOLS[b.v-1][0], open:() => this.openAt(b.v,b.p) }));
+    else if (s.tab === 'note') noteItems = s.notes.map(x => ({ ref:ref(x.v,x.p), title:x.text, body:'«' + x.quote + '»', open:() => this.openAt(x.v,x.p) }));
+    else noteItems = ALLP.filter(p => s.hl[p.id]).map(p => ({ ref:ref(6,124+p.off), title:'شب هجرت و لیلةالمبیت', body:p.t, open:() => this.openAt(6,124) }));
+
+    const tabC = on => ({ ink: on ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', bar: on ? 'var(--color-accent)' : 'transparent' });
+    const hom = tabC(['home','notes'].includes(s.screen)), lib = tabC(s.screen==='library'||s.screen==='volume'), sr = tabC(s.screen==='search'), pr = tabC(s.screen==='profile');
+    const tb = pill(s.tab==='bm'), tn = pill(s.tab==='note'), th = pill(s.tab==='hl');
+    const fn = pill(s.font==='naskh'), fv = pill(s.font==='vazir');
+
+    const pages = PAGES.map((pg, pi) => ({
+      first: pi === 0, nFa: FA(s.page + pi), hasNotes: pg.notes.length > 0, notes: pg.notes,
+      paras: pg.paras.map(p => { const on = !!s.hl[p.id], act = s.active === p.id; return {
+        text:p.t, src:p.src || '', fn:p.fn || '', isAyah:!!p.ayah, isProse:!p.ayah, fs:s.fs, fsAyah:s.fs + 3,
+        bg: on ? hlBg : (p.ayah ? 'var(--t-tint)' : 'transparent'),
+        ring: act ? '0 0 0 2px var(--color-accent)' : 'none',
+        scanText: p.ayah ? '﴿' + p.t + '﴾ (' + p.src + ')' : p.t,
+        scanFont: p.ayah ? "'Amiri',serif" : "'Noto Naskh Arabic',serif", scanFs: p.ayah ? '12.5px' : '11.5px',
+        scanAlign: p.ayah ? 'center' : 'justify', scanWeight: p.ayah ? 700 : 400, indent: p.ayah ? '0' : '14px',
+        tap: () => { if (this._swiped) return; this.setState(st => ({ active: st.active === p.id ? null : p.id, sheet:null })); } }; })
+    }));
+
+    if (!s.sub) pages.forEach((pg, pi) => { if (s.page + pi > freeLimit(s.vol)) Object.assign(pg, { locked:true, paras:[], notes:[], hasNotes:false, first:false }); });
+    const plan = PLANS.find(p => p.id === s.planSel), vat = Math.round(plan.price*0.1), total = plan.price + vat;
+    return {
+      ...srch,
+      curLocked: !!(pages[s.idx] && pages[s.idx].locked), lockPageFa: FA(s.page + s.idx), freeLimitFa: FA(freeLimit(s.vol)),
+      isPlans: s.screen==='plans', isCheckout: s.screen==='checkout', isGateway: s.screen==='gateway', isResult: s.screen==='result',
+      isSubbed: !!s.sub, isFree: !s.sub,
+      homeSubActive: !!s.sub && (s.sub.life || s.sub.days > 7), homeSubExpiring: !!s.sub && !s.sub.life && s.sub.days <= 7, homeSubNone: !s.sub,
+      subDaysFa: s.sub && s.sub.days ? FA(s.sub.days) : '',
+      homeSubLine: !s.sub ? '' : s.sub.life ? 'دسترسی همیشگی به هر ۱۵ جلد' : 'تا ' + s.sub.end + ' · ' + FA(s.sub.days) + ' روز باقی‌مانده',
+      subName: s.sub ? s.sub.name : '', subStart: s.sub ? s.sub.start : '', subEnd: s.sub ? s.sub.end : '', subLeft: !s.sub ? '' : s.sub.life ? 'بدون تاریخ پایان' : FA(s.sub.days) + ' روز باقی‌مانده', subPctW: (s.sub ? s.sub.pct : 0) + '%',
+      plansTitle: s.sub ? 'تمدید اشتراک' : 'خرید اشتراک',
+      plans: PLANS.map(p => { const on = p.id === s.planSel; return { name:p.name, dur:p.dur, priceFa: fmtT(p.price),
+        note: p.days ? 'معادل ماهانه ' + fmtT(p.price / (p.days/30)) + ' تومان' : 'دسترسی همیشگی به هر ۱۵ جلد',
+        hasBadge: !!p.badge, badge: p.badge || '', ring: on ? 'var(--color-accent)' : 'var(--t-line)', dot: on ? 'var(--color-accent)' : 'transparent',
+        pick: () => this.setState({ planSel: p.id }) }; }),
+      selPlanName: plan.name, planDur: plan.dur, planPeriod: plan.days ? 'از ' + TODAY + ' تا ' + plan.end : 'از ' + TODAY + '، بدون تاریخ پایان',
+      planPriceFa: fmtT(plan.price), vatFa: fmtT(vat), totalFa: fmtT(total),
+      goPlans: () => this.go('plans', { plansFrom: s.screen === 'reader' ? 'reader' : ['home','search'].includes(s.screen) ? s.screen : 'profile' }),
+      plansBack: () => s.plansFrom === 'reader' ? this.setState({ screen:'reader', sheet:null }) : this.go(s.plansFrom),
+      plansBackLabel: { reader:'بازگشت به کتاب', home:'صفحه‌ی اصلی', search:'جستجو', profile:'پروفایل' }[s.plansFrom],
+      goCheckout: () => this.setState({ screen:'checkout' }), backToPlans: () => this.setState({ screen:'plans' }),
+      startPay: () => { this.setState({ screen:'gateway', gwLoading:true }); clearTimeout(this._g); this._g = setTimeout(() => this.setState({ gwLoading:false }), 1200); },
+      gwLoading: s.gwLoading, gwReady: !s.gwLoading,
+      gwPay: () => this.finishPay(true), gwCancel: () => this.finishPay(false),
+      paySuccess: s.payResult === 'ok', payFail: s.payResult === 'fail', txCode: s.lastTx || '—',
+      resultContinue: () => s.plansFrom === 'reader' ? this.setState({ screen:'reader', sheet:null }) : this.openAt(6,124),
+      resultProfile: () => this.go('profile', { ptab:'sub' }), retryPay: () => this.setState({ screen:'checkout' }),
+      payments: s.payments.map((p,i) => ({ d:p.d, desc:p.desc, amt: fmtT(p.amt) + ' تومان', ok: p.ok, fail: !p.ok, rule: i ? 'var(--t-line)' : 'transparent' })),
+      isHome: s.screen==='home', isVolume: s.screen==='volume', isReader: s.screen==='reader', isSearch: s.screen==='search', isNotes: s.screen==='notes',
+      showTabs: !['reader','plans','checkout','gateway','result'].includes(s.screen) && !s.screen.startsWith('ab-'),
+      ...(() => {
+        const AB = [['ab-about','درباره ما'],['ab-book','کتاب و نویسنده'],['ab-contact','تماس با ما'],['ab-faq','سؤالات متداول']];
+        const no = { harakat:true, unify:true }, fq = normMap(s.faqQ.trim(), no).n;
+        const list = FAQS.filter(x => !fq || normMap(x.q + ' ' + x.a, no).n.includes(fq));
+        const email = s.cEmail.trim();
+        return {
+          isAb: s.screen.startsWith('ab-'), isAbAbout: s.screen === 'ab-about', isAbBook: s.screen === 'ab-book', isAbContact: s.screen === 'ab-contact', isAbFaq: s.screen === 'ab-faq',
+          abTitle: (AB.find(x => x[0] === s.screen) || ['',''])[1] === 'کتاب و نویسنده' ? 'درباره کتاب و نویسنده' : (AB.find(x => x[0] === s.screen) || ['',''])[1],
+          abTabs: AB.map(([k,l]) => { const t = tabC(s.screen === k); return { label:l, ink:t.ink, bar:t.bar, pick:() => this.go(k) }; }),
+          goAbAbout: () => this.go('ab-about'), goAbBook: () => this.go('ab-book'), goAbContact: () => this.go('ab-contact'), goAbFaq: () => this.go('ab-faq'),
+          faqQ: s.faqQ, setFaqQ: e => this.setState({ faqQ: e.target.value }),
+          faqSummary: fq ? FA(list.length) + ' سؤال پیدا شد' : FA(FAQS.length) + ' سؤال',
+          faqItems: list.map(x => { const open = !!s.faqOpen[x.id] || (!!fq && list.length <= 2); return { q:x.q, a:x.a, open, sign: open ? '−' : '+',
+            border: open ? 'var(--t-gold)' : 'var(--t-line)', hasMeta: x.id[0] === 'u', meta: 'پرسیده‌شده توسط ' + (x.by || 'ناشناس'),
+            toggle: () => this.setState(st => ({ faqOpen: { ...st.faqOpen, [x.id]: !open } })) }; }),
+          faqEmpty: list.length === 0,
+          openAsk: () => this.setState({ sheet:'ask', askText: s.faqQ.trim() && list.length === 0 ? s.faqQ.trim() : s.askText }),
+          showAsk: s.sheet === 'ask' && s.screen === 'ab-faq',
+          askName: s.askName, setAskName: e => this.setState({ askName: e.target.value }),
+          askText: s.askText, setAskText: e => this.setState({ askText: e.target.value }),
+          askOp: s.askText.trim() ? 1 : 0.5, askLabel: s.askName.trim() ? 'ارسال سؤال' : 'ارسال بدون نام',
+          submitAsk: () => { if (!s.askText.trim()) return; this.setState(st => ({ myQs: [{ q: st.askText.trim(), by: st.askName.trim() || null }, ...st.myQs], askText:'', sheet:null })); this.flash('سؤال شما ثبت شد'); },
+          hasMyQs: s.myQs.length > 0, myQs: s.myQs.map(m => ({ q:m.q, meta: (m.by || 'ناشناس') + ' · در انتظار پاسخ مدیر سایت' })),
+          cName: s.cName, setCName: e => this.setState({ cName: e.target.value }), cEmail: s.cEmail, setCEmail: e => this.setState({ cEmail: e.target.value, cErr:'' }),
+          cTopic: s.cTopic, setCTopic: e => this.setState({ cTopic: e.target.value }), cMsg: s.cMsg, setCMsg: e => this.setState({ cMsg: e.target.value, cErr:'' }),
+          hasCErr: !!s.cErr, cErr: s.cErr, contactForm: !s.cSent, contactSent: s.cSent,
+          sendContact: () => { if (!/^\S+@\S+\.\S+$/.test(email)) return this.setState({ cErr:'ایمیل معتبر وارد کنید.' }); if (!s.cMsg.trim()) return this.setState({ cErr:'متن پیام را بنویسید.' }); this.setState({ cSent:true, cErr:'' }); },
+          newContact: () => this.setState({ cSent:false, cMsg:'' })
+        };
+      })(),
+      homeInk: hom.ink, homeBar: hom.bar, libInk: lib.ink, libBar: lib.bar, srInk: sr.ink, srBar: sr.bar, profInk: pr.ink, profBar: pr.bar,
+      isLibrary: s.screen==='library', isSettings: s.screen==='settings', isProfile: s.screen==='profile',
+      goHome: () => this.go('home'), goSearch: () => this.go('search'), goNotes: () => this.go('notes'),
+      goLibrary: () => this.go('library'), goSettings: () => this.go('profile', { ptab:'set' }),
+      pTabs: [['info','اطلاعات'],['sub','اشتراک'],['pay','پرداخت‌ها'],['set','تنظیمات']].map(([k,l]) => { const p = pill((s.ptab || 'info') === k); return { label:l, bg:p.bg, ink:p.ink, pick:() => this.setState({ ptab:k }) }; }),
+      pInfo: (s.ptab || 'info') === 'info', pSub: s.ptab === 'sub', pPay: s.ptab === 'pay', pSet: s.ptab === 'set', goProfile: () => this.go('profile'),
+      greeting: 'سلام، محمد',
+      notesSummary: FA(s.bms.length) + ' نشانک · ' + FA(s.notes.length) + ' یادداشت',
+      toggleNight: () => this.setState(st2 => ({ night: !st2.night })),
+      swBg: n ? 'var(--color-accent)' : 'var(--t-line2)', swX: n ? '25px' : '3px',
+      islDot: s.theme !== 'classic' ? 'var(--color-accent)' : 'transparent', clsDot: s.theme === 'classic' ? 'var(--color-accent)' : 'transparent',
+      continueReading: () => this.openAt(6,124),
+      vols: VOLS.map((v,i) => { const cur = i===5; return { nFa:FA(i+1), title:v[0], pagesFa:FA(v[1]), pctW:v[2]+'%',
+        pctLabel: v[2]===100 ? 'خوانده‌شده' : v[2]===0 ? '—' : FA(v[2])+'٪',
+        bg: cur ? 'var(--t-tint,oklch(0.955 0.02 85))' : 'transparent', ring: cur ? 'var(--color-accent)' : GOLD,
+        numColor: cur ? 'var(--color-accent-700)' : 'var(--t-mink,oklch(0.42 0.05 70))', open:() => this.go('volume',{vol:i+1}) }; }),
+      volAbout: `جلد ${FA(s.vol)} از مجموعه‌ی پانزده‌جلدی «تاریخ سیره نبوی» به «${V[0]}» می‌پردازد. نویسنده رویدادهای این دوره را بر پایه‌ی منابع کهن سیره و تاریخ، از جمله ابن هشام، واقدی و طبری، گزارش می‌کند و روایت‌های گوناگون را کنار هم می‌سنجد.`,
+      volSpecs: [['عنوان','تاریخ سیره نبوی'],['جلد',FA(s.vol)+' — '+V[0]],['مؤلف','دکتر غلامحسین زرگری‌نژاد'],['موضوع','تاریخ اسلام؛ سیره‌ی پیامبر (ص)'],['زبان','فارسی'],['تعداد صفحات',FA(V[1])],['تعداد فصل‌ها',FA(chs.length)],['ناشر','—'],['سال انتشار','—'],['شابک','—']].map((r,i) => ({ k:r[0], v:r[1], rule: i ? 'var(--t-line,oklch(0.92 0.02 80))' : 'transparent' })),
+      volFa: FA(s.vol), volTitle: V[0], volPagesFa: FA(V[1]), chCountFa: FA(chs.length), volPctFa: FA(V[2]), volPctW: V[2]+'%',
+      tl: (() => {
+        const toc = tocOf(s.vol), readUpTo = Math.round(V[1]*V[2]/100), groups = [];
+        const others = { q:['g','s'], s:['q','g'], g:['q','s'] }[s.cal];
+        toc.forEach((e,i) => {
+          const c = conv(e, s.cal), key = c ? c.y : '—';
+          let g = groups[groups.length-1];
+          if (!g || g.key !== key) { g = { key, items:[], hasHeader: !!c, year: key, alt: c ? others.map(k => conv(e,k).y).join(' · ') : '' }; groups.push(g); }
+          const prev = g.items[g.items.length-1], same = !!(prev && c && (c.d || c.m) && prev._d === c.d && prev._m === c.m);
+          const cur = s.vol === 6 && i === 3, done = !cur && V[2] > 0 && (s.vol === 6 ? i < 3 : e.p <= readUpTo);
+          g.items.push({ lockLabel: !s.sub && e.p > freeLimit(s.vol) ? ' · ویژه‌ی مشترکان' : '', _d: c && c.d, _m: c && c.m, title: e.t, pageFa: FA(e.p), weight: cur ? 700 : 400,
+            day: !c ? '' : same ? '〃' : c.d, month: !c || same ? '' : c.m,
+            dayColor: cur ? 'var(--color-accent-700)' : same ? 'var(--color-neutral-500)' : 'var(--color-text)',
+            bg: cur ? 'var(--t-tint,oklch(0.955 0.02 85))' : 'transparent',
+            dot: cur ? '13px' : '9px', dotTop: cur ? '13px' : '15px',
+            dotBg: cur ? 'var(--color-accent)' : done ? GOLD : 'var(--t-bg,oklch(0.975 0.01 85))', dotRing: cur ? 'var(--color-accent)' : c ? GOLD : 'var(--t-line,oklch(0.85 0.02 80))',
+            open: () => this.openAt(s.vol, e.p) });
+        });
+        return groups.map(g => ({ ...g, countFa: g.items.length > 1 ? FA(g.items.length) + ' عنوان' : '', pillBg: g.items.some(x => x.weight === 700) ? 'var(--color-accent)' : 'var(--color-text)' }));
+      })(),
+      volSpan: (() => { const d = tocOf(s.vol).filter(e => e.y != null); if (!d.length) return ''; const a = conv(d[0], s.cal).y, b = conv(d[d.length-1], s.cal).y; return a === b ? a : a + ' تا ' + b; })(),
+      cals: [['q','قمری'],['s','شمسی'],['g','میلادی']].map(([k,l]) => { const p = pill(s.cal === k); return { label:l, bg:p.bg, ink:p.ink, pick:() => this.setState({ cal:k }) }; }),
+      eraStart: fmtY(s.cal, toCal(-4000)[s.cal][0]), eraEnd: fmtY(s.cal, toCal(756)[s.cal][0]),
+      eraCells: SPAN.map((sp,i) => ({ h: i+1 === s.vol ? '26px' : (VOLS[i][2] > 0 ? '16px' : '12px'),
+        bg: i+1 === s.vol ? 'var(--color-accent)' : VOLS[i][2] === 100 ? GOLD : VOLS[i][2] > 0 ? 'var(--t-gold-soft,oklch(0.82 0.05 78))' : 'var(--t-line,oklch(0.91 0.02 80))',
+        tip: 'جلد ' + FA(i+1) + ' · ' + VOLS[i][0], open: () => this.setState({ vol:i+1 }) })),
+      calLegend: (s.cal === 'g' ? 'پ.م: پیش از میلاد · ' : s.cal === 'q' ? 'ق.ه: سال قمری پیش از هجرت · ه.ق: هجری قمری · ' : 'ق.ه.ش: سال شمسی پیش از هجرت · ه.ش: هجری شمسی · ') + 'تاریخ‌های کتاب به قمری ثبت شده‌اند؛ برگردان به شمسی و میلادی تقریبی است.',
+      openAbout: () => this.setState({ sheet:'about' }),
+      openAppearance: () => this.setState({ sheet:'appearance' }), showAppearance: s.sheet === 'appearance' && s.screen !== 'reader',
+      themeShort: (s.theme === 'classic' ? 'کلاسیک' : 'ایرانی‌ـ‌اسلامی') + (n ? '، شب' : ''),
+      thIsl: pill(s.theme !== 'classic'), thCls: pill(s.theme === 'classic'),
+      setIsl: () => this.setState({ theme:'islamic' }), setCls: () => this.setState({ theme:'classic' }),
+      islRing: s.theme !== 'classic' ? 'var(--color-accent)' : 'var(--t-line)', clsRing: s.theme === 'classic' ? 'var(--color-accent)' : 'var(--t-line)',
+      dayPrevBg: s.theme === 'classic' ? 'oklch(0.985 0.003 90)' : 'oklch(0.975 0.01 85)', nightPrevBg: s.theme === 'classic' ? 'oklch(0.21 0.004 260)' : 'oklch(0.25 0.035 255)', showAbout: s.screen === 'volume' && s.sheet === 'about',
+      backFromReader: () => this.go(s.prev === 'reader' ? 'home' : s.prev),
+      pageFa: FA(page), chTitle: chs[s.ch][0], chNumFa: FA(s.ch+1),
+      readPctW: pct+'%', readPctFa: FA(pct),
+      rbg: 'var(--t-bg)', rink: 'var(--color-text)', rmuted: 'var(--color-neutral-700)', rrule: 'var(--t-line)',
+      rtrack: 'var(--t-tint2)', rgold: 'var(--t-gold)', rseg: 'var(--t-tint2)', rscanBg: 'var(--t-scan)',
+      raccent: 'var(--color-accent-700)',
+      readFont: s.font === 'naskh' ? "'Noto Naskh Arabic',serif" : "'Vazirmatn',sans-serif",
+      mText: rpill(s.mode==='text'), mScan: rpill(s.mode==='scan'),
+      setModeText: () => this.setState({ mode:'text', zoom:1 }), setModeScan: () => this.setState({ mode:'scan', active:null }),
+      isTextMode: s.mode==='text', isScanMode: s.mode==='scan',
+      pages, trackW: (PAGES.length * 390) + 'px', trackX: (s.idx * 390) + 'px',
+      swipeStart: e => { this._sx = e.clientX; this._sy = e.clientY; this._swiped = false; },
+      swipeEnd: e => {
+        if (this._sx == null) return;
+        const dx = e.clientX - this._sx, dy = e.clientY - this._sy; this._sx = null;
+        if (this.state.zoom > 1 || Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+        this._swiped = true; setTimeout(() => { this._swiped = false; }, 50);
+        this.turn(dx > 0 ? 1 : -1);
+      },
+      prevPage: () => this.turn(-1), nextPage: () => this.turn(1),
+      prevOp: s.idx === 0 ? 0.4 : 1, nextOp: s.idx >= this.maxIdx(s) ? 0.4 : 1,
+      zoom: s.zoom, zoomFa: FA(Math.round(s.zoom*100)),
+      zoomIn: () => this.setZoom(s.zoom + 0.25), zoomOut: () => this.setZoom(s.zoom - 0.25), zoomReset: () => this.setZoom(1),
+      toggleZoom: () => this.setZoom(s.zoom > 1 ? 1 : 2),
+      pinchStart: e => { if (e.touches.length === 2) { const [a,b] = e.touches; this._pd = Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY); this._pz = this.state.zoom; } },
+      pinchMove: e => { if (e.touches.length === 2 && this._pd) { const [a,b] = e.touches; this.setZoom(this._pz * Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY) / this._pd); } },
+      bmLabel: isBm ? 'نشان‌شده' : 'نشانک', bmBg: isBm ? 'var(--color-accent)' : 'transparent', bmInk: isBm ? '#fff' : 'inherit', bmBorder: isBm ? 'var(--color-accent)' : (n ? 'oklch(0.42 0.04 75)' : 'var(--t-line,oklch(0.86 0.03 80))'),
+      toggleBm: () => { this.setState(st => ({ bms: isBm ? st.bms.filter(b => !(b.v===st.vol && b.p===page)) : [{v:st.vol,p:page}, ...st.bms] })); this.flash(isBm ? 'نشانک برداشته شد' : 'نشانک گذاشته شد · ' + ref(s.vol,page)); },
+      showActions: !!s.active && !s.sheet,
+      hlLabel: activeP && s.hl[s.active] ? 'حذف هایلایت' : 'هایلایت',
+      toggleHl: () => this.setState(st => ({ hl: { ...st.hl, [st.active]: !st.hl[st.active] }, active:null })),
+      openNote: () => this.setState({ sheet:'note', draft:'' }),
+      copyRef: () => { this.setState({ active:null }); this.flash('کپی شد: زرگری‌نژاد، تاریخ سیره نبوی، ' + ref(s.vol, s.page + (activeP?activeP.off:0))); },
+      clearActive: () => this.setState({ active:null }),
+      openSettings: () => this.setState({ sheet:'settings', active:null }),
+      closeSheet: () => this.setState({ sheet:null }),
+      showSettings: s.sheet==='settings', showNoteSheet: s.sheet==='note',
+      fsFa: FA(s.fs), fsDown: () => this.setState(st => ({ fs: Math.max(14, st.fs-1) })), fsUp: () => this.setState(st => ({ fs: Math.min(26, st.fs+1) })),
+      naskhBg: fn.bg, naskhInk: fn.ink, vazirBg: fv.bg, vazirInk: fv.ink,
+      setNaskh: () => this.setState({ font:'naskh' }), setVazir: () => this.setState({ font:'vazir' }),
+      dayRing: n ? 'var(--t-line,oklch(0.88 0.02 80))' : 'var(--color-accent)', nightRing: n ? 'var(--color-accent)' : 'var(--t-line,oklch(0.88 0.02 80))',
+      setDay: () => this.setState({ night:false }), setNight: () => this.setState({ night:true }),
+      activeQuote: activeP ? activeP.t : '', activePageFa: FA(s.page + (activeP?activeP.off:0)),
+      draft: s.draft, setDraft: e => this.setState({ draft: e.target.value }),
+      saveNote: () => { if (!s.draft.trim() || !activeP) return; const q2 = activeP.t.slice(0, 48) + '…'; this.setState(st => ({ notes:[{v:st.vol,p:st.page+activeP.off,quote:q2,text:st.draft.trim()}, ...st.notes], sheet:null, active:null, draft:'' })); this.flash('یادداشت ذخیره شد'); },
+      query: s.query, setQuery: e => this.setState({ query: e.target.value }),
+      tabBmBg: tb.bg, tabBmInk: tb.ink, tabNoteBg: tn.bg, tabNoteInk: tn.ink, tabHlBg: th.bg, tabHlInk: th.ink,
+      tabToBm: () => this.setState({ tab:'bm' }), tabToNote: () => this.setState({ tab:'note' }), tabToHl: () => this.setState({ tab:'hl' }),
+      noteItems, noteEmpty: noteItems.length === 0,
+      hasToast: !!s.toast, toast: s.toast
+    };
+  }
+}
+</script>
+</body>
+</html>
