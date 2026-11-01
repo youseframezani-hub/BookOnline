@@ -77,11 +77,6 @@ public class ExtractStyleService : IExtractStyleService
         {
             style.StyleTableProperties = MapStyleTableProps(s.StyleTableProperties);
         }
-        if (s.TableStyleConditionalFormattingTableRowProperties != null)
-        {
-            var cfp = s.TableStyleConditionalFormattingTableRowProperties;
-            
-        }
 
         return style;
     }
