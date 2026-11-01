@@ -11,3 +11,8 @@ public sealed class ParagraphEntity
 
     public PageEntity? Page { get; set; }
 }
+
+public class StyleEntity
+{
+
+}

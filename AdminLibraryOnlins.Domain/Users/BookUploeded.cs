@@ -1,4 +1,4 @@
-﻿namespace AdminLibraryOnlins.Domain.Users
+﻿namespace AdminLibraryOnline.Domain.Users
 {
     public class BookUploeded
     {

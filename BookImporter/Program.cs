@@ -2,16 +2,18 @@ using System.Diagnostics;
 using BookImporter.Logging;
 using BookImporter.Mapping;
 using BookImporter.Persistence;
+using BookOnline.Domain.Books;
 using SearchEngine.Analysis;
 using SearchEngine.Indexing;
 using SearchEngine.Search;
+using WordReader.Services.Models;
 using WordReader.Services.WordExtractor;
 
 const int BookId = 1;
 
 var sourceFilePath = args.Length > 0
     ? args[0]
-    : @"C:\raha_part 02_08-02-1404-mini.docx";
+    : @"C:\book.part.2.docx";
 
 var logFilePath = Path.Combine("Logs", $"import-{DateTime.Now:yyyyMMdd-HHmmss}.md");
 var dbFilePath = Path.Combine("Data", "books.db");
@@ -25,13 +27,15 @@ try
     logger.Info($"مسیر فایل ورودی: {sourceFilePath}");
 
     ITextExtractor extractor = new InteropTextExtractor();
+    var styleExtractor = new ExtractStyleService();
+    var styles = styleExtractor.Extract(sourceFilePath);
     var document = extractor.Extract(sourceFilePath);
 
     logger.Success($"استخراج با موفقیت انجام شد. تعداد صفحات: {document.Pages.Count}");
 
-    logger.Section("۲. نگاشت به مدل دامنه (IBook / IPage / PragraphSection)");
+    logger.Section("۲. نگاشت به مدل دامنه (IBook / IPage / ParagraphSection)");
     var mapper = new DocumentToBookMapper();
-    var book = mapper.Map(document, BookId);
+    Book book = mapper.Map(document, BookId);
 
     var paragraphCount = book.Pages.Sum(p => p.PragraphSections.Count);
     logger.Success($"نگاشت انجام شد. عنوان کتاب: «{book.Info.Title}»");
@@ -45,6 +49,8 @@ try
     {
         db.Database.EnsureCreated();
         var repository = new BookRepository(db);
+        repository.SaveStyles(styles);
+
         var savedBookId = repository.SaveBook(book, sourceFilePath);
         logger.Success($"کتاب با شناسهٔ دیتابیسی {savedBookId} در «{dbFilePath}» ذخیره شد.");
     }

@@ -5,7 +5,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdminLibraryOnlins.Domain.Users;
+namespace AdminLibraryOnline.Domain.Users;
 
 public class User
 {
