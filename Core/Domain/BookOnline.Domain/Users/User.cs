@@ -31,8 +31,7 @@ public class BookMark(int Id,PageId pageId);
 
 /// <summary>
 /// نقطهٔ شروع/پایان یک هایلایت، به‌صورت آفست کاراکتری در متن خام پاراگراف
-/// (<see cref="PragraphSection.RawText"/>) — هم‌راستا با مفهوم Offset در PostingEntry
-/// پروژهٔ SearchEngine. پیشتر به AtomicBlockSection (که حذف شده) وابسته بود.
+/// (<see cref="ParagraphSection.RawText"/>) — هم‌راستا با مفهوم Offset در PostingEntry
 /// </summary>
 public record HiLightsMark(int CharacterOffset);
 public record UserId();

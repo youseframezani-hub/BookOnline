@@ -5,7 +5,7 @@ namespace BookImporter.Mapping;
 
 /// <summary>
 /// خروجی زندهٔ <see cref="ITextExtractor"/> (یعنی <see cref="DocumentContent"/>) را به مدل دامنهٔ
-/// BookOnline.Domain.Books (<see cref="Book"/>/<see cref="IPage"/>/<see cref="PragraphSection"/>)
+/// BookOnline.Domain.Books (<see cref="Book"/>/<see cref="IPage"/>/<see cref="ParagraphSection"/>)
 /// نگاشت می‌دهد. قاعدهٔ استخراج فهرست مطالب («TOC 1») همان منطقی است که پیشتر در
 /// WordReader/Program.cs (به‌صورت اختصاصی برای این کتاب) پیاده شده بود؛ چون BookImporter
 /// دیگر از آن Program.cs عبور نمی‌کند، همین‌جا بازتولید شده است.
@@ -32,10 +32,10 @@ public sealed class DocumentToBookMapper
 
         var paragraphs = page.Paragraphs
             .Where(p => !string.IsNullOrWhiteSpace(p.Text))
-            .Select(p => new PragraphSection
+            .Select(p => new ParagraphSection
             {
                 PageId = pageId,
-                Type = new PragraphSectionType(NormalizeKey(p.StyleName), p.StyleName),
+                Type = new ParagraphSectionType(NormalizeKey(p.StyleName), p.StyleName),
                 RawText = p.Text
             })
             .ToList();

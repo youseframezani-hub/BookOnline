@@ -42,7 +42,7 @@ static void RunWordExtractor(WebApplication app)
     //    foreach (var paragraph in page.Paragraphs)
     //    {
     //        Console.WriteLine($"  Paragraph: {paragraph.ParagraphIndex}");
-    //        Console.WriteLine($"  Style: {paragraph.StyleName}");
+    //        Console.WriteLine($"  BookStyleEntity: {paragraph.StyleName}");
     //        Console.WriteLine($"  Text: {paragraph.Text}");
     //        Console.WriteLine();
     //    }

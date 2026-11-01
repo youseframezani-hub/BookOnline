@@ -10,7 +10,7 @@ public interface IBook
 
     IReadOnlyList<IPage> Contain(string value);
 
-    IReadOnlyList<IPage> Contain(PragraphSectionType type, string value);
+    IReadOnlyList<IPage> Contain(ParagraphSectionType type, string value);
 }
 
 /// <summary>
@@ -37,7 +37,7 @@ public sealed class Book : IBook
     public IReadOnlyList<IPage> Contain(string value) =>
         Pages.Where(p => p.Contain(value)).ToList();
 
-    public IReadOnlyList<IPage> Contain(PragraphSectionType type, string value) =>
+    public IReadOnlyList<IPage> Contain(ParagraphSectionType type, string value) =>
         Pages.Where(p => p.Contain(type, value)).ToList();
 }
 
@@ -75,12 +75,12 @@ public sealed class IPage
 {
     public required PageId Id { get; init; }
     public string HtmlContent { get; init; } = string.Empty;
-    public required IReadOnlyList<PragraphSection> PragraphSections { get; init; }
+    public required IReadOnlyList<ParagraphSection> PragraphSections { get; init; }
 
     public bool Contain(string value) =>
         PragraphSections.Any(p => p.Contain(value));
 
-    public bool Contain(PragraphSectionType type, string value) =>
+    public bool Contain(ParagraphSectionType type, string value) =>
         PragraphSections.Any(p => p.Contain(type, value));
 }
 
@@ -89,10 +89,10 @@ public sealed class IPage
 /// «منبع حقیقت» متن خام (<see cref="RawText"/>) است؛ ایندکس‌سازی واژه‌به‌واژه دیگر
 /// در این کلاس نگه‌داری نمی‌شود (پیشتر AtomicBlockSection بود که به SearchEngine منتقل شد).
 /// </summary>
-public sealed class PragraphSection
+public sealed class ParagraphSection
 {
     public required PageId PageId { get; init; }
-    public required PragraphSectionType Type { get; init; }
+    public required ParagraphSectionType Type { get; init; }
     public SectionHmlStyle? Style { get; init; }
     public required string RawText { get; init; }
 
@@ -100,7 +100,7 @@ public sealed class PragraphSection
         !string.IsNullOrWhiteSpace(RawText) &&
         RawText.Contains(value.Trim(), StringComparison.OrdinalIgnoreCase);
 
-    public bool Contain(PragraphSectionType type, string value) =>
+    public bool Contain(ParagraphSectionType type, string value) =>
         Type == type && Contain(value);
 }
 
@@ -128,4 +128,4 @@ public enum LineType
     Inline,
     Block
 }
-public record PragraphSectionType(string Key,string Title);
+public record ParagraphSectionType(string Key,string Title);
